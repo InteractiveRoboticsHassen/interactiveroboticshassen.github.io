@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
@@ -7,35 +8,63 @@
 <title>Blog · AIRLab Hassen</title>
 
 <meta
-  content="Robotics theory notes, screw theory, Lie groups, Lie algebras, kinematics explanations, and implementation examples for robotics learning and research."
   name="description"
+  content="Research notes and tutorials in mathematical robotics, screw theory, Lie groups, physics-informed neural networks, hybrid robot learning, and quantum computing for robotics."
 />
+
 <meta content="#f7fafc" name="theme-color"/>
 
 <meta content="AIRLab Hassen" property="og:site_name"/>
 <meta content="Blog · AIRLab Hassen" property="og:title"/>
+
 <meta
-  content="Robotics theory notes, screw theory, Lie groups, Lie algebras, kinematics explanations, and implementation examples."
+  content="Mathematical robotics, physics-informed neural networks, and quantum computing for robotics."
   property="og:description"
 />
+
 <meta content="website" property="og:type"/>
-<meta content="https://airlabhassen.github.io/blog.html" property="og:url"/>
-<meta content="https://airlabhassen.github.io/assets/img/foundations_of_robot_kinematics.png" property="og:image"/>
+<meta
+  content="https://airlabhassen.github.io/blog.html"
+  property="og:url"
+/>
+
+<meta
+  content="https://airlabhassen.github.io/assets/img/foundations_of_robot_kinematics.png"
+  property="og:image"
+/>
 
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Blog · AIRLab Hassen" name="twitter:title"/>
+
 <meta
-  content="Robotics theory notes, screw theory, Lie groups, Lie algebras, kinematics explanations, and implementation examples."
+  content="Research notes on mathematical robotics, physics-informed learning, and quantum robotics."
   name="twitter:description"
 />
-<meta content="https://airlabhassen.github.io/assets/img/foundations_of_robot_kinematics.png" name="twitter:image"/>
 
-<link href="https://airlabhassen.github.io/blog.html" rel="canonical"/>
-<link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta
+  content="https://airlabhassen.github.io/assets/img/foundations_of_robot_kinematics.png"
+  name="twitter:image"
+/>
+
+<link
+  href="https://airlabhassen.github.io/blog.html"
+  rel="canonical"
+/>
+
+<link
+  href="/assets/img/favicon.svg"
+  rel="icon"
+  type="image/svg+xml"
+/>
+
 <link href="/site.webmanifest" rel="manifest"/>
 <link href="/assets/css/styles.css" rel="stylesheet"/>
 
-<!-- MathJax for LaTeX rendering -->
+
+<!-- =========================================================
+     MATHJAX
+     ========================================================= -->
+
 <script>
 window.MathJax = {
   tex: {
@@ -47,1182 +76,3941 @@ window.MathJax = {
   }
 };
 </script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+<!-- =========================================================
+     PAGE-SPECIFIC DESIGN
+     ========================================================= -->
 
 <style>
-  .blog-hero-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 1.25rem;
-    align-items: stretch;
+
+:root {
+  --blog-blue: #0b4f91;
+  --blog-blue-2: #2563eb;
+  --blog-cyan: #0ea5e9;
+  --blog-navy: #0a2342;
+  --blog-text: #172033;
+  --blog-muted: #64748b;
+  --blog-border: rgba(15, 23, 42, 0.09);
+
+  --robotics-bg: #f5f9ff;
+  --pinn-bg: #f4fbf8;
+  --quantum-bg: #faf7ff;
+
+  --robotics-accent: #2563eb;
+  --pinn-accent: #059669;
+  --quantum-accent: #7c3aed;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.blog-research-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-research-hero::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 1.25rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(37,99,235,.32),
+      transparent
+    );
+}
+
+.blog-lead {
+  max-width: 900px;
+  font-size: 1.04rem;
+  line-height: 1.75;
+  color: #475569;
+}
+
+.research-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+
+.research-pill {
+  padding: .43rem .75rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--blog-border);
+  color: #334155;
+  font-size: .84rem;
+  font-weight: 650;
+}
+
+
+/* ---------------------------------------------------------
+   THREE PILLARS
+   --------------------------------------------------------- */
+
+.research-tracks {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.track-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 1.3rem;
+  border-radius: 20px;
+
+  background: #fff;
+  border: 1px solid var(--blog-border);
+
+  box-shadow:
+    0 12px 30px rgba(15,23,42,.05);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 38px rgba(15,23,42,.08);
+}
+
+.track-card.robotics {
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(37,99,235,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #fff,
+      var(--robotics-bg)
+    );
+}
+
+.track-card.pinn {
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(5,150,105,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #fff,
+      var(--pinn-bg)
+    );
+}
+
+.track-card.quantum {
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(124,58,237,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #fff,
+      var(--quantum-bg)
+    );
+}
+
+.track-number {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  color: #fff;
+  font-weight: 800;
+
+  margin-bottom: .8rem;
+}
+
+.robotics .track-number {
+  background: var(--robotics-accent);
+}
+
+.pinn .track-number {
+  background: var(--pinn-accent);
+}
+
+.quantum .track-number {
+  background: var(--quantum-accent);
+}
+
+.track-card h2 {
+  font-size: 1.15rem;
+  margin: 0 0 .55rem;
+}
+
+.track-card p {
+  color: #526175;
+  line-height: 1.6;
+}
+
+.track-card a {
+  display: inline-block;
+  margin-top: .25rem;
+
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   CATEGORY HEADER
+   --------------------------------------------------------- */
+
+.category-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.category-title-wrap {
+  max-width: 800px;
+}
+
+.category-index {
+  display: grid;
+  place-items: center;
+
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+
+  border-radius: 16px;
+
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.robotics-index {
+  background:
+    linear-gradient(
+      135deg,
+      #0b4f91,
+      #2563eb
+    );
+}
+
+.pinn-index {
+  background:
+    linear-gradient(
+      135deg,
+      #047857,
+      #10b981
+    );
+}
+
+.quantum-index {
+  background:
+    linear-gradient(
+      135deg,
+      #5b21b6,
+      #8b5cf6
+    );
+}
+
+
+/* ---------------------------------------------------------
+   VECTOR FIGURES
+   --------------------------------------------------------- */
+
+.research-figure {
+  margin: 1.25rem 0;
+}
+
+.research-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 18px;
+  border: 1px solid var(--blog-border);
+
+  background: #fff;
+
+  box-shadow:
+    0 12px 32px rgba(15,23,42,.055);
+}
+
+.research-figure figcaption {
+  margin-top: .65rem;
+  color: #64748b;
+  line-height: 1.5;
+  font-size: .9rem;
+}
+
+
+/* ---------------------------------------------------------
+   FEATURED CONTENT
+   --------------------------------------------------------- */
+
+.feature-card {
+  border-radius: 18px;
+  padding: 1.2rem;
+
+  border: 1px solid var(--blog-border);
+  background: #fff;
+
+  margin: 1rem 0;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+
+  margin: .7rem 0;
+}
+
+.meta-tag {
+  display: inline-block;
+
+  border-radius: 999px;
+  padding: .32rem .6rem;
+
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+
+  font-size: .75rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+
+/* ---------------------------------------------------------
+   EQUATIONS
+   --------------------------------------------------------- */
+
+.equation-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0,1fr));
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.equation-card {
+  padding: 1rem;
+  border-radius: 16px;
+
+  background: #fff;
+  border: 1px solid var(--blog-border);
+}
+
+.equation-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.math-box {
+  overflow-x: auto;
+
+  padding: .8rem .85rem;
+  margin: .6rem 0;
+
+  border-radius: 12px;
+
+  background: #f8fbff;
+  border: 1px solid rgba(37,99,235,.10);
+}
+
+
+/* ---------------------------------------------------------
+   BLOG ROADMAP
+   --------------------------------------------------------- */
+
+.future-heading {
+  margin-top: 1.5rem;
+  margin-bottom: .8rem;
+}
+
+.future-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap: .85rem;
+}
+
+.future-post {
+  padding: 1rem;
+
+  border-radius: 16px;
+  border: 1px solid var(--blog-border);
+  background: #fff;
+
+  box-shadow:
+    0 7px 22px rgba(15,23,42,.035);
+}
+
+.future-post h3 {
+  margin: .25rem 0 .45rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.future-post p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.55;
+  font-size: .9rem;
+}
+
+.post-status {
+  display: inline-block;
+
+  padding: .28rem .55rem;
+  border-radius: 999px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .03em;
+  font-size: .67rem;
+  font-weight: 800;
+}
+
+.status-available {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.status-next {
+  color: #1d4ed8;
+  background: #dbeafe;
+}
+
+.status-planned {
+  color: #6d28d9;
+  background: #ede9fe;
+}
+
+.status-research {
+  color: #9a3412;
+  background: #ffedd5;
+}
+
+
+/* ---------------------------------------------------------
+   ARTICLE / REFERENCE BOXES
+   --------------------------------------------------------- */
+
+.research-anchor {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+  gap: .8rem;
+  margin: 1rem 0;
+}
+
+.anchor-paper {
+  padding: 1rem;
+  border-radius: 15px;
+
+  background: #f8fafc;
+  border: 1px solid var(--blog-border);
+}
+
+.anchor-paper strong {
+  display: block;
+  margin-bottom: .35rem;
+  color: #172033;
+}
+
+.anchor-paper p {
+  margin: 0;
+  color: #64748b;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.anchor-paper code {
+  font-size: .78rem;
+}
+
+
+/* ---------------------------------------------------------
+   EXPLANATION BOXES
+   --------------------------------------------------------- */
+
+.idea-box {
+  padding: 1rem 1.1rem;
+  margin: 1rem 0;
+
+  border-radius: 15px;
+
+  border-left: 5px solid var(--blog-blue-2);
+
+  background:
+    linear-gradient(
+      90deg,
+      #f8fbff,
+      #fff
+    );
+}
+
+.idea-box.green {
+  border-left-color: #059669;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f2fcf8,
+      #fff
+    );
+}
+
+.idea-box.purple {
+  border-left-color: #7c3aed;
+
+  background:
+    linear-gradient(
+      90deg,
+      #faf7ff,
+      #fff
+    );
+}
+
+
+/* ---------------------------------------------------------
+   CONVERGENCE
+   --------------------------------------------------------- */
+
+.convergence-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap: .8rem;
+}
+
+.convergence-card {
+  padding: 1rem;
+  border-radius: 15px;
+
+  border: 1px solid var(--blog-border);
+  background: #fff;
+}
+
+.convergence-card strong {
+  display: block;
+  margin-bottom: .35rem;
+}
+
+.convergence-card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.55;
+  font-size: .9rem;
+}
+
+
+/* ---------------------------------------------------------
+   READING
+   --------------------------------------------------------- */
+
+.reading-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap: .85rem;
+}
+
+.reading-card {
+  padding: 1rem;
+
+  border-radius: 16px;
+
+  background: #fff;
+  border: 1px solid var(--blog-border);
+}
+
+.reading-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.reading-card p {
+  color: #64748b;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.reading-card code {
+  font-size: .78rem;
+  word-break: break-word;
+}
+
+
+/* ---------------------------------------------------------
+   EXISTING IMAGES
+   --------------------------------------------------------- */
+
+.wide-figure {
+  margin: 1rem 0;
+}
+
+.wide-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--blog-border);
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.05);
+}
+
+.wide-figure figcaption {
+  margin-top: .6rem;
+  color: #64748b;
+  font-size: .9rem;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 1050px) {
+
+  .research-tracks,
+  .equation-grid,
+  .reading-grid,
+  .convergence-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-panel,
-  .toc-card,
-  .article-card,
-  .mini-card,
-  .note-box,
-  .equation-box,
-  .summary-box {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  .future-grid,
+  .research-anchor {
+    grid-template-columns: 1fr;
   }
 
-  .hero-panel {
-    padding: 1.5rem;
+}
+
+@media (max-width: 700px) {
+
+  .category-heading {
+    flex-direction: column-reverse;
   }
 
-  .hero-panel p:last-child {
-    margin-bottom: 0;
-  }
+}
 
-  .hero-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 1rem;
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    border: 1px solid rgba(37, 99, 235, 0.16);
-    color: #1d4ed8;
-    background: #eff6ff;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.92rem;
-    font-weight: 600;
-  }
-
-  .toc-card {
-    padding: 1.5rem;
-  }
-
-  .toc-card h2 {
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-  }
-
-  .toc-list {
-    margin: 0;
-    padding-left: 1.1rem;
-  }
-
-  .toc-list li {
-    margin: 0.4rem 0;
-  }
-
-  .toc-list a {
-    text-decoration: none;
-  }
-
-  .lead-note {
-    font-size: 1.02rem;
-    color: #475569;
-  }
-
-  .section-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.65rem;
-  }
-
-  .meta-chip {
-    display: inline-block;
-    background: #f8fafc;
-    color: #334155;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 999px;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.88rem;
-  }
-
-  .figure-row.three {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .figure-row.two {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .figure-row figure,
-  .wide-figure,
-  .theory-figure {
-    margin: 0;
-  }
-
-  .figure-row figure img,
-  .wide-figure img,
-  .theory-figure img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: #fff;
-  }
-
-  figcaption {
-    margin-top: 0.65rem;
-    color: #64748b;
-    font-size: 0.93rem;
-    line-height: 1.5;
-  }
-
-  .content-grid-2 {
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    gap: 1.1rem;
-    align-items: start;
-  }
-
-  .content-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .mini-card {
-    padding: 1rem 1rem 1.05rem;
-  }
-
-  .mini-card h3,
-  .mini-card h4 {
-    margin-top: 0;
-    margin-bottom: 0.55rem;
-  }
-
-  .equation-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .equation-box {
-    padding: 1rem;
-  }
-
-  .equation-box h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.02rem;
-  }
-
-  .math-block {
-    overflow-x: auto;
-    padding: 0.9rem 1rem;
-    margin: 0.8rem 0;
-    border-radius: 14px;
-    background: #f8fbff;
-    border: 1px solid rgba(37, 99, 235, 0.10);
-  }
-
-  .note-box {
-    padding: 1rem 1.1rem;
-    margin-top: 1rem;
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-  }
-
-  .summary-box {
-    padding: 1rem 1.15rem;
-    background: #f8fafc;
-    border-left: 5px solid #2563eb;
-    margin-top: 1rem;
-  }
-
-  .definition-list {
-    display: grid;
-    gap: 0.8rem;
-    margin-top: 1rem;
-  }
-
-  .definition-item {
-    padding: 0.95rem 1rem;
-    border-radius: 14px;
-    background: #f8fafc;
-    border: 1px solid rgba(15, 23, 42, 0.07);
-  }
-
-  .definition-item strong {
-    color: #0f172a;
-  }
-
-  .bullet-clean {
-    padding-left: 1.2rem;
-  }
-
-  .bullet-clean li {
-    margin: 0.45rem 0;
-  }
-
-  .code-block {
-    background: #0f172a;
-    color: #e2e8f0;
-    border-radius: 16px;
-    padding: 1rem 1.1rem;
-    overflow-x: auto;
-    border: 1px solid rgba(148, 163, 184, 0.15);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-  }
-
-  .code-block code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    font-size: 0.92rem;
-    line-height: 1.65;
-    white-space: pre;
-  }
-
-  .reading-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .reading-card {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 16px;
-    padding: 1rem;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-  }
-
-  .reading-card h3 {
-    margin-top: 0;
-    margin-bottom: 0.55rem;
-  }
-
-  .reading-card p {
-    margin-bottom: 0.8rem;
-  }
-
-  .reading-card a {
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .article-divider {
-    height: 1px;
-    background: linear-gradient(to right, rgba(37,99,235,0.08), rgba(37,99,235,0.35), rgba(37,99,235,0.08));
-    margin: 1rem 0 0;
-  }
-
-  .subtle {
-    color: #64748b;
-  }
-
-  @media (max-width: 1080px) {
-    .blog-hero-grid,
-    .content-grid-2,
-    .figure-row.three,
-    .figure-row.two,
-    .content-grid-3,
-    .equation-grid,
-    .reading-grid {
-      grid-template-columns: 1fr;
-    }
-  }
 </style>
 </head>
 
+
 <body class="">
-<a class="skip-link" href="#main">Skip to main content</a>
+
+
+<a class="skip-link" href="#main">
+  Skip to main content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
 <header class="topbar" data-header="">
-  <div class="topbar-inner">
-    <a aria-label="AIRLab Hassen home" class="site-title" href="/">
-      <span aria-hidden="true" class="site-mark">AIR</span>
-      <span>
-        <strong>AIRLab Hassen</strong>
-        <small>Robotics · Mechanisms · Kinematics · Quantum · ML</small>
-      </span>
-    </a>
 
-    <button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">
-      Menu
-    </button>
+<div class="topbar-inner">
 
-    <nav aria-label="Primary navigation" class="site-nav" id="site-nav">
-      <a href="/">Home</a>
-      <a href="/research.html">Research</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/resources.html">Resources</a>
-      <a aria-current="page" href="/blog.html">Blog</a>
-      <a href="/robotics-amharic.html">ሮቦቲክስ</a>
-      <a href="/cutting-edge.html">Cutting-edge</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
+<a
+  aria-label="AIRLab Hassen home"
+  class="site-title"
+  href="/"
+>
+
+<span
+  aria-hidden="true"
+  class="site-mark"
+>
+  AIR
+</span>
+
+<span>
+  <strong>AIRLab Hassen</strong>
+
+  <small>
+    Robotics · Mechanisms · Kinematics · Quantum · ML
+  </small>
+</span>
+
+</a>
+
+
+<button
+  aria-controls="site-nav"
+  aria-expanded="false"
+  class="nav-toggle"
+  type="button"
+>
+  Menu
+</button>
+
+
+<nav
+  aria-label="Primary navigation"
+  class="site-nav"
+  id="site-nav"
+>
+
+<a href="/">Home</a>
+<a href="/research.html">Research</a>
+<a href="/publications.html">Publications</a>
+<a href="/resources.html">Resources</a>
+
+<a
+  aria-current="page"
+  href="/blog.html"
+>
+  Blog
+</a>
+
+<a href="/robotics-amharic.html">
+  ሮቦቲክስ
+</a>
+
+<a href="/cutting-edge.html">
+  Cutting-edge
+</a>
+
+<a href="/contact.html">
+  Contact
+</a>
+
+</nav>
+
+</div>
 </header>
 
+
 <div class="page-shell">
-  <aside aria-label="Profile summary" class="profile-sidebar">
-    <div class="profile-card">
-      <div class="avatar-wrap">
-        <img
-          alt="Robotics research visual"
-          class="profile-avatar"
-          data-asset-dir="/assets/img"
-          decoding="async"
-          height="941"
-          loading="lazy"
-          src="/assets/img/futuristic-robotics-ai-lab-scene.png"
-          width="1672"
-        />
-      </div>
 
-      <h2>Hassen Nigatu</h2>
-      <p class="sidebar-subtitle">Robotics researcher</p>
-      <p class="sidebar-note">
-        Robotic mechanisms, screw-theoretic kinematics, parallel manipulators,
-        robot optimization, and intelligent manipulation.
-      </p>
 
-      <div class="sidebar-links">
-        <a href="/publications.html">Publications</a>
-        <a href="/research.html">Research</a>
-        <a href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar</a>
-        <a href="https://github.com/hassity123" rel="noopener noreferrer" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </aside>
+<!-- =========================================================
+     SIDEBAR
+     ========================================================= -->
 
-  <main class="content-area" id="main">
+<aside
+  aria-label="Profile summary"
+  class="profile-sidebar"
+>
 
-    <section class="page-hero">
-      <p class="eyebrow">Blog</p>
-      <h1>Robotics theory notes, geometric tools, and implementation examples.</h1>
-      <p class="lead-note">
-        This page brings together conceptual notes and practical examples on robot kinematics,
-        screw theory, Lie groups, Lie algebras, Jacobians, and mechanism modeling.
-        The aim is to provide a concise but rigorous entry point for students,
-        researchers, and practitioners in robotics.
-      </p>
-    </section>
+<div class="profile-card">
 
-    <section class="section-block">
-      <div class="blog-hero-grid">
-        <div class="hero-panel">
-          <p class="eyebrow">What this page covers</p>
-          <h2 style="margin-top:0;">A compact theory-to-practice guide for modern robotics</h2>
-          <p>
-            A professional understanding of robotics begins with kinematics:
-            the study of motion without explicitly considering forces.
-            From there, deeper geometric tools such as screw theory,
-            Lie groups, and Lie algebras provide elegant representations for
-            rigid-body motion, velocity, and configuration.
-          </p>
-          <p>
-            These concepts are central in serial manipulators, parallel robots,
-            mobile robots, and mechanism analysis, and they also serve as a bridge
-            to dynamics, control, planning, and optimization.
-          </p>
+<div class="avatar-wrap">
 
-          <div class="hero-highlights">
-            <span class="hero-tag">Kinematics</span>
-            <span class="hero-tag">Screw Theory</span>
-            <span class="hero-tag">Lie Group \(SE(3)\)</span>
-            <span class="hero-tag">Lie Algebra \(se(3)\)</span>
-            <span class="hero-tag">Jacobians</span>
-            <span class="hero-tag">Python / MATLAB</span>
-          </div>
-        </div>
+<img
+  alt="Robotics research visual"
+  class="profile-avatar"
+  data-asset-dir="/assets/img"
+  decoding="async"
+  height="941"
+  loading="lazy"
+  src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+  width="1672"
+/>
 
-        <aside class="toc-card" aria-labelledby="toc-heading">
-          <h2 id="toc-heading">Contents</h2>
-          <ol class="toc-list">
-            <li><a href="#foundations">Foundations of robot kinematics</a></li>
-            <li><a href="#rigid-body">Rigid-body motion and transforms</a></li>
-            <li><a href="#screw-theory">Screw theory for robotics</a></li>
-            <li><a href="#lie-groups">Lie groups and Lie algebras</a></li>
-            <li><a href="#jacobians">Jacobians, singularities, and differential kinematics</a></li>
-            <li><a href="#python">Robotics in Python</a></li>
-            <li><a href="#matlab">Robotics in MATLAB</a></li>
-            <li><a href="#reading">Suggested reading</a></li>
-          </ol>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="foundations">
-      <div class="section-title-row">
-        <div>
-          <p class="eyebrow">Part I · Foundations</p>
-          <h2>Foundations of robot kinematics</h2>
-        </div>
-      </div>
-
-      <div class="article-meta">
-        <span class="meta-chip">Serial mechanisms</span>
-        <span class="meta-chip">Parallel mechanisms</span>
-        <span class="meta-chip">Mobility analysis</span>
-        <span class="meta-chip">Workspace</span>
-      </div>
-
-      <p>
-        Kinematics studies the geometry of motion. In robotics, it answers questions such as:
-        How does a set of joint variables determine the position and orientation of an end-effector?
-        How many independent motions does a mechanism possess? Where do singularities occur?
-        What is the reachable workspace?
-      </p>
-
-      <figure class="wide-figure theory-figure" style="margin-top:1rem;">
-        <img
-          alt="Foundations of robot kinematics infographic"
-          data-asset-dir="/assets/img"
-          decoding="async"
-          loading="lazy"
-          src="/assets/img/foundations_of_robot_kinematics.png"
-        />
-        <figcaption>
-          Overview of basic mechanism classes and key kinematic concepts including
-          forward kinematics, inverse kinematics, rigid-body transforms, and mobility.
-        </figcaption>
-      </figure>
-
-      <div class="figure-row three" style="margin-top:1rem;">
-        <figure>
-          <img alt="Open-loop mechanism" decoding="async" loading="lazy" src="/assets/img/open-loop-mechanism.svg"/>
-          <figcaption>
-            <strong>Open-loop mechanism:</strong> a serial chain with a unique path
-            from the base to the end-effector.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img alt="Closed-loop mechanism" decoding="async" loading="lazy" src="/assets/img/closed-loop-mechanism.svg"/>
-          <figcaption>
-            <strong>Closed-loop mechanism:</strong> one or more loops introduce constraint equations,
-            often leading to higher stiffness and better load sharing.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img alt="Hybrid mechanism" decoding="async" loading="lazy" src="/assets/img/hybrid-mechanism.svg"/>
-          <figcaption>
-            <strong>Hybrid mechanism:</strong> combines serial and parallel structure
-            to exploit the benefits of both.
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="equation-grid">
-        <div class="equation-box">
-          <h3>Forward kinematics</h3>
-          <p>Maps joint variables to task-space configuration:</p>
-          <div class="math-block">
-            \[
-            x = f(q)
-            \]
-          </div>
-          <p class="subtle">Given \(q\), compute position and orientation \(x\).</p>
-        </div>
-
-        <div class="equation-box">
-          <h3>Inverse kinematics</h3>
-          <p>Finds joint values corresponding to a desired pose:</p>
-          <div class="math-block">
-            \[
-            q = f^{-1}(x)
-            \]
-          </div>
-          <p class="subtle">This problem may admit multiple, unique, or no solutions.</p>
-        </div>
-
-        <div class="equation-box">
-          <h3>Mobility / Degree of freedom</h3>
-          <p>For many mechanisms, mobility is estimated by:</p>
-          <div class="math-block">
-            \[
-            M = \lambda (n-j-1) + \sum_{i=1}^{j} f_i
-            \]
-          </div>
-          <p class="subtle">
-            where \(n\) is number of links, \(j\) is number of joints,
-            and \(f_i\) is the DOF of the \(i\)-th joint.
-          </p>
-        </div>
-      </div>
-
-      <div class="summary-box">
-        <strong>Key idea:</strong> Kinematics is the language that connects mechanism structure,
-        joint coordinates, workspace, and motion capability. It forms the first mathematical layer
-        in understanding any robot architecture.
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="rigid-body">
-      <p class="eyebrow">Part II · Rigid-body motion</p>
-      <h2>Rigid-body motion, coordinates, and homogeneous transforms</h2>
-
-      <div class="content-grid-2">
-        <div>
-          <p>
-            A rigid body in 3D space is described by both orientation and position.
-            The orientation is typically represented by a rotation matrix
-            \(R \in SO(3)\), while the translation is represented by a vector
-            \(p \in \mathbb{R}^3\). Together, these form the homogeneous transformation
-            matrix:
-          </p>
-
-          <div class="math-block">
-            \[
-            T =
-            \begin{bmatrix}
-            R & p \\
-            0 & 1
-            \end{bmatrix}
-            \in SE(3)
-            \]
-          </div>
-
-          <p>
-            This representation is fundamental because it allows composition of motions,
-            coordinate changes, and frame transformations to be written in a compact matrix form.
-            If frame \( \{B\} \) is expressed relative to frame \( \{A\} \), then
-            \( ^A T_B \) maps coordinates from \( \{B\} \) to \( \{A\} \).
-          </p>
-
-          <div class="math-block">
-            \[
-            {}^{A}p = {}^{A}R_{B}\, {}^{B}p + {}^{A}p_{B}
-            \]
-          </div>
-
-          <p>
-            For serial manipulators, forward kinematics is typically obtained by chaining
-            transforms:
-          </p>
-
-          <div class="math-block">
-            \[
-            T_{0n}(q) = T_{01}(q_1) T_{12}(q_2)\cdots T_{(n-1)n}(q_n)
-            \]
-          </div>
-        </div>
-
-        <div>
-          <div class="definition-list">
-            <div class="definition-item">
-              <strong>Configuration space:</strong>
-              the set of all possible robot configurations, typically parameterized by joint variables.
-            </div>
-
-            <div class="definition-item">
-              <strong>Task space:</strong>
-              the space in which the robot’s end-effector position and orientation are specified.
-            </div>
-
-            <div class="definition-item">
-              <strong>Workspace:</strong>
-              the set of end-effector poses that the robot can physically reach.
-            </div>
-
-            <div class="definition-item">
-              <strong>Posture:</strong>
-              a specific arrangement of the internal joints corresponding to a given pose.
-            </div>
-          </div>
-
-          <div class="note-box">
-            <strong>Why homogeneous coordinates?</strong>
-            <p style="margin-bottom:0.2rem;">
-              They unify rotation and translation into a single object, which makes
-              geometric reasoning, coordinate transformation, and implementation much cleaner.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="screw-theory">
-      <p class="eyebrow">Part III · Geometric mechanics</p>
-      <h2>Screw theory for robotics</h2>
-
-      <p>
-        Screw theory provides a unified language for representing rigid-body motion and force.
-        Rather than separating translation and rotation as unrelated quantities,
-        screw theory describes them as parts of a single geometric object.
-        This makes it especially powerful in mechanism analysis, Jacobian derivation,
-        singularity analysis, and kinetostatic modeling.
-      </p>
-
-      <figure class="wide-figure theory-figure" style="margin-top:1rem;">
-        <img
-          alt="Screw theory for robotics infographic"
-          decoding="async"
-          loading="lazy"
-          src="/assets/img/screw_theory_for_robotics_infographic.png"
-        />
-        <figcaption>
-          A conceptual overview of twists, screw axes, pitch, wrenches, and the exponential map.
-        </figcaption>
-      </figure>
-
-      <div class="content-grid-2" style="margin-top:1rem;">
-        <div>
-          <h3>Twists</h3>
-          <p>
-            A <strong>twist</strong> describes instantaneous rigid-body velocity. It combines angular
-            and linear velocity into a single 6-dimensional vector:
-          </p>
-
-          <div class="math-block">
-            \[
-            \xi =
-            \begin{bmatrix}
-            \omega \\
-            v
-            \end{bmatrix}
-            \in \mathbb{R}^6
-            \]
-          </div>
-
-          <p>
-            Here, \( \omega \in \mathbb{R}^3 \) is the angular velocity component,
-            and \( v \in \mathbb{R}^3 \) is the linear component.
-            For a screw axis passing through a point \(q\) with pitch \(h\),
-            the linear component is:
-          </p>
-
-          <div class="math-block">
-            \[
-            v = -\omega \times q + h \omega
-            \]
-          </div>
-
-          <p>
-            Special cases:
-          </p>
-          <ul class="bullet-clean">
-            <li><strong>Pure rotation:</strong> \( h = 0 \)</li>
-            <li><strong>Pure translation:</strong> \( \omega = 0 \)</li>
-            <li><strong>General screw motion:</strong> simultaneous rotation and translation along a line</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Wrenches</h3>
-          <p>
-            A <strong>wrench</strong> describes forces and moments acting on a rigid body:
-          </p>
-
-          <div class="math-block">
-            \[
-            \mathcal{F} =
-            \begin{bmatrix}
-            n \\
-            f
-            \end{bmatrix}
-            \in \mathbb{R}^6
-            \]
-          </div>
-
-          <p>
-            where \(f\) is the force vector and \(n\) is the moment about a reference point.
-          </p>
-
-          <h3>Exponential coordinates of motion</h3>
-          <p>
-            If a rigid body moves along a constant screw axis \(\xi\) by scalar amount \(\theta\),
-            its transformation can be written as:
-          </p>
-
-          <div class="math-block">
-            \[
-            T(\theta) = \exp(\hat{\xi}\theta)
-            \]
-          </div>
-
-          <p>
-            This formula is central in the product-of-exponentials representation of robot kinematics.
-          </p>
-        </div>
-      </div>
-
-      <div class="summary-box">
-        <strong>Key insight:</strong> screw theory unifies rotational and translational motion
-        just as it unifies force and moment. In robotics, this creates a natural geometric bridge
-        between mechanism structure, motion, and statics.
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="lie-groups">
-      <p class="eyebrow">Part IV · Geometry and algebra</p>
-      <h2>Lie groups and Lie algebras in robotics</h2>
-
-      <p>
-        Lie groups and Lie algebras offer a mathematically rigorous way to represent
-        rigid-body motion, differential motion, and frame transformations.
-        In robotics, the most important groups are \(SO(3)\) for rotations and \(SE(3)\)
-        for full rigid-body motions.
-      </p>
-
-      <figure class="wide-figure theory-figure" style="margin-top:1rem;">
-        <img
-          alt="Lie groups and Lie algebras in robotics infographic"
-          decoding="async"
-          loading="lazy"
-          src="/assets/img/robotics_lie_groups_and_algebras_infographic.png"
-        />
-        <figcaption>
-          Definitions of \(SO(3)\), \(SE(3)\), \(so(3)\), \(se(3)\), and the adjoint transformation.
-        </figcaption>
-      </figure>
-
-      <div class="equation-grid">
-        <div class="equation-box">
-          <h3>\(SO(3)\): rotation group</h3>
-          <div class="math-block">
-            \[
-            SO(3)=\left\{R \in \mathbb{R}^{3\times 3}\mid R^TR=I,\ \det(R)=1 \right\}
-            \]
-          </div>
-          <p>
-            Represents orientations in 3D. A rotation matrix is orthonormal and has determinant 1.
-          </p>
-        </div>
-
-        <div class="equation-box">
-          <h3>\(SE(3)\): rigid motion group</h3>
-          <div class="math-block">
-            \[
-            SE(3)=\left\{
-            \begin{bmatrix}
-            R & p \\
-            0 & 1
-            \end{bmatrix}
-            \,\middle|\,
-            R\in SO(3),\ p\in\mathbb{R}^3
-            \right\}
-            \]
-          </div>
-          <p>
-            Represents full pose: orientation and position.
-          </p>
-        </div>
-
-        <div class="equation-box">
-          <h3>Lie algebras</h3>
-          <div class="math-block">
-            \[
-            \hat{\omega}=
-            \begin{bmatrix}
-            0 & -\omega_3 & \omega_2\\
-            \omega_3 & 0 & -\omega_1\\
-            -\omega_2 & \omega_1 & 0
-            \end{bmatrix}
-            \in so(3)
-            \]
-          </div>
-          <div class="math-block">
-            \[
-            \hat{\xi}=
-            \begin{bmatrix}
-            \hat{\omega} & v\\
-            0 & 0
-            \end{bmatrix}
-            \in se(3)
-            \]
-          </div>
-        </div>
-      </div>
-
-      <div class="content-grid-2" style="margin-top:1rem;">
-        <div>
-          <h3>Exponential map</h3>
-          <p>
-            The exponential map connects Lie algebras (infinitesimal motion) to Lie groups (finite motion):
-          </p>
-
-          <div class="math-block">
-            \[
-            R = \exp(\hat{\omega}\theta), \qquad
-            T = \exp(\hat{\xi}\theta)
-            \]
-          </div>
-
-          <p>
-            In practice, this means a robot motion generated by an axis and motion magnitude
-            can be converted into a rigid-body transformation.
-          </p>
-
-          <h3>Adjoint transformation</h3>
-          <p>
-            Twists and wrenches change coordinates between frames using the adjoint operator:
-          </p>
-
-          <div class="math-block">
-            \[
-            \mathrm{Ad}_{T}
-            =
-            \begin{bmatrix}
-            R & 0 \\
-            \hat{p}R & R
-            \end{bmatrix}
-            \]
-          </div>
-
-          <div class="math-block">
-            \[
-            V_s = \mathrm{Ad}_{T}V_b
-            \]
-          </div>
-        </div>
-
-        <div>
-          <div class="mini-card">
-            <h3>Why this matters in robotics</h3>
-            <ul class="bullet-clean">
-              <li>Provides coordinate-free and compact motion descriptions</li>
-              <li>Supports rigorous kinematic and dynamic derivations</li>
-              <li>Enables product-of-exponentials robot modeling</li>
-              <li>Improves numerical consistency compared with ad hoc parameterizations</li>
-              <li>Connects geometry, optimization, control, and estimation</li>
-            </ul>
-          </div>
-
-          <div class="note-box">
-            <strong>Interpretation:</strong>
-            <p style="margin-bottom:0;">
-              Lie groups represent configurations on a manifold;
-              Lie algebras represent tangent motions at the identity.
-              The exponential map connects the two.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="jacobians">
-      <p class="eyebrow">Part V · Differential kinematics</p>
-      <h2>Jacobians, velocity analysis, and singularities</h2>
-
-      <p>
-        The Jacobian maps joint rates to end-effector velocity and is one of the most important
-        objects in robotics. For a manipulator with joint coordinates \(q\), the velocity relation is:
-      </p>
-
-      <div class="math-block">
-        \[
-        V = J(q)\dot{q}
-        \]
-      </div>
-
-      <div class="content-grid-3">
-        <div class="mini-card">
-          <h3>Jacobian meaning</h3>
-          <p>
-            The columns of the Jacobian represent the contribution of each joint to
-            the end-effector’s instantaneous motion.
-          </p>
-        </div>
-
-        <div class="mini-card">
-          <h3>Singularity</h3>
-          <p>
-            A singular configuration occurs when the Jacobian loses rank.
-            In such cases, motion or force transmission becomes deficient or ill-conditioned.
-          </p>
-        </div>
-
-        <div class="mini-card">
-          <h3>Applications</h3>
-          <p>
-            Jacobians are used in inverse velocity kinematics, manipulability analysis,
-            stiffness studies, control, and trajectory generation.
-          </p>
-        </div>
-      </div>
-
-      <div class="equation-grid">
-        <div class="equation-box">
-          <h3>Static duality</h3>
-          <p>Joint torques are related to wrench by:</p>
-          <div class="math-block">
-            \[
-            \tau = J^T \mathcal{F}
-            \]
-          </div>
-        </div>
-
-        <div class="equation-box">
-          <h3>Manipulability idea</h3>
-          <p>A common indicator is based on:</p>
-          <div class="math-block">
-            \[
-            w = \sqrt{\det(JJ^T)}
-            \]
-          </div>
-        </div>
-
-        <div class="equation-box">
-          <h3>Practical note</h3>
-          <p>
-            Near singularity, numerical inverse kinematics often requires
-            regularization or damped least-squares methods.
-          </p>
-          <div class="math-block">
-            \[
-            \dot{q} = J^T(JJ^T+\lambda^2I)^{-1}V
-            \]
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="python">
-      <p class="eyebrow">Part VI · Implementation</p>
-      <h2>Robotics in Python: five-bar mechanism example</h2>
-
-      <p>
-        The five-bar mechanism is a useful planar closed-chain example for teaching forward
-        and inverse kinematics. It is commonly used to demonstrate nonlinear constraints,
-        multiple working modes, and coupled joint behavior.
-      </p>
-
-      <figure class="wide-figure" style="margin-top:1rem;">
-        <img
-          alt="Five-bar manipulator"
-          decoding="async"
-          loading="lazy"
-          src="/assets/img/five-bar-manipulator.svg"
-        />
-        <figcaption>
-          A planar five-bar mechanism frequently used in teaching lower-DOF parallel kinematics.
-        </figcaption>
-      </figure>
-
-      <p style="margin-top:1rem;">
-        A minimal class structure for teaching forward and inverse kinematics can be organized as follows:
-      </p>
-
-      <pre class="code-block"><code>import numpy as np
-from math import cos, sin, atan2, sqrt
-
-class FiveBar:
-    """
-    A simple educational class for a planar five-bar mechanism.
-    Link naming can be adapted to the geometry you use in your notes.
-    """
-
-    def __init__(self, l1, l2, l3, l4, base):
-        self.l1 = l1
-        self.l2 = l2
-        self.l3 = l3
-        self.l4 = l4
-        self.base = base
-
-    def circle_intersection(self, c1, r1, c2, r2):
-        x1, y1 = c1
-        x2, y2 = c2
-        d = np.hypot(x2 - x1, y2 - y1)
-
-        if d > r1 + r2 or d < abs(r1 - r2):
-            return None
-
-        a = (r1**2 - r2**2 + d**2) / (2*d)
-        h = sqrt(max(r1**2 - a**2, 0.0))
-
-        xm = x1 + a * (x2 - x1) / d
-        ym = y1 + a * (y2 - y1) / d
-
-        xs1 = xm + h * (y2 - y1) / d
-        ys1 = ym - h * (x2 - x1) / d
-
-        xs2 = xm - h * (y2 - y1) / d
-        ys2 = ym + h * (x2 - x1) / d
-
-        return (xs1, ys1), (xs2, ys2)
-
-    def forward(self, theta1, theta2):
-        """
-        Compute end-effector candidates from actuated angles.
-        """
-        A = np.array([0.0, 0.0])
-        B = np.array([self.base, 0.0])
-
-        P = A + self.l1 * np.array([cos(theta1), sin(theta1)])
-        Q = B + self.l4 * np.array([cos(theta2), sin(theta2)])
-
-        candidates = self.circle_intersection(P, self.l2, Q, self.l3)
-        return candidates
-
-    def inverse(self, x, y):
-        """
-        Compute actuator angles for a desired point (x, y).
-        """
-        theta1 = atan2(y, x)
-        theta2 = atan2(y, x - self.base)
-        return theta1, theta2
-
-# Example usage
-robot = FiveBar(0.2, 0.3, 0.3, 0.2, 0.4)
-points = robot.forward(np.deg2rad(40), np.deg2rad(120))
-print(points)</code></pre>
-
-      <div class="note-box">
-        <strong>Teaching note:</strong>
-        A five-bar mechanism is excellent for explaining
-        constraint equations, branch selection, assembly modes, and the difference
-        between joint space and Cartesian space.
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="matlab">
-      <p class="eyebrow">Part VII · Numerical computing</p>
-      <h2>Robotics in MATLAB</h2>
-
-      <p>
-        MATLAB remains a powerful environment for rapid prototyping,
-        symbolic derivation, matrix computation, and visualization in robotics.
-        It is particularly useful for teaching transforms, Jacobians, workspace plots,
-        and trajectory generation.
-      </p>
-
-      <div class="figure-row two">
-        <div class="mini-card">
-          <h3>Typical MATLAB topics</h3>
-          <ul class="bullet-clean">
-            <li>Denavit–Hartenberg parameterization</li>
-            <li>Symbolic forward kinematics</li>
-            <li>Jacobian derivation</li>
-            <li>Workspace visualization</li>
-            <li>Inverse kinematics solvers</li>
-            <li>Trajectory interpolation</li>
-          </ul>
-        </div>
-
-        <div class="mini-card">
-          <h3>Example transform computation</h3>
-          <pre class="code-block" style="margin:0;"><code>% Homogeneous transform in MATLAB
-syms theta d a alpha real
-
-T = [cos(theta), -sin(theta)*cos(alpha),  sin(theta)*sin(alpha), a*cos(theta);
-     sin(theta),  cos(theta)*cos(alpha), -cos(theta)*sin(alpha), a*sin(theta);
-     0,           sin(alpha),             cos(alpha),            d;
-     0,           0,                      0,                     1];
-
-disp(simplify(T));</code></pre>
-        </div>
-      </div>
-
-      <div class="summary-box">
-        <strong>Recommendation:</strong> MATLAB is ideal for symbolic derivations and quick numerical tests,
-        while Python offers flexibility for larger software pipelines, simulation, and integration with modern ML tools.
-      </div>
-    </section>
-
-    <section class="section-block article-card" id="reading">
-      <p class="eyebrow">Part VIII · Further study</p>
-      <h2>Suggested reading and references</h2>
-
-      <div class="reading-grid">
-        <article class="reading-card">
-          <h3>Modern Robotics</h3>
-          <p>
-            A clear and rigorous reference for kinematics, dynamics, motion planning,
-            and control, with strong coverage of \(SE(3)\), twists, and Jacobians.
-          </p>
-          <a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf" rel="noopener noreferrer" target="_blank">
-            Open resource →
-          </a>
-        </article>
-
-        <article class="reading-card">
-          <h3>A Mathematical Introduction to Robotic Manipulation</h3>
-          <p>
-            A classic text on screw theory, rigid-body motion, and geometric foundations
-            of manipulation and robot mechanics.
-          </p>
-          <a href="https://www.cds.caltech.edu/~murray/mlswiki/" rel="noopener noreferrer" target="_blank">
-            Reference page →
-          </a>
-        </article>
-
-        <article class="reading-card">
-          <h3>Robotics, Vision and Control</h3>
-          <p>
-            A practical text that bridges fundamental robotics mathematics with implementation,
-            simulation, and control examples.
-          </p>
-          <a href="https://drive.google.com/file/d/1HjTFozXgearb-wJ__mZ1NTcrovwDYg8d/view?usp=sharing" rel="noopener noreferrer" target="_blank">
-            View resource →
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block article-card">
-      <p class="eyebrow">Closing note</p>
-      <h2>Summary</h2>
-
-      <p>
-        Robotics kinematics begins with links, joints, and coordinate frames,
-        but its most elegant and powerful formulations come from geometry.
-        Screw theory unifies rotation and translation, twists and wrenches;
-        Lie groups and Lie algebras provide the natural structure for rigid-body motion;
-        and Jacobians connect configuration to velocity, force, singularity, and control.
-      </p>
-
-      <p>
-        These tools are not only mathematically elegant—they are practical.
-        They form the backbone of manipulator modeling, parallel robot analysis,
-        estimation, optimization, motion planning, and robot control.
-      </p>
-
-      <div class="summary-box">
-        <strong>In one sentence:</strong>
-        kinematics tells us <em>what motion is possible</em>,
-        screw theory tells us <em>how motion and force are represented geometrically</em>,
-        and Lie theory tells us <em>how rigid-body motion is structured mathematically</em>.
-      </div>
-    </section>
-
-  </main>
 </div>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <p>
-      <strong>AIRLab Hassen</strong> · Robotics, autonomy, Lie theory,
-      quantum computation, and machine learning.
-    </p>
 
-    <p class="footer-links">
-      <a href="/">Home</a>
-      <a href="/research.html">Research</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/resources.html">Resources</a>
-      <a href="/blog.html">Blog</a>
-      <a href="/robotics-amharic.html">ሮቦቲክስ</a>
-      <a href="/cutting-edge.html">Cutting-edge</a>
-      <a href="/contact.html">Contact</a>
-      <a href="https://sites.google.com/site/hassennrobotics/home?read_current=1" rel="noopener noreferrer" target="_blank">
-        Original Google Site
-      </a>
-    </p>
-  </div>
+<h2>
+  Hassen Nigatu
+</h2>
+
+<p class="sidebar-subtitle">
+  Robotics researcher
+</p>
+
+<p class="sidebar-note">
+  Robotic mechanisms, screw-theoretic kinematics,
+  parallel manipulators, robot optimization,
+  intelligent manipulation,
+  and quantum computing for robotics.
+</p>
+
+
+<div class="sidebar-links">
+
+<a href="/publications.html">
+  Publications
+</a>
+
+<a href="/research.html">
+  Research
+</a>
+
+<a
+  href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Google Scholar
+</a>
+
+<a
+  href="https://github.com/hassity123"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub
+</a>
+
+</div>
+
+</div>
+</aside>
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main
+  class="content-area"
+  id="main"
+>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="page-hero blog-research-hero">
+
+<p class="eyebrow">
+  Research Blog
+</p>
+
+<h1>
+  From mathematical robotics
+  to physics-informed intelligence
+  and quantum robotics.
+</h1>
+
+<p class="blog-lead">
+
+This blog is organized around three connected research directions.
+
+The first develops the mathematical and analytical foundations
+of robotics through mechanism theory, screw theory,
+Lie groups, Lie algebras, differential geometry,
+kinematics, singularity theory, stiffness,
+and geometric mechanics.
+
+The second explores hybrid intelligence:
+combining first-principles physics with neural networks
+to produce robot models that are data-efficient,
+interpretable and physically consistent.
+
+The third investigates quantum computing for robotics,
+including quantum machine learning,
+quantum optimization, reinforcement learning,
+motion planning and high-dimensional
+robot configuration search.
+
+</p>
+
+
+<div class="research-pill-row">
+
+<span class="research-pill">
+  Screw Theory
+</span>
+
+<span class="research-pill">
+  Lie Groups
+</span>
+
+<span class="research-pill">
+  Parallel Robots
+</span>
+
+<span class="research-pill">
+  Physics-Informed Learning
+</span>
+
+<span class="research-pill">
+  Scientific ML
+</span>
+
+<span class="research-pill">
+  Quantum Optimization
+</span>
+
+<span class="research-pill">
+  Quantum Machine Learning
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     THREE TRACKS
+     ========================================================= -->
+
+<section class="section-block">
+
+<p class="eyebrow">
+  Three research tracks
+</p>
+
+<h2>
+  A roadmap for current and future blog articles
+</h2>
+
+
+<div class="research-tracks">
+
+
+<!-- TRACK 1 -->
+
+<article class="track-card robotics">
+
+<div class="track-number">
+  1
+</div>
+
+<h2>
+  Mathematical & Analytical Robotics
+</h2>
+
+<p>
+  Geometry-first understanding of robotic mechanisms:
+  screw systems, rigid-body motion,
+  \(SO(3)\), \(SE(3)\),
+  Lie algebra, Jacobians,
+  reciprocity, constraints,
+  singularities, stiffness and synthesis.
+</p>
+
+<a href="#robotics">
+  Explore robotics mathematics →
+</a>
+
+</article>
+
+
+<!-- TRACK 2 -->
+
+<article class="track-card pinn">
+
+<div class="track-number">
+  2
+</div>
+
+<h2>
+  Physics-Informed Neural Networks
+</h2>
+
+<p>
+  Hybrid approaches combining
+  governing equations and measured data:
+  robot dynamics,
+  system identification,
+  inverse problems,
+  compliant mechanisms,
+  learned residuals and
+  physics-informed control.
+</p>
+
+<a href="#pinn">
+  Explore hybrid intelligence →
+</a>
+
+</article>
+
+
+<!-- TRACK 3 -->
+
+<article class="track-card quantum">
+
+<div class="track-number">
+  3
+</div>
+
+<h2>
+  Quantum for Robotics
+</h2>
+
+<p>
+  Quantum algorithms for robotic computation:
+  QML, variational quantum circuits,
+  Grover search, optimization,
+  path planning,
+  quantum reinforcement learning
+  and hybrid quantum-classical robotics.
+</p>
+
+<a href="#quantum">
+  Explore quantum robotics →
+</a>
+
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     CATEGORY 1
+     ========================================================= -->
+
+<section
+  class="section-block article-card"
+  id="robotics"
+>
+
+
+<div class="category-heading">
+
+<div class="category-title-wrap">
+
+<p class="eyebrow">
+  Category 1
+</p>
+
+<h2>
+  Robotics — Mathematical & Analytical Approaches
+</h2>
+
+<p>
+
+Robots are physical machines,
+but their motion is fundamentally geometric.
+
+A mathematical description should explain not only
+where the end-effector moves,
+but why a mechanism has a particular mobility,
+what motions its limbs permit,
+what forces its structure constrains,
+where singularities occur,
+and how architectures can be synthesized systematically.
+
+</p>
+
+</div>
+
+
+<div
+  class="category-index robotics-index"
+  aria-hidden="true"
+>
+  R
+</div>
+
+</div>
+
+
+<!-- EXISTING HIGH-QUALITY FIGURE -->
+
+<figure class="wide-figure">
+
+<img
+  alt="Foundations of robot kinematics"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/foundations_of_robot_kinematics.png"
+/>
+
+<figcaption>
+  Foundations of robotic kinematics:
+  open-chain, closed-chain and hybrid mechanisms,
+  forward/inverse kinematics,
+  mobility and differential motion.
+</figcaption>
+
+</figure>
+
+
+<!-- =========================================================
+     VECTOR FIGURE: GEOMETRIC ROBOTICS
+     ========================================================= -->
+
+<figure class="research-figure">
+
+<svg
+  viewBox="0 0 1200 430"
+  role="img"
+  aria-labelledby="roboticsFigureTitle roboticsFigureDesc"
+>
+
+<title id="roboticsFigureTitle">
+  Geometric robotics pipeline
+</title>
+
+<desc id="roboticsFigureDesc">
+  A vector diagram connecting joint coordinates,
+  screw axes, Lie algebra, exponential mapping,
+  rigid body transformations and Jacobian analysis.
+</desc>
+
+
+<defs>
+
+<linearGradient
+  id="roboticsBg"
+  x1="0"
+  x2="1"
+>
+
+<stop
+  offset="0%"
+  stop-color="#f8fbff"
+/>
+
+<stop
+  offset="100%"
+  stop-color="#eef6ff"
+/>
+
+</linearGradient>
+
+
+<marker
+  id="robotArrow"
+  viewBox="0 0 10 10"
+  refX="9"
+  refY="5"
+  markerWidth="7"
+  markerHeight="7"
+  orient="auto-start-reverse"
+>
+
+<path
+  d="M 0 0 L 10 5 L 0 10 z"
+  fill="#2563eb"
+/>
+
+</marker>
+
+</defs>
+
+
+<rect
+  width="1200"
+  height="430"
+  rx="22"
+  fill="url(#roboticsBg)"
+/>
+
+
+<!-- TITLE -->
+
+<text
+  x="55"
+  y="58"
+  font-size="26"
+  font-weight="700"
+  fill="#0b376b"
+>
+  Geometric Robotics: from joint motion to rigid-body motion
+</text>
+
+
+<text
+  x="55"
+  y="88"
+  font-size="16"
+  fill="#64748b"
+>
+  Screw coordinates and Lie theory provide a compact bridge between mechanism geometry and motion.
+</text>
+
+
+<!-- BLOCK 1 -->
+
+<rect
+  x="55"
+  y="145"
+  width="185"
+  height="150"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfd7f5"
+/>
+
+<text
+  x="147"
+  y="183"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Joint space
+</text>
+
+<text
+  x="147"
+  y="225"
+  text-anchor="middle"
+  font-size="22"
+  fill="#172033"
+>
+  q, q̇
+</text>
+
+<text
+  x="147"
+  y="260"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  Generalized coordinates
+</text>
+
+
+<!-- ARROW -->
+
+<line
+  x1="242"
+  y1="220"
+  x2="310"
+  y2="220"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#robotArrow)"
+/>
+
+
+<!-- BLOCK 2 -->
+
+<rect
+  x="320"
+  y="145"
+  width="190"
+  height="150"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfd7f5"
+/>
+
+<text
+  x="415"
+  y="183"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Screw system
+</text>
+
+<text
+  x="415"
+  y="225"
+  text-anchor="middle"
+  font-size="21"
+  fill="#172033"
+>
+  ξ = (ω, v)
+</text>
+
+<text
+  x="415"
+  y="260"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  Instantaneous motion
+</text>
+
+
+<!-- ARROW -->
+
+<line
+  x1="512"
+  y1="220"
+  x2="580"
+  y2="220"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#robotArrow)"
+/>
+
+
+<!-- BLOCK 3 -->
+
+<rect
+  x="590"
+  y="145"
+  width="190"
+  height="150"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfd7f5"
+/>
+
+<text
+  x="685"
+  y="183"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Lie algebra
+</text>
+
+<text
+  x="685"
+  y="225"
+  text-anchor="middle"
+  font-size="22"
+  fill="#172033"
+>
+  se(3)
+</text>
+
+<text
+  x="685"
+  y="260"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  Tangent-space motion
+</text>
+
+
+<!-- ARROW -->
+
+<line
+  x1="782"
+  y1="220"
+  x2="850"
+  y2="220"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#robotArrow)"
+/>
+
+
+<!-- BLOCK 4 -->
+
+<rect
+  x="860"
+  y="145"
+  width="190"
+  height="150"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfd7f5"
+/>
+
+<text
+  x="955"
+  y="183"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Lie group
+</text>
+
+<text
+  x="955"
+  y="225"
+  text-anchor="middle"
+  font-size="22"
+  fill="#172033"
+>
+  SE(3)
+</text>
+
+<text
+  x="955"
+  y="260"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  Finite rigid motion
+</text>
+
+
+<!-- JACOBIAN -->
+
+<path
+  d="M415 296 C415 350, 760 350, 955 296"
+  fill="none"
+  stroke="#0ea5e9"
+  stroke-width="2.5"
+  stroke-dasharray="8 7"
+  marker-end="url(#robotArrow)"
+/>
+
+<text
+  x="685"
+  y="352"
+  text-anchor="middle"
+  font-size="17"
+  font-weight="700"
+  fill="#0369a1"
+>
+  Differential kinematics: V = J(q) q̇
+</text>
+
+
+<!-- BOTTOM NOTE -->
+
+<rect
+  x="55"
+  y="380"
+  width="995"
+  height="30"
+  rx="10"
+  fill="#dbeafe"
+/>
+
+<text
+  x="552"
+  y="401"
+  text-anchor="middle"
+  font-size="14"
+  fill="#1e3a8a"
+>
+  Analysis extends naturally to reciprocity, constraints, singularities, stiffness and mechanism synthesis.
+</text>
+
+</svg>
+
+
+<figcaption>
+
+Figure — A geometry-first view of robot kinematics.
+Joint motion produces twists in \(se(3)\);
+the exponential map generates finite rigid-body motions in \(SE(3)\);
+the Jacobian connects generalized velocity to body or spatial twist.
+
+</figcaption>
+
+</figure>
+
+
+<!-- EQUATIONS -->
+
+<div class="equation-grid">
+
+
+<div class="equation-card">
+
+<h3>
+  Product of exponentials
+</h3>
+
+<div class="math-box">
+
+\[
+T(q)=
+e^{[\mathcal S_1]q_1}
+e^{[\mathcal S_2]q_2}
+\cdots
+e^{[\mathcal S_n]q_n}
+M
+\]
+
+</div>
+
+<p>
+  A coordinate-efficient alternative
+  to purely frame-by-frame parameterization.
+</p>
+
+</div>
+
+
+<div class="equation-card">
+
+<h3>
+  Differential motion
+</h3>
+
+<div class="math-box">
+
+\[
+V_s
+=
+J_s(q)\dot q
+\]
+
+</div>
+
+<p>
+  The Jacobian columns are the transformed
+  joint screws expressed in a common frame.
+</p>
+
+</div>
+
+
+<div class="equation-card">
+
+<h3>
+  Screw reciprocity
+</h3>
+
+<div class="math-box">
+
+\[
+\mathcal W^T \mathcal T = 0
+\]
+
+</div>
+
+<p>
+  Reciprocal screw systems connect
+  permitted motion with constraint forces.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- RESEARCH ANCHORS -->
+
+<h3 class="future-heading">
+  Research anchors
+</h3>
+
+<div class="research-anchor">
+
+
+<div class="anchor-paper">
+
+<strong>
+  A Modified Lie Group-Based Synthesis
+  for Parallel Mechanisms
+</strong>
+
+<p>
+
+Hassen Nigatu &amp; Doik Kim,
+Mechanism and Machine Theory, 2025.
+
+Extends Lie-group synthesis to account for
+uncontrollable passive degrees of freedom,
+ineffective joints and immovable limbs.
+
+</p>
+
+<p>
+  <code>
+    DOI: 10.1016/j.mechmachtheory.2025.106183
+  </code>
+</p>
+
+</div>
+
+
+<div class="anchor-paper">
+
+<strong>
+  Unveiling SO(3) Parallel Robot Variants:
+  Application of the Optimal Robot to a Humanoid Eye
+</strong>
+
+<p>
+
+Hassen Nigatu and collaborators,
+IEEE Robotics and Automation Letters, 2025.
+
+A systematic analytical Lie-algebra approach
+to the classification and evaluation
+of SO(3)-type parallel robot architectures.
+
+</p>
+
+<p>
+  <code>
+    DOI: 10.1109/LRA.2025.3606380
+  </code>
+</p>
+
+</div>
+
+</div>
+
+
+<div class="idea-box">
+
+<strong>
+  Mathematical philosophy of this track:
+</strong>
+
+instead of treating each robot as an unrelated mechanism,
+look for the geometry shared by many architectures.
+
+Screw systems describe instantaneous freedom;
+Lie groups describe finite displacement;
+reciprocity describes constraints;
+and algebraic structure makes mechanism
+classification and synthesis systematic.
+
+</div>
+
+
+<!-- FUTURE POSTS -->
+
+<h3 class="future-heading">
+  Current and future robotics articles
+</h3>
+
+
+<div class="future-grid">
+
+
+<article class="future-post">
+
+<span class="post-status status-available">
+  Available
+</span>
+
+<h3>
+  Foundations of Robot Kinematics
+</h3>
+
+<p>
+  Open chains, closed chains, mobility,
+  workspace, forward and inverse kinematics.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-available">
+  Available
+</span>
+
+<h3>
+  Screw Theory for Robotics
+</h3>
+
+<p>
+  Screw axis, pitch, twists,
+  wrenches, Plücker coordinates
+  and reciprocal screw systems.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-available">
+  Available
+</span>
+
+<h3>
+  Lie Groups and Lie Algebras in Robotics
+</h3>
+
+<p>
+  \(SO(3)\), \(SE(3)\),
+  \(so(3)\), \(se(3)\),
+  exponential/logarithm maps
+  and adjoint transformations.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-next">
+  Next
+</span>
+
+<h3>
+  From Denavit–Hartenberg to Product of Exponentials
+</h3>
+
+<p>
+  Comparing classical frame-based kinematics
+  with screw-coordinate robot modeling.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-next">
+  Next
+</span>
+
+<h3>
+  Reciprocal Screws:
+  Motion, Constraint and Force
+</h3>
+
+<p>
+  Why reciprocity is one of the most useful
+  ideas for parallel robot analysis.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Singularity Theory of Parallel Manipulators
+</h3>
+
+<p>
+  Constraint singularities,
+  actuation singularities,
+  Jacobian rank loss
+  and geometric interpretation.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Lie-Group Type Synthesis of Parallel Robots
+</h3>
+
+<p>
+  Displacement subgroups,
+  limb motion sets,
+  subgroup intersections
+  and architecture synthesis.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research note
+</span>
+
+<h3>
+  SO(3) Parallel Robots and Robotic Eyes
+</h3>
+
+<p>
+  Architecture enumeration,
+  rotational workspace,
+  dexterity, compactness
+  and humanoid-eye applications.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Stiffness and Compliance through Screw Theory
+</h3>
+
+<p>
+  Wrench spaces, compliance matrices,
+  virtual work and direction-dependent stiffness.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Reconfigurable and Kinematotropic Mechanisms
+</h3>
+
+<p>
+  Configuration-dependent mobility,
+  bifurcation, passive freedom
+  and changing motion subgroups.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Geometric Control on SO(3) and SE(3)
+</h3>
+
+<p>
+  Controlling robots directly on manifolds
+  without introducing unnecessary local coordinates.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Continuum and Soft-Robot Kinematics
+</h3>
+
+<p>
+  From rigid screw systems
+  to spatial curves,
+  Cosserat models
+  and continuously deformable robots.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CATEGORY 2 — PINN
+     ========================================================= -->
+
+<section
+  class="section-block article-card"
+  id="pinn"
+>
+
+
+<div class="category-heading">
+
+
+<div class="category-title-wrap">
+
+<p class="eyebrow">
+  Category 2
+</p>
+
+<h2>
+  Physics-Informed Neural Networks —
+  The Hybrid Approach
+</h2>
+
+<p>
+
+Classical robotics begins with equations.
+Modern machine learning begins with data.
+
+A powerful middle ground is to make the neural network
+respect the physics we already know
+while allowing it to learn the parts
+that are difficult to model accurately.
+
+This creates a hybrid model:
+<strong>
+  analytical where knowledge is reliable,
+  learned where uncertainty remains.
+</strong>
+
+</p>
+
+</div>
+
+
+<div
+  class="category-index pinn-index"
+  aria-hidden="true"
+>
+  π
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     PINN VECTOR FIGURE
+     ========================================================= -->
+
+<figure class="research-figure">
+
+<svg
+  viewBox="0 0 1200 455"
+  role="img"
+  aria-labelledby="pinnFigureTitle pinnFigureDesc"
+>
+
+<title id="pinnFigureTitle">
+  Physics-informed neural network architecture for robotics
+</title>
+
+<desc id="pinnFigureDesc">
+  Robot measurements and physics equations are combined
+  in a hybrid neural network with data and physics losses.
+</desc>
+
+
+<defs>
+
+<linearGradient
+  id="pinnBg"
+  x1="0"
+  x2="1"
+>
+
+<stop
+  offset="0%"
+  stop-color="#f5fcf9"
+/>
+
+<stop
+  offset="100%"
+  stop-color="#effaf6"
+/>
+
+</linearGradient>
+
+
+<marker
+  id="pinnArrow"
+  viewBox="0 0 10 10"
+  refX="9"
+  refY="5"
+  markerWidth="7"
+  markerHeight="7"
+  orient="auto-start-reverse"
+>
+
+<path
+  d="M 0 0 L 10 5 L 0 10 z"
+  fill="#059669"
+/>
+
+</marker>
+
+</defs>
+
+
+<rect
+  width="1200"
+  height="455"
+  rx="22"
+  fill="url(#pinnBg)"
+/>
+
+
+<text
+  x="55"
+  y="55"
+  font-size="26"
+  font-weight="700"
+  fill="#065f46"
+>
+  Physics-Informed Robot Learning
+</text>
+
+
+<text
+  x="55"
+  y="86"
+  font-size="16"
+  fill="#64748b"
+>
+  Measurements teach the unknown behavior; governing equations keep the learned model physically plausible.
+</text>
+
+
+<!-- DATA -->
+
+<rect
+  x="55"
+  y="140"
+  width="220"
+  height="105"
+  rx="18"
+  fill="#ffffff"
+  stroke="#a7f3d0"
+/>
+
+<text
+  x="165"
+  y="177"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#047857"
+>
+  Robot measurements
+</text>
+
+<text
+  x="165"
+  y="210"
+  text-anchor="middle"
+  font-size="16"
+  fill="#475569"
+>
+  q, q̇, q̈, τ
+</text>
+
+
+<!-- PHYSICS -->
+
+<rect
+  x="55"
+  y="280"
+  width="220"
+  height="105"
+  rx="18"
+  fill="#ffffff"
+  stroke="#a7f3d0"
+/>
+
+<text
+  x="165"
+  y="316"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#047857"
+>
+  Physics model
+</text>
+
+<text
+  x="165"
+  y="348"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  Mq̈ + Cq̇ + g = τ
+</text>
+
+
+<!-- ARROWS -->
+
+<line
+  x1="277"
+  y1="192"
+  x2="380"
+  y2="220"
+  stroke="#059669"
+  stroke-width="3"
+  marker-end="url(#pinnArrow)"
+/>
+
+<line
+  x1="277"
+  y1="332"
+  x2="380"
+  y2="260"
+  stroke="#059669"
+  stroke-width="3"
+  marker-end="url(#pinnArrow)"
+/>
+
+
+<!-- NETWORK -->
+
+<rect
+  x="395"
+  y="150"
+  width="260"
+  height="210"
+  rx="22"
+  fill="#ffffff"
+  stroke="#6ee7b7"
+  stroke-width="2"
+/>
+
+<text
+  x="525"
+  y="188"
+  text-anchor="middle"
+  font-size="20"
+  font-weight="700"
+  fill="#065f46"
+>
+  Neural model fθ
+</text>
+
+
+<!-- NETWORK NODES -->
+
+<circle cx="455" cy="240" r="13" fill="#10b981"/>
+<circle cx="455" cy="285" r="13" fill="#10b981"/>
+
+<circle cx="525" cy="215" r="13" fill="#34d399"/>
+<circle cx="525" cy="260" r="13" fill="#34d399"/>
+<circle cx="525" cy="305" r="13" fill="#34d399"/>
+
+<circle cx="595" cy="240" r="13" fill="#059669"/>
+<circle cx="595" cy="285" r="13" fill="#059669"/>
+
+
+<!-- CONNECTIONS -->
+
+<g
+  stroke="#86efac"
+  stroke-width="2"
+>
+
+<line x1="468" y1="240" x2="512" y2="215"/>
+<line x1="468" y1="240" x2="512" y2="260"/>
+<line x1="468" y1="240" x2="512" y2="305"/>
+
+<line x1="468" y1="285" x2="512" y2="215"/>
+<line x1="468" y1="285" x2="512" y2="260"/>
+<line x1="468" y1="285" x2="512" y2="305"/>
+
+<line x1="538" y1="215" x2="582" y2="240"/>
+<line x1="538" y1="215" x2="582" y2="285"/>
+
+<line x1="538" y1="260" x2="582" y2="240"/>
+<line x1="538" y1="260" x2="582" y2="285"/>
+
+<line x1="538" y1="305" x2="582" y2="240"/>
+<line x1="538" y1="305" x2="582" y2="285"/>
+
+</g>
+
+
+<!-- OUTPUT -->
+
+<line
+  x1="657"
+  y1="255"
+  x2="745"
+  y2="255"
+  stroke="#059669"
+  stroke-width="3"
+  marker-end="url(#pinnArrow)"
+/>
+
+
+<rect
+  x="760"
+  y="145"
+  width="195"
+  height="110"
+  rx="18"
+  fill="#ffffff"
+  stroke="#a7f3d0"
+/>
+
+<text
+  x="858"
+  y="183"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#047857"
+>
+  Prediction
+</text>
+
+<text
+  x="858"
+  y="217"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  dynamics / torque / state
+</text>
+
+
+<!-- LOSS -->
+
+<rect
+  x="760"
+  y="290"
+  width="365"
+  height="100"
+  rx="18"
+  fill="#ecfdf5"
+  stroke="#6ee7b7"
+/>
+
+<text
+  x="942"
+  y="326"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#047857"
+>
+  Hybrid training objective
+</text>
+
+<text
+  x="942"
+  y="358"
+  text-anchor="middle"
+  font-size="16"
+  fill="#475569"
+>
+  L = λd Ldata + λp Lphysics + λc Lconstraints
+</text>
+
+
+<path
+  d="M858 257 C858 270, 900 275, 925 288"
+  fill="none"
+  stroke="#059669"
+  stroke-width="2.5"
+  marker-end="url(#pinnArrow)"
+/>
+
+
+<path
+  d="M760 340 C690 410, 535 410, 525 362"
+  fill="none"
+  stroke="#059669"
+  stroke-width="2.5"
+  stroke-dasharray="7 6"
+  marker-end="url(#pinnArrow)"
+/>
+
+
+</svg>
+
+
+<figcaption>
+
+Figure — A hybrid physics-informed learning architecture.
+Robot measurements contribute a data loss,
+while the analytical dynamics generate a physics residual.
+Training balances empirical accuracy
+with physical consistency.
+
+</figcaption>
+
+</figure>
+
+
+<!-- PINN EQUATIONS -->
+
+<div class="equation-grid">
+
+
+<div class="equation-card">
+
+<h3>
+  Robot dynamics
+</h3>
+
+<div class="math-box">
+
+\[
+M(q)\ddot q
++
+C(q,\dot q)\dot q
++
+g(q)
++
+f(\dot q)
+=
+\tau
+\]
+
+</div>
+
+<p>
+  The known first-principles model
+  becomes a structural prior.
+</p>
+
+</div>
+
+
+<div class="equation-card">
+
+<h3>
+  Physics residual
+</h3>
+
+<div class="math-box">
+
+\[
+r_{\mathrm{dyn}}
+=
+M(q)\ddot q_\theta
++
+C(q,\dot q)\dot q
++
+g(q)
+-
+\tau
+\]
+
+</div>
+
+<p>
+  Automatic differentiation can evaluate
+  residuals during training.
+</p>
+
+</div>
+
+
+<div class="equation-card">
+
+<h3>
+  Hybrid objective
+</h3>
+
+<div class="math-box">
+
+\[
+\mathcal L
+=
+\lambda_d \mathcal L_{\mathrm{data}}
++
+\lambda_p
+\|r_{\mathrm{dyn}}\|^2
++
+\lambda_c
+\mathcal L_{\mathrm{constraint}}
+\]
+
+</div>
+
+<p>
+  Physics acts as an additional source
+  of supervision.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="idea-box green">
+
+<strong>
+  The hybrid idea:
+</strong>
+
+a perfect analytical model is rarely available,
+but throwing physics away is equally wasteful.
+
+A robot's inertia,
+gravity, topology, geometry,
+constraints and conservation laws
+contain valuable information.
+
+The neural network should therefore learn
+<strong>model error</strong>,
+<strong>unknown interactions</strong>,
+or <strong>difficult nonlinear terms</strong>
+instead of rediscovering every physical principle
+from data.
+
+</div>
+
+
+<!-- FUTURE PINN BLOG POSTS -->
+
+<h3 class="future-heading">
+  Physics-informed blog roadmap
+</h3>
+
+
+<div class="future-grid">
+
+
+<article class="future-post">
+
+<span class="post-status status-next">
+  Next
+</span>
+
+<h3>
+  Why Physics-Informed Learning for Robotics?
+</h3>
+
+<p>
+  Comparing analytical models,
+  black-box neural networks
+  and hybrid scientific machine learning.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-next">
+  Next
+</span>
+
+<h3>
+  PINNs from First Principles
+</h3>
+
+<p>
+  Automatic differentiation,
+  collocation points,
+  governing equations,
+  boundary conditions
+  and composite losses.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Physics-Informed Robot Inverse Dynamics
+</h3>
+
+<p>
+  Learning torque models while preserving
+  rigid-body dynamics structure.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Deep Lagrangian Networks for Robots
+</h3>
+
+<p>
+  Learning physically consistent kinetic
+  and potential-energy models from trajectory data.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Hamiltonian Neural Networks
+</h3>
+
+<p>
+  Energy-based learning,
+  Hamilton's equations
+  and structure-preserving robot models.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Hybrid Residual Learning
+</h3>
+
+<p>
+  Start with \(f_{\text{physics}}\),
+  then train a neural residual
+  \(f_\theta\) to model what physics misses.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research direction
+</span>
+
+<h3>
+  Physics-Informed Parallel Robot Models
+</h3>
+
+<p>
+  Incorporating loop-closure equations,
+  screw constraints,
+  mobility and geometric structure
+  into learned models.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research direction
+</span>
+
+<h3>
+  Lie-Group-Informed Neural Networks
+</h3>
+
+<p>
+  Learning directly on
+  \(SO(3)\), \(SE(3)\)
+  and manifold-valued robot states
+  rather than Euclidean approximations.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  PINNs for Compliant and Soft Robots
+</h3>
+
+<p>
+  Combining reduced physics models
+  with neural corrections
+  for elasticity and unmodeled deformation.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Physics-Informed System Identification
+</h3>
+
+<p>
+  Estimating inertial,
+  friction and stiffness parameters
+  jointly with neural components.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Physics-Informed Control
+</h3>
+
+<p>
+  Integrating learned dynamics
+  with computed torque,
+  MPC, passivity and stability-based controllers.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research direction
+</span>
+
+<h3>
+  From PINNs to Differentiable Robots
+</h3>
+
+<p>
+  Differentiable simulation,
+  neural ODEs,
+  differentiable kinematics
+  and end-to-end robot optimization.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CATEGORY 3 — QUANTUM
+     ========================================================= -->
+
+<section
+  class="section-block article-card"
+  id="quantum"
+>
+
+
+<div class="category-heading">
+
+<div class="category-title-wrap">
+
+<p class="eyebrow">
+  Category 3
+</p>
+
+<h2>
+  Quantum Computing for Robotics
+</h2>
+
+<p>
+
+Robotics contains computationally expensive problems:
+high-dimensional configuration search,
+combinatorial task planning,
+multi-robot allocation,
+nonconvex optimization
+and learning over large state-action spaces.
+
+Quantum computing introduces a fundamentally different
+computational model.
+
+The near-term opportunity is likely to be
+<strong>
+  hybrid quantum-classical robotics
+</strong>:
+classical processors handle perception,
+robot control and physical interfaces,
+while quantum processors address
+selected optimization and learning subproblems.
+
+</p>
+
+</div>
+
+
+<div
+  class="category-index quantum-index"
+  aria-hidden="true"
+>
+  Q
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     QUANTUM VECTOR FIGURE
+     ========================================================= -->
+
+<figure class="research-figure">
+
+<svg
+  viewBox="0 0 1200 455"
+  role="img"
+  aria-labelledby="quantumFigureTitle quantumFigureDesc"
+>
+
+<title id="quantumFigureTitle">
+  Hybrid quantum classical robotics workflow
+</title>
+
+<desc id="quantumFigureDesc">
+  Classical robot data are encoded into a quantum circuit,
+  processed by quantum gates and measurements,
+  then returned to a classical optimizer and robot controller.
+</desc>
+
+
+<defs>
+
+<linearGradient
+  id="quantumBg"
+  x1="0"
+  x2="1"
+>
+
+<stop
+  offset="0%"
+  stop-color="#fbf9ff"
+/>
+
+<stop
+  offset="100%"
+  stop-color="#f5f1ff"
+/>
+
+</linearGradient>
+
+
+<marker
+  id="quantumArrow"
+  viewBox="0 0 10 10"
+  refX="9"
+  refY="5"
+  markerWidth="7"
+  markerHeight="7"
+  orient="auto-start-reverse"
+>
+
+<path
+  d="M 0 0 L 10 5 L 0 10 z"
+  fill="#7c3aed"
+/>
+
+</marker>
+
+</defs>
+
+
+<rect
+  width="1200"
+  height="455"
+  rx="22"
+  fill="url(#quantumBg)"
+/>
+
+
+<text
+  x="55"
+  y="55"
+  font-size="26"
+  font-weight="700"
+  fill="#5b21b6"
+>
+  Hybrid Quantum–Classical Robotics
+</text>
+
+
+<text
+  x="55"
+  y="86"
+  font-size="16"
+  fill="#64748b"
+>
+  Quantum processors act as specialized accelerators inside a larger classical robotic system.
+</text>
+
+
+<!-- ROBOT -->
+
+<rect
+  x="50"
+  y="145"
+  width="190"
+  height="160"
+  rx="18"
+  fill="#ffffff"
+  stroke="#ddd6fe"
+/>
+
+<text
+  x="145"
+  y="180"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#6d28d9"
+>
+  Robot problem
+</text>
+
+<text
+  x="145"
+  y="219"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  configuration
+</text>
+
+<text
+  x="145"
+  y="244"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  planning / optimization
+</text>
+
+<text
+  x="145"
+  y="269"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  learning
+</text>
+
+
+<!-- ARROW -->
+
+<line
+  x1="242"
+  y1="225"
+  x2="310"
+  y2="225"
+  stroke="#7c3aed"
+  stroke-width="3"
+  marker-end="url(#quantumArrow)"
+/>
+
+
+<!-- ENCODING -->
+
+<rect
+  x="320"
+  y="145"
+  width="185"
+  height="160"
+  rx="18"
+  fill="#ffffff"
+  stroke="#ddd6fe"
+/>
+
+<text
+  x="412"
+  y="180"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#6d28d9"
+>
+  Encoding
+</text>
+
+<text
+  x="412"
+  y="223"
+  text-anchor="middle"
+  font-size="17"
+  fill="#475569"
+>
+  x → |ψ(x)⟩
+</text>
+
+<text
+  x="412"
+  y="260"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  map classical variables
+</text>
+
+
+<!-- ARROW -->
+
+<line
+  x1="507"
+  y1="225"
+  x2="565"
+  y2="225"
+  stroke="#7c3aed"
+  stroke-width="3"
+  marker-end="url(#quantumArrow)"
+/>
+
+
+<!-- QUANTUM PROCESSOR -->
+
+<rect
+  x="575"
+  y="125"
+  width="265"
+  height="200"
+  rx="22"
+  fill="#ffffff"
+  stroke="#c4b5fd"
+  stroke-width="2"
+/>
+
+<text
+  x="707"
+  y="160"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#5b21b6"
+>
+  Quantum processor
+</text>
+
+
+<!-- QUBIT LINES -->
+
+<line
+  x1="615"
+  y1="205"
+  x2="800"
+  y2="205"
+  stroke="#a78bfa"
+  stroke-width="2"
+/>
+
+<line
+  x1="615"
+  y1="245"
+  x2="800"
+  y2="245"
+  stroke="#a78bfa"
+  stroke-width="2"
+/>
+
+<line
+  x1="615"
+  y1="285"
+  x2="800"
+  y2="285"
+  stroke="#a78bfa"
+  stroke-width="2"
+/>
+
+
+<!-- GATES -->
+
+<rect x="650" y="187" width="36" height="36" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+<text x="668" y="211" text-anchor="middle" font-size="15" fill="#5b21b6">H</text>
+
+<rect x="705" y="227" width="42" height="36" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+<text x="726" y="251" text-anchor="middle" font-size="14" fill="#5b21b6">Ry</text>
+
+<circle cx="760" cy="205" r="7" fill="#7c3aed"/>
+<circle cx="760" cy="285" r="15" fill="none" stroke="#7c3aed" stroke-width="2"/>
+<line x1="760" y1="212" x2="760" y2="270" stroke="#7c3aed" stroke-width="2"/>
+
+
+<!-- ARROW -->
+
+<line
+  x1="842"
+  y1="225"
+  x2="900"
+  y2="225"
+  stroke="#7c3aed"
+  stroke-width="3"
+  marker-end="url(#quantumArrow)"
+/>
+
+
+<!-- OUTPUT -->
+
+<rect
+  x="910"
+  y="145"
+  width="220"
+  height="160"
+  rx="18"
+  fill="#ffffff"
+  stroke="#ddd6fe"
+/>
+
+<text
+  x="1020"
+  y="180"
+  text-anchor="middle"
+  font-size="19"
+  font-weight="700"
+  fill="#6d28d9"
+>
+  Classical result
+</text>
+
+<text
+  x="1020"
+  y="222"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  measurement
+</text>
+
+<text
+  x="1020"
+  y="247"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  optimizer
+</text>
+
+<text
+  x="1020"
+  y="272"
+  text-anchor="middle"
+  font-size="15"
+  fill="#475569"
+>
+  q*
+</text>
+
+
+<!-- RETURN LOOP -->
+
+<path
+  d="M1020 307 C1020 397, 145 397, 145 308"
+  fill="none"
+  stroke="#8b5cf6"
+  stroke-width="2.5"
+  stroke-dasharray="8 7"
+  marker-end="url(#quantumArrow)"
+/>
+
+<text
+  x="590"
+  y="398"
+  text-anchor="middle"
+  font-size="16"
+  font-weight="700"
+  fill="#6d28d9"
+>
+  Hybrid loop: evaluate → optimize → update robot decision
+</text>
+
+</svg>
+
+
+<figcaption>
+
+Figure — Conceptual hybrid quantum-classical architecture for robotics.
+The quantum computer does not replace the robot controller;
+it acts as a specialized computational module
+inside a classical robotic workflow.
+
+</figcaption>
+
+</figure>
+
+
+<!-- QUANTUM EQUATIONS -->
+
+<div class="equation-grid">
+
+
+<div class="equation-card">
+
+<h3>
+  Quantum state
+</h3>
+
+<div class="math-box">
+
+\[
+|\psi\rangle
+=
+\sum_{i=0}^{2^n-1}
+\alpha_i |i\rangle
+\]
+
+</div>
+
+<p>
+  \(n\) qubits describe amplitudes
+  over \(2^n\) computational basis states.
+</p>
+
+</div>
+
+
+<div class="equation-card">
+
+<h3>
+  Variational quantum model
+</h3>
+
+<div class="math-box">
+
+\[
+|\psi(x,\theta)\rangle
+=
+U(\theta)
+U_{\phi}(x)
+|0\rangle^{\otimes n}
+\]
+
+</div>
+
+<p>
+  Classical robot states can be encoded
+  into a parameterized quantum circuit.
+</p>
+
+</div>
+
+
+<div class="equation-card">
+
+<h3>
+  Grover search
+</h3>
+
+<div class="math-box">
+
+\[
+O(N)
+\quad\rightarrow\quad
+O(\sqrt N)
+\]
+
+</div>
+
+<p>
+  For an unstructured search oracle,
+  Grover's algorithm provides
+  a quadratic query-complexity advantage.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HASSEN QUANTUM RESEARCH -->
+
+<h3 class="future-heading">
+  Research anchors
+</h3>
+
+
+<div class="research-anchor">
+
+
+<div class="anchor-paper">
+
+<strong>
+  Quantum Machine Learning and Grover's Algorithm
+  for Quantum Optimization of Robotic Manipulators
+</strong>
+
+<p>
+
+Hassen Nigatu,
+Gaokun Shi,
+Jituo Li,
+Jin Wang,
+Guodong Lu
+and Howard Li.
+
+IEEE Robotics and Automation Letters, 2025.
+
+A quantum-native framework combining
+a parameterized quantum model
+with Grover search
+for manipulator kinematic optimization.
+
+</p>
+
+<p>
+  <code>
+    DOI: 10.1109/LRA.2025.3627071
+  </code>
+</p>
+
+</div>
+
+
+<div class="anchor-paper">
+
+<strong>
+  Quantum Machine Learning for Robotics:
+  A Comprehensive Review of Algorithms,
+  Applications, and Future Directions
+</strong>
+
+<p>
+
+Hassen Nigatu and collaborators, 2026.
+
+A broad review of quantum machine learning,
+quantum reinforcement learning,
+quantum optimization,
+path planning,
+multi-robot systems
+and opportunities for quantum-enhanced robotics.
+
+</p>
+
+<p>
+  <code>
+    DOI: 10.65218/jius.2026.13
+  </code>
+</p>
+
+</div>
+
+</div>
+
+
+<div class="idea-box purple">
+
+<strong>
+  Important scientific perspective:
+</strong>
+
+quantum robotics should not be presented
+as though today's quantum computers
+can simply replace classical robot computers.
+
+A professional analysis must separate
+theoretical quantum complexity advantages
+from end-to-end experimental speedup.
+
+Encoding cost,
+measurement cost,
+noise,
+circuit depth,
+oracle construction
+and strong classical baselines
+must all be considered.
+
+</div>
+
+
+<!-- FUTURE QUANTUM POSTS -->
+
+<h3 class="future-heading">
+  Quantum robotics blog roadmap
+</h3>
+
+
+<div class="future-grid">
+
+
+<article class="future-post">
+
+<span class="post-status status-next">
+  Next
+</span>
+
+<h3>
+  Quantum Computing for Roboticists
+</h3>
+
+<p>
+  Qubits, superposition,
+  entanglement,
+  gates, circuits,
+  measurement
+  and the NISQ era.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-next">
+  Next
+</span>
+
+<h3>
+  How Can Robot Variables Be Encoded into Qubits?
+</h3>
+
+<p>
+  Basis encoding,
+  angle encoding,
+  amplitude encoding
+  and practical trade-offs
+  for robotic states.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research-based
+</span>
+
+<h3>
+  QML + Grover Search for Manipulator Optimization
+</h3>
+
+<p>
+  A tutorial interpretation
+  of the quantum-native kinematic optimization
+  framework developed by Nigatu and collaborators.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Variational Quantum Circuits for Robot Learning
+</h3>
+
+<p>
+  Parameterized quantum circuits
+  as hybrid function approximators
+  for robotic learning problems.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Quantum Optimization for Inverse Kinematics
+</h3>
+
+<p>
+  Formulating redundant robot IK
+  as discrete,
+  variational
+  and hybrid optimization problems.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  QAOA for Robotic Planning
+</h3>
+
+<p>
+  Mapping scheduling,
+  task allocation
+  and discrete planning
+  onto combinatorial quantum optimization.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Quantum Reinforcement Learning for Robotics
+</h3>
+
+<p>
+  Quantum policies,
+  quantum value functions,
+  hybrid actor-critic systems
+  and multi-agent learning.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Quantum Path Planning
+</h3>
+
+<p>
+  Grover search,
+  quantum walks,
+  QAOA
+  and hybrid approaches
+  to navigation problems.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research direction
+</span>
+
+<h3>
+  Quantum Optimization of Parallel Robots
+</h3>
+
+<p>
+  Architecture selection,
+  workspace optimization,
+  dexterity,
+  singularity avoidance
+  and dimensional synthesis.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  Quantum Multi-Robot Task Allocation
+</h3>
+
+<p>
+  Combinatorial assignment,
+  routing,
+  cooperation
+  and scheduling
+  for robot fleets.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-research">
+  Research direction
+</span>
+
+<h3>
+  Physics-Informed Quantum Machine Learning
+</h3>
+
+<p>
+  A future bridge between
+  analytical robot physics,
+  classical neural networks
+  and variational quantum models.
+</p>
+
+</article>
+
+
+<article class="future-post">
+
+<span class="post-status status-planned">
+  Planned
+</span>
+
+<h3>
+  What Would Real Quantum Advantage in Robotics Mean?
+</h3>
+
+<p>
+  Complexity,
+  data loading,
+  oracle construction,
+  noise,
+  benchmarking
+  and honest classical comparisons.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONVERGENCE
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  The bigger picture
+</p>
+
+<h2>
+  Where the three research directions meet
+</h2>
+
+
+<div class="convergence-grid">
+
+
+<div class="convergence-card">
+
+<strong>
+  Mathematics provides structure
+</strong>
+
+<p>
+
+Screw theory,
+Lie groups,
+constraints
+and mechanism geometry
+describe what motions
+are physically possible.
+
+</p>
+
+</div>
+
+
+<div class="convergence-card">
+
+<strong>
+  Learning handles uncertainty
+</strong>
+
+<p>
+
+Physics-informed models learn friction,
+deformation,
+unknown dynamics
+and complex interactions
+that analytical models cannot capture perfectly.
+
+</p>
+
+</div>
+
+
+<div class="convergence-card">
+
+<strong>
+  Quantum computing targets complexity
+</strong>
+
+<p>
+
+Hybrid quantum algorithms may eventually
+accelerate selected optimization,
+learning and search problems
+that become expensive
+as robotic systems scale.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="idea-box">
+
+<strong>
+  Long-term research vision:
+</strong>
+
+a future robot model may combine
+geometric mechanics,
+physics-informed learning
+and quantum optimization.
+
+The analytical model supplies symmetry,
+constraints and conservation structure;
+
+the neural model learns uncertainty
+and unmodeled physics;
+
+and a specialized quantum algorithm
+searches difficult configuration,
+planning or optimization spaces.
+
+</div>
+
+
+<div class="math-box">
+
+\[
+\boxed{
+\text{Geometric Robotics}
++
+\text{Physics-Informed Learning}
++
+\text{Quantum Optimization}
+\;\longrightarrow\;
+\text{Hybrid Intelligent Robotics}
+}
+\]
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     RECOMMENDED READING
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Research foundations
+</p>
+
+<h2>
+  Suggested literature behind the three tracks
+</h2>
+
+
+<div class="reading-grid">
+
+
+<div class="reading-card">
+
+<h3>
+  Mathematical Robotics
+</h3>
+
+<p>
+  Davidson &amp; Hunt,
+  <em>Robots and Screw Theory</em>.
+</p>
+
+<p>
+  Murray, Li &amp; Sastry,
+  <em>A Mathematical Introduction to Robotic Manipulation</em>.
+</p>
+
+<p>
+  Lynch &amp; Park,
+  <em>Modern Robotics</em>.
+</p>
+
+</div>
+
+
+<div class="reading-card">
+
+<h3>
+  Physics-Informed Robotics
+</h3>
+
+<p>
+
+Liu, Borja &amp; Della Santina,
+<em>
+Physics-Informed Neural Networks
+to Model and Control Robots:
+A Theoretical and Experimental Investigation
+</em>.
+
+</p>
+
+<p>
+
+Sivtsov et al.,
+<em>
+Physics-Informed Neural Networks in Robotics:
+A Review
+</em>.
+
+</p>
+
+</div>
+
+
+<div class="reading-card">
+
+<h3>
+  Quantum Robotics
+</h3>
+
+<p>
+
+Nigatu et al.,
+<em>
+Quantum Machine Learning and Grover's Algorithm
+for Quantum Optimization of Robotic Manipulators
+</em>.
+
+</p>
+
+<p>
+
+Nigatu et al.,
+<em>
+Quantum Machine Learning for Robotics:
+A Comprehensive Review of Algorithms,
+Applications, and Future Directions
+</em>.
+
+</p>
+
+<p>
+
+Meyer et al.,
+<em>
+A Survey on Quantum Reinforcement Learning
+</em>.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Blog philosophy
+</p>
+
+<h2>
+  Theory first, intelligence second, computation third.
+</h2>
+
+<p>
+
+The purpose of this blog is not simply to collect
+robotics formulas or report fashionable AI methods.
+
+The goal is to understand
+<strong>
+  why a robot behaves the way it does,
+</strong>
+then identify
+<strong>
+  which parts should be modeled analytically,
+</strong>
+which parts should be learned from data,
+and which computational bottlenecks
+may benefit from new computing paradigms.
+
+</p>
+
+<p>
+
+The three categories therefore form a natural progression:
+
+<strong>
+  mathematical robotics
+</strong>
+provides structure,
+
+<strong>
+  physics-informed neural networks
+</strong>
+introduce adaptive intelligence without discarding structure,
+
+and
+<strong>
+  quantum robotics
+</strong>
+investigates how future computation may address
+the most demanding search,
+optimization and learning problems.
+
+</p>
+
+
+<div class="math-box">
+
+\[
+\text{Understand the geometry}
+\;\rightarrow\;
+\text{respect the physics}
+\;\rightarrow\;
+\text{learn the uncertainty}
+\;\rightarrow\;
+\text{optimize intelligently}
+\]
+
+</div>
+
+</section>
+
+
+</main>
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<p>
+
+<strong>
+  AIRLab Hassen
+</strong>
+
+· Robotics,
+autonomy,
+Lie theory,
+quantum computation,
+and machine learning.
+
+</p>
+
+
+<p class="footer-links">
+
+<a href="/">
+  Home
+</a>
+
+<a href="/research.html">
+  Research
+</a>
+
+<a href="/publications.html">
+  Publications
+</a>
+
+<a href="/resources.html">
+  Resources
+</a>
+
+<a href="/blog.html">
+  Blog
+</a>
+
+<a href="/robotics-amharic.html">
+  ሮቦቲክስ
+</a>
+
+<a href="/cutting-edge.html">
+  Cutting-edge
+</a>
+
+<a href="/contact.html">
+  Contact
+</a>
+
+<a
+  href="https://sites.google.com/site/hassennrobotics/home?read_current=1"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Original Google Site
+</a>
+
+</p>
+
+</div>
 </footer>
 
-<button aria-label="Back to top" class="back-to-top" data-back-to-top="" type="button">↑</button>
-<script defer src="/assets/js/site.js"></script>
+
+<button
+  aria-label="Back to top"
+  class="back-to-top"
+  data-back-to-top=""
+  type="button"
+>
+  ↑
+</button>
+
+
+<script
+  defer
+  src="/assets/js/site.js">
+</script>
+
+
 </body>
 </html>
