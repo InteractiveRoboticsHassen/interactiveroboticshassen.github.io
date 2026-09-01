@@ -1,74 +1,1228 @@
 <!doctype html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+
 <title>Blog · AIRLab Hassen</title>
-<meta content="Robotics theory notes, kinematics explanations, and Python teaching examples." name="description"/><meta content="#f7fafc" name="theme-color"/><meta content="AIRLab Hassen" property="og:site_name"/><meta content="Blog · AIRLab Hassen" property="og:title"/><meta content="Robotics theory notes, kinematics explanations, and Python teaching examples." property="og:description"/><meta content="website" property="og:type"/><meta content="https://airlabhassen.github.io/blog.html" property="og:url"/><meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Blog · AIRLab Hassen" name="twitter:title"/><meta content="Robotics theory notes, kinematics explanations, and Python teaching examples." name="twitter:description"/><meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" name="twitter:image"/><link href="https://airlabhassen.github.io/blog.html" rel="canonical"/><link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/site.webmanifest" rel="manifest"/><link href="/assets/css/styles.css" rel="stylesheet"/></head>
+
+<meta
+  content="Robotics theory notes, screw theory, Lie groups, Lie algebras, kinematics explanations, and implementation examples for robotics learning and research."
+  name="description"
+/>
+<meta content="#f7fafc" name="theme-color"/>
+
+<meta content="AIRLab Hassen" property="og:site_name"/>
+<meta content="Blog · AIRLab Hassen" property="og:title"/>
+<meta
+  content="Robotics theory notes, screw theory, Lie groups, Lie algebras, kinematics explanations, and implementation examples."
+  property="og:description"
+/>
+<meta content="website" property="og:type"/>
+<meta content="https://airlabhassen.github.io/blog.html" property="og:url"/>
+<meta content="https://airlabhassen.github.io/assets/img/foundations_of_robot_kinematics.png" property="og:image"/>
+
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Blog · AIRLab Hassen" name="twitter:title"/>
+<meta
+  content="Robotics theory notes, screw theory, Lie groups, Lie algebras, kinematics explanations, and implementation examples."
+  name="twitter:description"
+/>
+<meta content="https://airlabhassen.github.io/assets/img/foundations_of_robot_kinematics.png" name="twitter:image"/>
+
+<link href="https://airlabhassen.github.io/blog.html" rel="canonical"/>
+<link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+
+<!-- MathJax for LaTeX rendering -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)'], ['$', '$']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+  .blog-hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .hero-panel,
+  .toc-card,
+  .article-card,
+  .mini-card,
+  .note-box,
+  .equation-box,
+  .summary-box {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  }
+
+  .hero-panel {
+    padding: 1.5rem;
+  }
+
+  .hero-panel p:last-child {
+    margin-bottom: 0;
+  }
+
+  .hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid rgba(37, 99, 235, 0.16);
+    color: #1d4ed8;
+    background: #eff6ff;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .toc-card {
+    padding: 1.5rem;
+  }
+
+  .toc-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .toc-list {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .toc-list li {
+    margin: 0.4rem 0;
+  }
+
+  .toc-list a {
+    text-decoration: none;
+  }
+
+  .lead-note {
+    font-size: 1.02rem;
+    color: #475569;
+  }
+
+  .section-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.65rem;
+  }
+
+  .meta-chip {
+    display: inline-block;
+    background: #f8fafc;
+    color: #334155;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 999px;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.88rem;
+  }
+
+  .figure-row.three {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .figure-row.two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .figure-row figure,
+  .wide-figure,
+  .theory-figure {
+    margin: 0;
+  }
+
+  .figure-row figure img,
+  .wide-figure img,
+  .theory-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #fff;
+  }
+
+  figcaption {
+    margin-top: 0.65rem;
+    color: #64748b;
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  .content-grid-2 {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 1.1rem;
+    align-items: start;
+  }
+
+  .content-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .mini-card {
+    padding: 1rem 1rem 1.05rem;
+  }
+
+  .mini-card h3,
+  .mini-card h4 {
+    margin-top: 0;
+    margin-bottom: 0.55rem;
+  }
+
+  .equation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .equation-box {
+    padding: 1rem;
+  }
+
+  .equation-box h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.02rem;
+  }
+
+  .math-block {
+    overflow-x: auto;
+    padding: 0.9rem 1rem;
+    margin: 0.8rem 0;
+    border-radius: 14px;
+    background: #f8fbff;
+    border: 1px solid rgba(37, 99, 235, 0.10);
+  }
+
+  .note-box {
+    padding: 1rem 1.1rem;
+    margin-top: 1rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  }
+
+  .summary-box {
+    padding: 1rem 1.15rem;
+    background: #f8fafc;
+    border-left: 5px solid #2563eb;
+    margin-top: 1rem;
+  }
+
+  .definition-list {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .definition-item {
+    padding: 0.95rem 1rem;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+  }
+
+  .definition-item strong {
+    color: #0f172a;
+  }
+
+  .bullet-clean {
+    padding-left: 1.2rem;
+  }
+
+  .bullet-clean li {
+    margin: 0.45rem 0;
+  }
+
+  .code-block {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+
+  .code-block code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    white-space: pre;
+  }
+
+  .reading-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .reading-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  }
+
+  .reading-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.55rem;
+  }
+
+  .reading-card p {
+    margin-bottom: 0.8rem;
+  }
+
+  .reading-card a {
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .article-divider {
+    height: 1px;
+    background: linear-gradient(to right, rgba(37,99,235,0.08), rgba(37,99,235,0.35), rgba(37,99,235,0.08));
+    margin: 1rem 0 0;
+  }
+
+  .subtle {
+    color: #64748b;
+  }
+
+  @media (max-width: 1080px) {
+    .blog-hero-grid,
+    .content-grid-2,
+    .figure-row.three,
+    .figure-row.two,
+    .content-grid-3,
+    .equation-grid,
+    .reading-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+
 <body class="">
 <a class="skip-link" href="#main">Skip to main content</a>
+
 <header class="topbar" data-header="">
-<div class="topbar-inner">
-<a aria-label="AIRLab Hassen home" class="site-title" href="/">
-<span aria-hidden="true" class="site-mark">AIR</span>
-<span><strong>AIRLab Hassen</strong><small>Robotics · Mechanisms · Kinematics · Quantum · ML</small></span>
-</a>
-<button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
-<nav aria-label="Primary navigation" class="site-nav" id="site-nav">
-<a href="/">Home</a>
-<a href="/research.html">Research</a>
-<a href="/publications.html">Publications</a>
-<a href="/resources.html">Resources</a>
-<a aria-current="page" href="/blog.html">Blog</a>
-<a href="/robotics-amharic.html">ሮቦቲክስ</a>
-<a href="/cutting-edge.html">Cutting-edge</a>
-<a href="/contact.html">Contact</a>
-</nav>
-</div>
+  <div class="topbar-inner">
+    <a aria-label="AIRLab Hassen home" class="site-title" href="/">
+      <span aria-hidden="true" class="site-mark">AIR</span>
+      <span>
+        <strong>AIRLab Hassen</strong>
+        <small>Robotics · Mechanisms · Kinematics · Quantum · ML</small>
+      </span>
+    </a>
+
+    <button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">
+      Menu
+    </button>
+
+    <nav aria-label="Primary navigation" class="site-nav" id="site-nav">
+      <a href="/">Home</a>
+      <a href="/research.html">Research</a>
+      <a href="/publications.html">Publications</a>
+      <a href="/resources.html">Resources</a>
+      <a aria-current="page" href="/blog.html">Blog</a>
+      <a href="/robotics-amharic.html">ሮቦቲክስ</a>
+      <a href="/cutting-edge.html">Cutting-edge</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
+
 <div class="page-shell">
-<aside aria-label="Profile summary" class="profile-sidebar">
-<div class="profile-card">
-<div class="avatar-wrap"><img alt="Robotics research visual" class="profile-avatar" data-asset-dir="/assets/img" decoding="async" height="941" loading="lazy" src="/assets/img/futuristic-robotics-ai-lab-scene.png" width="1672"/></div>
-<h2>Hassen Nigatu</h2>
-<p class="sidebar-subtitle">Robotics researcher</p>
-<p class="sidebar-note">Robotic mechanisms, screw-theoretic kinematics, parallel manipulators, robot optimization, and intelligent manipulation.</p>
-<div class="sidebar-links">
-<a href="/publications.html">Publications</a>
-<a href="/research.html">Research</a>
-<a href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar</a>
-<a href="https://github.com/hassity123" rel="noopener noreferrer" target="_blank">GitHub</a>
-</div>
-</div>
-</aside>
-<main class="content-area" id="main">
-<section class="page-hero"><p class="eyebrow">Blog</p><h1>Robotics theory notes and implementation examples.</h1><p>Kinematics notes and Python implementation material preserved from the source site.</p></section>
-<section class="section-block article-card"><p class="eyebrow">Theoretical understanding</p><h2>Basics of kinematics</h2><p>The very beginning step of understanding robot architecture and working principles in a professional way is learning its kinematics. Studying the kinematic behavior of robotic manipulators requires basic linear algebra, including vectors, matrices, and linear transformations.</p><div class="figure-row three"><figure><img alt="Open-loop mechanism" data-asset-dir="/assets/img" decoding="async" height="720" loading="lazy" src="/assets/img/open-loop-mechanism.svg" width="1200"/><figcaption>Open-loop mechanism</figcaption></figure><figure><img alt="Closed-loop mechanism" data-asset-dir="/assets/img" decoding="async" height="720" loading="lazy" src="/assets/img/closed-loop-mechanism.svg" width="1200"/><figcaption>Closed-loop mechanism</figcaption></figure><figure><img alt="Hybrid mechanism" data-asset-dir="/assets/img" decoding="async" height="720" loading="lazy" src="/assets/img/hybrid-mechanism.svg" width="1200"/><figcaption>Hybrid mechanism</figcaption></figure></div></section>
-<section class="section-block article-card"><p class="eyebrow">Implementation</p><h2>Robotics in Python: five-bar mechanism</h2><p>The five-bar mechanism shown in Figure 1 is a commonly used lower-DoF planar manipulator. The original blog provides Python routines for forward/inverse kinematics and animation.</p><figure class="wide-figure"><img alt="Figure 1: Five-bar manipulator" data-asset-dir="/assets/img" decoding="async" height="720" loading="lazy" src="/assets/img/five-bar-manipulator.svg" width="1200"/><figcaption>Figure 1: Five-bar manipulator</figcaption></figure><pre class="code-block"><code>import numpy as np
-from math import atan2, sin, cos
+  <aside aria-label="Profile summary" class="profile-sidebar">
+    <div class="profile-card">
+      <div class="avatar-wrap">
+        <img
+          alt="Robotics research visual"
+          class="profile-avatar"
+          data-asset-dir="/assets/img"
+          decoding="async"
+          height="941"
+          loading="lazy"
+          src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+          width="1672"
+        />
+      </div>
+
+      <h2>Hassen Nigatu</h2>
+      <p class="sidebar-subtitle">Robotics researcher</p>
+      <p class="sidebar-note">
+        Robotic mechanisms, screw-theoretic kinematics, parallel manipulators,
+        robot optimization, and intelligent manipulation.
+      </p>
+
+      <div class="sidebar-links">
+        <a href="/publications.html">Publications</a>
+        <a href="/research.html">Research</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar</a>
+        <a href="https://github.com/hassity123" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content-area" id="main">
+
+    <section class="page-hero">
+      <p class="eyebrow">Blog</p>
+      <h1>Robotics theory notes, geometric tools, and implementation examples.</h1>
+      <p class="lead-note">
+        This page brings together conceptual notes and practical examples on robot kinematics,
+        screw theory, Lie groups, Lie algebras, Jacobians, and mechanism modeling.
+        The aim is to provide a concise but rigorous entry point for students,
+        researchers, and practitioners in robotics.
+      </p>
+    </section>
+
+    <section class="section-block">
+      <div class="blog-hero-grid">
+        <div class="hero-panel">
+          <p class="eyebrow">What this page covers</p>
+          <h2 style="margin-top:0;">A compact theory-to-practice guide for modern robotics</h2>
+          <p>
+            A professional understanding of robotics begins with kinematics:
+            the study of motion without explicitly considering forces.
+            From there, deeper geometric tools such as screw theory,
+            Lie groups, and Lie algebras provide elegant representations for
+            rigid-body motion, velocity, and configuration.
+          </p>
+          <p>
+            These concepts are central in serial manipulators, parallel robots,
+            mobile robots, and mechanism analysis, and they also serve as a bridge
+            to dynamics, control, planning, and optimization.
+          </p>
+
+          <div class="hero-highlights">
+            <span class="hero-tag">Kinematics</span>
+            <span class="hero-tag">Screw Theory</span>
+            <span class="hero-tag">Lie Group \(SE(3)\)</span>
+            <span class="hero-tag">Lie Algebra \(se(3)\)</span>
+            <span class="hero-tag">Jacobians</span>
+            <span class="hero-tag">Python / MATLAB</span>
+          </div>
+        </div>
+
+        <aside class="toc-card" aria-labelledby="toc-heading">
+          <h2 id="toc-heading">Contents</h2>
+          <ol class="toc-list">
+            <li><a href="#foundations">Foundations of robot kinematics</a></li>
+            <li><a href="#rigid-body">Rigid-body motion and transforms</a></li>
+            <li><a href="#screw-theory">Screw theory for robotics</a></li>
+            <li><a href="#lie-groups">Lie groups and Lie algebras</a></li>
+            <li><a href="#jacobians">Jacobians, singularities, and differential kinematics</a></li>
+            <li><a href="#python">Robotics in Python</a></li>
+            <li><a href="#matlab">Robotics in MATLAB</a></li>
+            <li><a href="#reading">Suggested reading</a></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="foundations">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow">Part I · Foundations</p>
+          <h2>Foundations of robot kinematics</h2>
+        </div>
+      </div>
+
+      <div class="article-meta">
+        <span class="meta-chip">Serial mechanisms</span>
+        <span class="meta-chip">Parallel mechanisms</span>
+        <span class="meta-chip">Mobility analysis</span>
+        <span class="meta-chip">Workspace</span>
+      </div>
+
+      <p>
+        Kinematics studies the geometry of motion. In robotics, it answers questions such as:
+        How does a set of joint variables determine the position and orientation of an end-effector?
+        How many independent motions does a mechanism possess? Where do singularities occur?
+        What is the reachable workspace?
+      </p>
+
+      <figure class="wide-figure theory-figure" style="margin-top:1rem;">
+        <img
+          alt="Foundations of robot kinematics infographic"
+          data-asset-dir="/assets/img"
+          decoding="async"
+          loading="lazy"
+          src="/assets/img/foundations_of_robot_kinematics.png"
+        />
+        <figcaption>
+          Overview of basic mechanism classes and key kinematic concepts including
+          forward kinematics, inverse kinematics, rigid-body transforms, and mobility.
+        </figcaption>
+      </figure>
+
+      <div class="figure-row three" style="margin-top:1rem;">
+        <figure>
+          <img alt="Open-loop mechanism" decoding="async" loading="lazy" src="/assets/img/open-loop-mechanism.svg"/>
+          <figcaption>
+            <strong>Open-loop mechanism:</strong> a serial chain with a unique path
+            from the base to the end-effector.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img alt="Closed-loop mechanism" decoding="async" loading="lazy" src="/assets/img/closed-loop-mechanism.svg"/>
+          <figcaption>
+            <strong>Closed-loop mechanism:</strong> one or more loops introduce constraint equations,
+            often leading to higher stiffness and better load sharing.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img alt="Hybrid mechanism" decoding="async" loading="lazy" src="/assets/img/hybrid-mechanism.svg"/>
+          <figcaption>
+            <strong>Hybrid mechanism:</strong> combines serial and parallel structure
+            to exploit the benefits of both.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="equation-grid">
+        <div class="equation-box">
+          <h3>Forward kinematics</h3>
+          <p>Maps joint variables to task-space configuration:</p>
+          <div class="math-block">
+            \[
+            x = f(q)
+            \]
+          </div>
+          <p class="subtle">Given \(q\), compute position and orientation \(x\).</p>
+        </div>
+
+        <div class="equation-box">
+          <h3>Inverse kinematics</h3>
+          <p>Finds joint values corresponding to a desired pose:</p>
+          <div class="math-block">
+            \[
+            q = f^{-1}(x)
+            \]
+          </div>
+          <p class="subtle">This problem may admit multiple, unique, or no solutions.</p>
+        </div>
+
+        <div class="equation-box">
+          <h3>Mobility / Degree of freedom</h3>
+          <p>For many mechanisms, mobility is estimated by:</p>
+          <div class="math-block">
+            \[
+            M = \lambda (n-j-1) + \sum_{i=1}^{j} f_i
+            \]
+          </div>
+          <p class="subtle">
+            where \(n\) is number of links, \(j\) is number of joints,
+            and \(f_i\) is the DOF of the \(i\)-th joint.
+          </p>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <strong>Key idea:</strong> Kinematics is the language that connects mechanism structure,
+        joint coordinates, workspace, and motion capability. It forms the first mathematical layer
+        in understanding any robot architecture.
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="rigid-body">
+      <p class="eyebrow">Part II · Rigid-body motion</p>
+      <h2>Rigid-body motion, coordinates, and homogeneous transforms</h2>
+
+      <div class="content-grid-2">
+        <div>
+          <p>
+            A rigid body in 3D space is described by both orientation and position.
+            The orientation is typically represented by a rotation matrix
+            \(R \in SO(3)\), while the translation is represented by a vector
+            \(p \in \mathbb{R}^3\). Together, these form the homogeneous transformation
+            matrix:
+          </p>
+
+          <div class="math-block">
+            \[
+            T =
+            \begin{bmatrix}
+            R & p \\
+            0 & 1
+            \end{bmatrix}
+            \in SE(3)
+            \]
+          </div>
+
+          <p>
+            This representation is fundamental because it allows composition of motions,
+            coordinate changes, and frame transformations to be written in a compact matrix form.
+            If frame \( \{B\} \) is expressed relative to frame \( \{A\} \), then
+            \( ^A T_B \) maps coordinates from \( \{B\} \) to \( \{A\} \).
+          </p>
+
+          <div class="math-block">
+            \[
+            {}^{A}p = {}^{A}R_{B}\, {}^{B}p + {}^{A}p_{B}
+            \]
+          </div>
+
+          <p>
+            For serial manipulators, forward kinematics is typically obtained by chaining
+            transforms:
+          </p>
+
+          <div class="math-block">
+            \[
+            T_{0n}(q) = T_{01}(q_1) T_{12}(q_2)\cdots T_{(n-1)n}(q_n)
+            \]
+          </div>
+        </div>
+
+        <div>
+          <div class="definition-list">
+            <div class="definition-item">
+              <strong>Configuration space:</strong>
+              the set of all possible robot configurations, typically parameterized by joint variables.
+            </div>
+
+            <div class="definition-item">
+              <strong>Task space:</strong>
+              the space in which the robot’s end-effector position and orientation are specified.
+            </div>
+
+            <div class="definition-item">
+              <strong>Workspace:</strong>
+              the set of end-effector poses that the robot can physically reach.
+            </div>
+
+            <div class="definition-item">
+              <strong>Posture:</strong>
+              a specific arrangement of the internal joints corresponding to a given pose.
+            </div>
+          </div>
+
+          <div class="note-box">
+            <strong>Why homogeneous coordinates?</strong>
+            <p style="margin-bottom:0.2rem;">
+              They unify rotation and translation into a single object, which makes
+              geometric reasoning, coordinate transformation, and implementation much cleaner.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="screw-theory">
+      <p class="eyebrow">Part III · Geometric mechanics</p>
+      <h2>Screw theory for robotics</h2>
+
+      <p>
+        Screw theory provides a unified language for representing rigid-body motion and force.
+        Rather than separating translation and rotation as unrelated quantities,
+        screw theory describes them as parts of a single geometric object.
+        This makes it especially powerful in mechanism analysis, Jacobian derivation,
+        singularity analysis, and kinetostatic modeling.
+      </p>
+
+      <figure class="wide-figure theory-figure" style="margin-top:1rem;">
+        <img
+          alt="Screw theory for robotics infographic"
+          decoding="async"
+          loading="lazy"
+          src="/assets/img/screw_theory_for_robotics_infographic.png"
+        />
+        <figcaption>
+          A conceptual overview of twists, screw axes, pitch, wrenches, and the exponential map.
+        </figcaption>
+      </figure>
+
+      <div class="content-grid-2" style="margin-top:1rem;">
+        <div>
+          <h3>Twists</h3>
+          <p>
+            A <strong>twist</strong> describes instantaneous rigid-body velocity. It combines angular
+            and linear velocity into a single 6-dimensional vector:
+          </p>
+
+          <div class="math-block">
+            \[
+            \xi =
+            \begin{bmatrix}
+            \omega \\
+            v
+            \end{bmatrix}
+            \in \mathbb{R}^6
+            \]
+          </div>
+
+          <p>
+            Here, \( \omega \in \mathbb{R}^3 \) is the angular velocity component,
+            and \( v \in \mathbb{R}^3 \) is the linear component.
+            For a screw axis passing through a point \(q\) with pitch \(h\),
+            the linear component is:
+          </p>
+
+          <div class="math-block">
+            \[
+            v = -\omega \times q + h \omega
+            \]
+          </div>
+
+          <p>
+            Special cases:
+          </p>
+          <ul class="bullet-clean">
+            <li><strong>Pure rotation:</strong> \( h = 0 \)</li>
+            <li><strong>Pure translation:</strong> \( \omega = 0 \)</li>
+            <li><strong>General screw motion:</strong> simultaneous rotation and translation along a line</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Wrenches</h3>
+          <p>
+            A <strong>wrench</strong> describes forces and moments acting on a rigid body:
+          </p>
+
+          <div class="math-block">
+            \[
+            \mathcal{F} =
+            \begin{bmatrix}
+            n \\
+            f
+            \end{bmatrix}
+            \in \mathbb{R}^6
+            \]
+          </div>
+
+          <p>
+            where \(f\) is the force vector and \(n\) is the moment about a reference point.
+          </p>
+
+          <h3>Exponential coordinates of motion</h3>
+          <p>
+            If a rigid body moves along a constant screw axis \(\xi\) by scalar amount \(\theta\),
+            its transformation can be written as:
+          </p>
+
+          <div class="math-block">
+            \[
+            T(\theta) = \exp(\hat{\xi}\theta)
+            \]
+          </div>
+
+          <p>
+            This formula is central in the product-of-exponentials representation of robot kinematics.
+          </p>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <strong>Key insight:</strong> screw theory unifies rotational and translational motion
+        just as it unifies force and moment. In robotics, this creates a natural geometric bridge
+        between mechanism structure, motion, and statics.
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="lie-groups">
+      <p class="eyebrow">Part IV · Geometry and algebra</p>
+      <h2>Lie groups and Lie algebras in robotics</h2>
+
+      <p>
+        Lie groups and Lie algebras offer a mathematically rigorous way to represent
+        rigid-body motion, differential motion, and frame transformations.
+        In robotics, the most important groups are \(SO(3)\) for rotations and \(SE(3)\)
+        for full rigid-body motions.
+      </p>
+
+      <figure class="wide-figure theory-figure" style="margin-top:1rem;">
+        <img
+          alt="Lie groups and Lie algebras in robotics infographic"
+          decoding="async"
+          loading="lazy"
+          src="/assets/img/robotics_lie_groups_and_algebras_infographic.png"
+        />
+        <figcaption>
+          Definitions of \(SO(3)\), \(SE(3)\), \(so(3)\), \(se(3)\), and the adjoint transformation.
+        </figcaption>
+      </figure>
+
+      <div class="equation-grid">
+        <div class="equation-box">
+          <h3>\(SO(3)\): rotation group</h3>
+          <div class="math-block">
+            \[
+            SO(3)=\left\{R \in \mathbb{R}^{3\times 3}\mid R^TR=I,\ \det(R)=1 \right\}
+            \]
+          </div>
+          <p>
+            Represents orientations in 3D. A rotation matrix is orthonormal and has determinant 1.
+          </p>
+        </div>
+
+        <div class="equation-box">
+          <h3>\(SE(3)\): rigid motion group</h3>
+          <div class="math-block">
+            \[
+            SE(3)=\left\{
+            \begin{bmatrix}
+            R & p \\
+            0 & 1
+            \end{bmatrix}
+            \,\middle|\,
+            R\in SO(3),\ p\in\mathbb{R}^3
+            \right\}
+            \]
+          </div>
+          <p>
+            Represents full pose: orientation and position.
+          </p>
+        </div>
+
+        <div class="equation-box">
+          <h3>Lie algebras</h3>
+          <div class="math-block">
+            \[
+            \hat{\omega}=
+            \begin{bmatrix}
+            0 & -\omega_3 & \omega_2\\
+            \omega_3 & 0 & -\omega_1\\
+            -\omega_2 & \omega_1 & 0
+            \end{bmatrix}
+            \in so(3)
+            \]
+          </div>
+          <div class="math-block">
+            \[
+            \hat{\xi}=
+            \begin{bmatrix}
+            \hat{\omega} & v\\
+            0 & 0
+            \end{bmatrix}
+            \in se(3)
+            \]
+          </div>
+        </div>
+      </div>
+
+      <div class="content-grid-2" style="margin-top:1rem;">
+        <div>
+          <h3>Exponential map</h3>
+          <p>
+            The exponential map connects Lie algebras (infinitesimal motion) to Lie groups (finite motion):
+          </p>
+
+          <div class="math-block">
+            \[
+            R = \exp(\hat{\omega}\theta), \qquad
+            T = \exp(\hat{\xi}\theta)
+            \]
+          </div>
+
+          <p>
+            In practice, this means a robot motion generated by an axis and motion magnitude
+            can be converted into a rigid-body transformation.
+          </p>
+
+          <h3>Adjoint transformation</h3>
+          <p>
+            Twists and wrenches change coordinates between frames using the adjoint operator:
+          </p>
+
+          <div class="math-block">
+            \[
+            \mathrm{Ad}_{T}
+            =
+            \begin{bmatrix}
+            R & 0 \\
+            \hat{p}R & R
+            \end{bmatrix}
+            \]
+          </div>
+
+          <div class="math-block">
+            \[
+            V_s = \mathrm{Ad}_{T}V_b
+            \]
+          </div>
+        </div>
+
+        <div>
+          <div class="mini-card">
+            <h3>Why this matters in robotics</h3>
+            <ul class="bullet-clean">
+              <li>Provides coordinate-free and compact motion descriptions</li>
+              <li>Supports rigorous kinematic and dynamic derivations</li>
+              <li>Enables product-of-exponentials robot modeling</li>
+              <li>Improves numerical consistency compared with ad hoc parameterizations</li>
+              <li>Connects geometry, optimization, control, and estimation</li>
+            </ul>
+          </div>
+
+          <div class="note-box">
+            <strong>Interpretation:</strong>
+            <p style="margin-bottom:0;">
+              Lie groups represent configurations on a manifold;
+              Lie algebras represent tangent motions at the identity.
+              The exponential map connects the two.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="jacobians">
+      <p class="eyebrow">Part V · Differential kinematics</p>
+      <h2>Jacobians, velocity analysis, and singularities</h2>
+
+      <p>
+        The Jacobian maps joint rates to end-effector velocity and is one of the most important
+        objects in robotics. For a manipulator with joint coordinates \(q\), the velocity relation is:
+      </p>
+
+      <div class="math-block">
+        \[
+        V = J(q)\dot{q}
+        \]
+      </div>
+
+      <div class="content-grid-3">
+        <div class="mini-card">
+          <h3>Jacobian meaning</h3>
+          <p>
+            The columns of the Jacobian represent the contribution of each joint to
+            the end-effector’s instantaneous motion.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Singularity</h3>
+          <p>
+            A singular configuration occurs when the Jacobian loses rank.
+            In such cases, motion or force transmission becomes deficient or ill-conditioned.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Applications</h3>
+          <p>
+            Jacobians are used in inverse velocity kinematics, manipulability analysis,
+            stiffness studies, control, and trajectory generation.
+          </p>
+        </div>
+      </div>
+
+      <div class="equation-grid">
+        <div class="equation-box">
+          <h3>Static duality</h3>
+          <p>Joint torques are related to wrench by:</p>
+          <div class="math-block">
+            \[
+            \tau = J^T \mathcal{F}
+            \]
+          </div>
+        </div>
+
+        <div class="equation-box">
+          <h3>Manipulability idea</h3>
+          <p>A common indicator is based on:</p>
+          <div class="math-block">
+            \[
+            w = \sqrt{\det(JJ^T)}
+            \]
+          </div>
+        </div>
+
+        <div class="equation-box">
+          <h3>Practical note</h3>
+          <p>
+            Near singularity, numerical inverse kinematics often requires
+            regularization or damped least-squares methods.
+          </p>
+          <div class="math-block">
+            \[
+            \dot{q} = J^T(JJ^T+\lambda^2I)^{-1}V
+            \]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="python">
+      <p class="eyebrow">Part VI · Implementation</p>
+      <h2>Robotics in Python: five-bar mechanism example</h2>
+
+      <p>
+        The five-bar mechanism is a useful planar closed-chain example for teaching forward
+        and inverse kinematics. It is commonly used to demonstrate nonlinear constraints,
+        multiple working modes, and coupled joint behavior.
+      </p>
+
+      <figure class="wide-figure" style="margin-top:1rem;">
+        <img
+          alt="Five-bar manipulator"
+          decoding="async"
+          loading="lazy"
+          src="/assets/img/five-bar-manipulator.svg"
+        />
+        <figcaption>
+          A planar five-bar mechanism frequently used in teaching lower-DOF parallel kinematics.
+        </figcaption>
+      </figure>
+
+      <p style="margin-top:1rem;">
+        A minimal class structure for teaching forward and inverse kinematics can be organized as follows:
+      </p>
+
+      <pre class="code-block"><code>import numpy as np
+from math import cos, sin, atan2, sqrt
 
 class FiveBar:
-    def __init__(self, link1, link2, link3, link4, link5):
-        self.r1, self.r2, self.r3, self.r4, self.r5 = link1, link2, link3, link4, link5
+    """
+    A simple educational class for a planar five-bar mechanism.
+    Link naming can be adapted to the geometry you use in your notes.
+    """
 
-    def forward(self, a1, a4):
-        # Forward kinematics implementation preserved from the source blog.
-        pass
+    def __init__(self, l1, l2, l3, l4, base):
+        self.l1 = l1
+        self.l2 = l2
+        self.l3 = l3
+        self.l4 = l4
+        self.base = base
 
-    def inverse(self, px, py):
-        # Inverse kinematics implementation preserved from the source blog.
-        pass</code></pre></section>
-<section class="section-block article-card"><p class="eyebrow">Robotics in MATLAB</p><p>The public source page lists a MATLAB section heading. Add MATLAB scripts, demos, or notes here when ready.</p></section>
-</main>
+    def circle_intersection(self, c1, r1, c2, r2):
+        x1, y1 = c1
+        x2, y2 = c2
+        d = np.hypot(x2 - x1, y2 - y1)
+
+        if d > r1 + r2 or d < abs(r1 - r2):
+            return None
+
+        a = (r1**2 - r2**2 + d**2) / (2*d)
+        h = sqrt(max(r1**2 - a**2, 0.0))
+
+        xm = x1 + a * (x2 - x1) / d
+        ym = y1 + a * (y2 - y1) / d
+
+        xs1 = xm + h * (y2 - y1) / d
+        ys1 = ym - h * (x2 - x1) / d
+
+        xs2 = xm - h * (y2 - y1) / d
+        ys2 = ym + h * (x2 - x1) / d
+
+        return (xs1, ys1), (xs2, ys2)
+
+    def forward(self, theta1, theta2):
+        """
+        Compute end-effector candidates from actuated angles.
+        """
+        A = np.array([0.0, 0.0])
+        B = np.array([self.base, 0.0])
+
+        P = A + self.l1 * np.array([cos(theta1), sin(theta1)])
+        Q = B + self.l4 * np.array([cos(theta2), sin(theta2)])
+
+        candidates = self.circle_intersection(P, self.l2, Q, self.l3)
+        return candidates
+
+    def inverse(self, x, y):
+        """
+        Compute actuator angles for a desired point (x, y).
+        """
+        theta1 = atan2(y, x)
+        theta2 = atan2(y, x - self.base)
+        return theta1, theta2
+
+# Example usage
+robot = FiveBar(0.2, 0.3, 0.3, 0.2, 0.4)
+points = robot.forward(np.deg2rad(40), np.deg2rad(120))
+print(points)</code></pre>
+
+      <div class="note-box">
+        <strong>Teaching note:</strong>
+        A five-bar mechanism is excellent for explaining
+        constraint equations, branch selection, assembly modes, and the difference
+        between joint space and Cartesian space.
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="matlab">
+      <p class="eyebrow">Part VII · Numerical computing</p>
+      <h2>Robotics in MATLAB</h2>
+
+      <p>
+        MATLAB remains a powerful environment for rapid prototyping,
+        symbolic derivation, matrix computation, and visualization in robotics.
+        It is particularly useful for teaching transforms, Jacobians, workspace plots,
+        and trajectory generation.
+      </p>
+
+      <div class="figure-row two">
+        <div class="mini-card">
+          <h3>Typical MATLAB topics</h3>
+          <ul class="bullet-clean">
+            <li>Denavit–Hartenberg parameterization</li>
+            <li>Symbolic forward kinematics</li>
+            <li>Jacobian derivation</li>
+            <li>Workspace visualization</li>
+            <li>Inverse kinematics solvers</li>
+            <li>Trajectory interpolation</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>Example transform computation</h3>
+          <pre class="code-block" style="margin:0;"><code>% Homogeneous transform in MATLAB
+syms theta d a alpha real
+
+T = [cos(theta), -sin(theta)*cos(alpha),  sin(theta)*sin(alpha), a*cos(theta);
+     sin(theta),  cos(theta)*cos(alpha), -cos(theta)*sin(alpha), a*sin(theta);
+     0,           sin(alpha),             cos(alpha),            d;
+     0,           0,                      0,                     1];
+
+disp(simplify(T));</code></pre>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <strong>Recommendation:</strong> MATLAB is ideal for symbolic derivations and quick numerical tests,
+        while Python offers flexibility for larger software pipelines, simulation, and integration with modern ML tools.
+      </div>
+    </section>
+
+    <section class="section-block article-card" id="reading">
+      <p class="eyebrow">Part VIII · Further study</p>
+      <h2>Suggested reading and references</h2>
+
+      <div class="reading-grid">
+        <article class="reading-card">
+          <h3>Modern Robotics</h3>
+          <p>
+            A clear and rigorous reference for kinematics, dynamics, motion planning,
+            and control, with strong coverage of \(SE(3)\), twists, and Jacobians.
+          </p>
+          <a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf" rel="noopener noreferrer" target="_blank">
+            Open resource →
+          </a>
+        </article>
+
+        <article class="reading-card">
+          <h3>A Mathematical Introduction to Robotic Manipulation</h3>
+          <p>
+            A classic text on screw theory, rigid-body motion, and geometric foundations
+            of manipulation and robot mechanics.
+          </p>
+          <a href="https://www.cds.caltech.edu/~murray/mlswiki/" rel="noopener noreferrer" target="_blank">
+            Reference page →
+          </a>
+        </article>
+
+        <article class="reading-card">
+          <h3>Robotics, Vision and Control</h3>
+          <p>
+            A practical text that bridges fundamental robotics mathematics with implementation,
+            simulation, and control examples.
+          </p>
+          <a href="https://drive.google.com/file/d/1HjTFozXgearb-wJ__mZ1NTcrovwDYg8d/view?usp=sharing" rel="noopener noreferrer" target="_blank">
+            View resource →
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block article-card">
+      <p class="eyebrow">Closing note</p>
+      <h2>Summary</h2>
+
+      <p>
+        Robotics kinematics begins with links, joints, and coordinate frames,
+        but its most elegant and powerful formulations come from geometry.
+        Screw theory unifies rotation and translation, twists and wrenches;
+        Lie groups and Lie algebras provide the natural structure for rigid-body motion;
+        and Jacobians connect configuration to velocity, force, singularity, and control.
+      </p>
+
+      <p>
+        These tools are not only mathematically elegant—they are practical.
+        They form the backbone of manipulator modeling, parallel robot analysis,
+        estimation, optimization, motion planning, and robot control.
+      </p>
+
+      <div class="summary-box">
+        <strong>In one sentence:</strong>
+        kinematics tells us <em>what motion is possible</em>,
+        screw theory tells us <em>how motion and force are represented geometrically</em>,
+        and Lie theory tells us <em>how rigid-body motion is structured mathematically</em>.
+      </div>
+    </section>
+
+  </main>
 </div>
+
 <footer class="site-footer">
-<div class="footer-inner">
-<p><strong>AIRLab Hassen</strong> · Robotics, autonomy, Lie theory, quantum computation, and machine learning.</p>
-<p class="footer-links"><a href="/">Home</a><a href="/research.html">Research</a><a href="/publications.html">Publications</a><a href="/resources.html">Resources</a><a href="/blog.html">Blog</a><a href="/robotics-amharic.html">ሮቦቲክስ</a><a href="/cutting-edge.html">Cutting-edge</a><a href="/contact.html">Contact</a><a href="https://sites.google.com/site/hassennrobotics/home?read_current=1" rel="noopener noreferrer" target="_blank">Google Site</a></p>
-</div>
+  <div class="footer-inner">
+    <p>
+      <strong>AIRLab Hassen</strong> · Robotics, autonomy, Lie theory,
+      quantum computation, and machine learning.
+    </p>
+
+    <p class="footer-links">
+      <a href="/">Home</a>
+      <a href="/research.html">Research</a>
+      <a href="/publications.html">Publications</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/robotics-amharic.html">ሮቦቲክስ</a>
+      <a href="/cutting-edge.html">Cutting-edge</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://sites.google.com/site/hassennrobotics/home?read_current=1" rel="noopener noreferrer" target="_blank">
+        Original Google Site
+      </a>
+    </p>
+  </div>
 </footer>
+
 <button aria-label="Back to top" class="back-to-top" data-back-to-top="" type="button">↑</button>
-<script defer="" src="/assets/js/site.js"></script>
+<script defer src="/assets/js/site.js"></script>
 </body>
 </html>
