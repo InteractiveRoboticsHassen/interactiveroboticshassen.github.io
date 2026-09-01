@@ -1,73 +1,4039 @@
 <!doctype html>
-
 <html lang="en">
+
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Cutting-edge · AIRLab Hassen</title>
-<meta content="Robotics software and hardware innovation notes, talks, and video references." name="description"/><meta content="#f7fafc" name="theme-color"/><meta content="AIRLab Hassen" property="og:site_name"/><meta content="Cutting-edge · AIRLab Hassen" property="og:title"/><meta content="Robotics software and hardware innovation notes, talks, and video references." property="og:description"/><meta content="website" property="og:type"/><meta content="https://airlabhassen.github.io/cutting-edge.html" property="og:url"/><meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Cutting-edge · AIRLab Hassen" name="twitter:title"/><meta content="Robotics software and hardware innovation notes, talks, and video references." name="twitter:description"/><meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" name="twitter:image"/><link href="https://airlabhassen.github.io/cutting-edge.html" rel="canonical"/><link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/site.webmanifest" rel="manifest"/><link href="/assets/css/styles.css" rel="stylesheet"/></head>
+
+<title>Cutting-edge Robotics & AI · AIRLab Hassen</title>
+
+<meta
+  content="A curated technology radar covering frontier robotics, embodied AI, humanoid robots, robot foundation models, autonomous systems, industrial automation, drones, surgical robotics, and research developments across China and the West."
+  name="description"
+/>
+
+<meta content="#f7fafc" name="theme-color"/>
+
+<meta content="AIRLab Hassen" property="og:site_name"/>
+<meta content="Cutting-edge Robotics & AI · AIRLab Hassen" property="og:title"/>
+<meta
+  content="A living technology radar for Physical AI, humanoids, embodied intelligence, autonomous machines, robot learning, and frontier robotics across China and the West."
+  property="og:description"
+/>
+<meta content="website" property="og:type"/>
+<meta content="https://airlabhassen.github.io/cutting-edge.html" property="og:url"/>
+<meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" property="og:image"/>
+
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Cutting-edge Robotics & AI · AIRLab Hassen" name="twitter:title"/>
+<meta
+  content="Frontier robotics and Physical AI: humanoids, foundation models, autonomous systems, robot learning, drones, medical robotics and more."
+  name="twitter:description"
+/>
+<meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" name="twitter:image"/>
+
+<link href="https://airlabhassen.github.io/cutting-edge.html" rel="canonical"/>
+<link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+
+<style>
+
+/* =========================================================
+   CUTTING-EDGE PAGE
+   ========================================================= */
+
+:root {
+  --frontier-blue: #0b4f91;
+  --frontier-blue-2: #2563eb;
+  --frontier-cyan: #0ea5e9;
+  --frontier-navy: #071d3c;
+  --frontier-text: #162033;
+  --frontier-muted: #64748b;
+  --frontier-border: rgba(15, 23, 42, 0.09);
+  --frontier-soft: #f7fbff;
+  --frontier-card: #ffffff;
+  --china-red: #b91c1c;
+  --china-soft: #fff7f7;
+  --west-blue: #1d4ed8;
+  --west-soft: #f5f8ff;
+  --global-green: #047857;
+  --global-soft: #f0fdf8;
+}
+
+.frontier-hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1.2rem;
+}
+
+.frontier-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(37,99,235,.30),
+      transparent
+    );
+}
+
+.frontier-lead {
+  max-width: 900px;
+  font-size: 1.04rem;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.frontier-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .75rem;
+  border-radius: 999px;
+  border: 1px solid var(--frontier-border);
+  background: #fff;
+  font-size: .83rem;
+  font-weight: 650;
+  color: #334155;
+}
+
+.status-live::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16,185,129,.12);
+}
+
+.frontier-callout {
+  position: relative;
+  overflow: hidden;
+  margin: 1.2rem 0 0;
+  padding: 1.15rem 1.3rem;
+  border-radius: 18px;
+  border: 1px solid rgba(37,99,235,.13);
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(14,165,233,.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f7fbff
+    );
+}
+
+.frontier-callout strong {
+  color: var(--frontier-navy);
+}
+
+.frontier-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.filter-btn {
+  appearance: none;
+  border: 1px solid rgba(15,23,42,.12);
+  background: #fff;
+  color: #334155;
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    transform .15s ease,
+    background .15s ease,
+    border-color .15s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37,99,235,.3);
+}
+
+.filter-btn.active {
+  color: #fff;
+  border-color: var(--frontier-blue-2);
+  background:
+    linear-gradient(
+      135deg,
+      var(--frontier-blue),
+      var(--frontier-blue-2)
+    );
+}
+
+.frontier-search {
+  width: min(330px, 100%);
+}
+
+.frontier-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .65rem .9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.12);
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.frontier-search input:focus {
+  outline: 3px solid rgba(37,99,235,.12);
+  border-color: #60a5fa;
+}
+
+.section-intro {
+  max-width: 850px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tech-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border-radius: 18px;
+  padding: 1.1rem;
+  border: 1px solid var(--frontier-border);
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfdff 100%
+    );
+  box-shadow:
+    0 12px 28px rgba(15,23,42,.045);
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.22);
+  box-shadow:
+    0 18px 38px rgba(15,23,42,.08);
+}
+
+.tech-card[hidden] {
+  display: none !important;
+}
+
+.tech-card h3 {
+  margin: .4rem 0 .55rem;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.tech-card p {
+  margin: 0 0 .8rem;
+  color: #526175;
+  line-height: 1.58;
+  font-size: .94rem;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: .7rem;
+  align-items: flex-start;
+}
+
+.tech-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 13px;
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #dbeafe
+    );
+  color: #1e40af;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.region-badge,
+.topic-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: .3rem .55rem;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.region-china {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.region-west {
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.region-global {
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.topic-badge {
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.card-links {
+  margin-top: auto;
+  padding-top: .4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  text-decoration: none;
+  padding: .43rem .68rem;
+  border-radius: 9px;
+  border: 1px solid rgba(37,99,235,.15);
+  background: #f8fbff;
+  color: #174ea6;
+  font-size: .84rem;
+  font-weight: 700;
+}
+
+.card-link:hover {
+  background: #eff6ff;
+}
+
+.card-link.video {
+  color: #9f1239;
+  border-color: rgba(190,24,93,.14);
+  background: #fff7fa;
+}
+
+.card-link.podcast {
+  color: #6d28d9;
+  border-color: rgba(109,40,217,.14);
+  background: #faf7ff;
+}
+
+.frontier-columns {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.frontier-column {
+  padding: 1.25rem;
+  border-radius: 20px;
+  border: 1px solid var(--frontier-border);
+}
+
+.frontier-column.china {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(239,68,68,.08),
+      transparent 32%
+    ),
+    linear-gradient(180deg,#fff,#fffafa);
+}
+
+.frontier-column.west {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37,99,235,.09),
+      transparent 32%
+    ),
+    linear-gradient(180deg,#fff,#f8fbff);
+}
+
+.frontier-column h3 {
+  margin-top: 0;
+}
+
+.frontier-column ul {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.frontier-column li {
+  margin: .55rem 0;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.compare-table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--frontier-border);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+  background: #fff;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: .85rem .9rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.compare-table th {
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: .86rem;
+}
+
+.compare-table td {
+  color: #526175;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.compare-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.media-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: .85rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--frontier-border);
+  background: #fff;
+}
+
+.media-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  font-size: 1.45rem;
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #f8fafc
+    );
+}
+
+.media-card h3 {
+  font-size: 1rem;
+  margin: 0 0 .35rem;
+}
+
+.media-card p {
+  font-size: .9rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 .55rem;
+}
+
+.media-card a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+}
+
+.resource-row {
+  padding: .85rem .95rem;
+  border-radius: 13px;
+  background: #fff;
+  border: 1px solid var(--frontier-border);
+}
+
+.resource-row strong {
+  display: block;
+  color: #172033;
+  margin-bottom: .18rem;
+}
+
+.resource-row span {
+  display: block;
+  font-size: .86rem;
+  color: #64748b;
+  margin-bottom: .38rem;
+}
+
+.resource-row a {
+  font-size: .87rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.reality-box {
+  border-radius: 18px;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid rgba(245,158,11,.25);
+  background:
+    linear-gradient(
+      135deg,
+      #fffdf5,
+      #ffffff
+    );
+}
+
+.reality-box h3 {
+  margin-top: 0;
+}
+
+.reality-box p:last-child {
+  margin-bottom: 0;
+}
+
+.watch-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+}
+
+.watch-item {
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid var(--frontier-border);
+  background: #fff;
+}
+
+.watch-item strong {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--frontier-navy);
+}
+
+.watch-item span {
+  color: #64748b;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.page-anchor-nav {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.page-anchor-nav a {
+  display: inline-block;
+  text-decoration: none;
+  padding: .44rem .7rem;
+  border-radius: 9px;
+  background: #f8fafc;
+  border: 1px solid var(--frontier-border);
+  font-size: .83rem;
+  font-weight: 700;
+}
+
+.small-note {
+  color: #64748b;
+  font-size: .85rem;
+}
+
+@media (max-width: 1100px) {
+  .tech-grid,
+  .watch-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .frontier-columns,
+  .media-grid,
+  .resource-list,
+  .tech-grid,
+  .watch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .frontier-controls {
+    align-items: stretch;
+  }
+
+  .frontier-search {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+
 <body class="">
-<a class="skip-link" href="#main">Skip to main content</a>
+
+<a class="skip-link" href="#main">
+  Skip to main content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
 <header class="topbar" data-header="">
 <div class="topbar-inner">
-<a aria-label="AIRLab Hassen home" class="site-title" href="/">
-<span aria-hidden="true" class="site-mark">AIR</span>
-<span><strong>AIRLab Hassen</strong><small>Robotics · Mechanisms · Kinematics · Quantum · ML</small></span>
+
+<a
+  aria-label="AIRLab Hassen home"
+  class="site-title"
+  href="/"
+>
+  <span aria-hidden="true" class="site-mark">AIR</span>
+
+  <span>
+    <strong>AIRLab Hassen</strong>
+    <small>
+      Robotics · Mechanisms · Kinematics · Quantum · ML
+    </small>
+  </span>
 </a>
-<button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
-<nav aria-label="Primary navigation" class="site-nav" id="site-nav">
+
+<button
+  aria-controls="site-nav"
+  aria-expanded="false"
+  class="nav-toggle"
+  type="button"
+>
+  Menu
+</button>
+
+<nav
+  aria-label="Primary navigation"
+  class="site-nav"
+  id="site-nav"
+>
+  <a href="/">Home</a>
+  <a href="/research.html">Research</a>
+  <a href="/publications.html">Publications</a>
+  <a href="/resources.html">Resources</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/robotics-amharic.html">ሮቦቲክስ</a>
+  <a aria-current="page" href="/cutting-edge.html">
+    Cutting-edge
+  </a>
+  <a href="/contact.html">Contact</a>
+</nav>
+
+</div>
+</header>
+
+
+<div class="page-shell">
+
+
+<!-- =========================================================
+     SIDEBAR
+     ========================================================= -->
+
+<aside
+  aria-label="Profile summary"
+  class="profile-sidebar"
+>
+
+<div class="profile-card">
+
+<div class="avatar-wrap">
+<img
+  alt="Robotics research visual"
+  class="profile-avatar"
+  data-asset-dir="/assets/img"
+  decoding="async"
+  height="941"
+  loading="lazy"
+  src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+  width="1672"
+/>
+</div>
+
+<h2>Hassen Nigatu</h2>
+
+<p class="sidebar-subtitle">
+  Robotics researcher
+</p>
+
+<p class="sidebar-note">
+  Robotic mechanisms, screw-theoretic kinematics,
+  parallel manipulators, robot optimization,
+  and intelligent manipulation.
+</p>
+
+<div class="sidebar-links">
+  <a href="/publications.html">Publications</a>
+  <a href="/research.html">Research</a>
+
+  <a
+    href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Google Scholar
+  </a>
+
+  <a
+    href="https://github.com/hassity123"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    GitHub
+  </a>
+</div>
+
+</div>
+</aside>
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="content-area" id="main">
+
+
+<!-- HERO -->
+
+<section class="page-hero frontier-hero">
+
+<p class="eyebrow">
+  Cutting-edge · Technology Radar
+</p>
+
+<h1>
+  Frontier robotics, Physical AI,
+  and embodied intelligence.
+</h1>
+
+<p class="frontier-lead">
+  A living overview of emerging robotics and artificial
+  intelligence technologies across China, North America
+  and Europe. The focus is not only on impressive robot
+  demonstrations, but on the deeper technologies that
+  make useful autonomous machines possible:
+  robot foundation models, vision-language-action models,
+  dexterous manipulation, whole-body control,
+  reinforcement learning, digital twins, world models,
+  autonomous vehicles, intelligent manufacturing,
+  aerial robotics, surgical robotics, and more.
+</p>
+
+<div class="frontier-status">
+  <span class="status-pill status-live">
+    Updated September 2026
+  </span>
+
+  <span class="status-pill">
+    China + West
+  </span>
+
+  <span class="status-pill">
+    Research + Industry
+  </span>
+
+  <span class="status-pill">
+    Videos + Podcasts + Demos
+  </span>
+
+  <span class="status-pill">
+    Open-source resources
+  </span>
+</div>
+
+<div class="frontier-callout">
+
+<strong>
+  The big transition:
+</strong>
+
+robotics is moving from manually programmed machines toward
+<strong>general-purpose Physical AI systems</strong> that perceive,
+reason, learn and act.
+
+The most important race is therefore not simply
+“who builds the best humanoid body?” but rather:
+
+<strong>
+  who can combine scalable hardware, large robot datasets,
+  foundation models, simulation, dexterous control,
+  safety and real-world deployment?
+</strong>
+
+</div>
+
+<div class="page-anchor-nav">
+  <a href="#radar">Technology radar</a>
+  <a href="#china">China</a>
+  <a href="#west">West</a>
+  <a href="#mobility">Autonomous systems</a>
+  <a href="#media">Videos</a>
+  <a href="#podcasts">Podcasts</a>
+  <a href="#opensource">Developer resources</a>
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FILTER
+     ========================================================= -->
+
+<section class="section-block" id="radar">
+
+<p class="eyebrow">
+  Explore
+</p>
+
+<h2>
+  Robotics & AI technology radar
+</h2>
+
+<p class="section-intro">
+  Use the filters or search box to navigate the ecosystem.
+  The list emphasizes technologies with the greatest potential
+  to change how robots are designed, trained and deployed.
+</p>
+
+<div class="frontier-controls">
+
+<div
+  class="filter-buttons"
+  aria-label="Filter technologies"
+>
+  <button
+    class="filter-btn active"
+    data-filter="all"
+    type="button"
+  >
+    All
+  </button>
+
+  <button
+    class="filter-btn"
+    data-filter="china"
+    type="button"
+  >
+    China
+  </button>
+
+  <button
+    class="filter-btn"
+    data-filter="west"
+    type="button"
+  >
+    West
+  </button>
+
+  <button
+    class="filter-btn"
+    data-filter="global"
+    type="button"
+  >
+    Global / Open
+  </button>
+</div>
+
+<div class="frontier-search">
+  <label class="visually-hidden" for="technology-search">
+    Search technology
+  </label>
+
+  <input
+    id="technology-search"
+    placeholder="Search humanoid, VLA, drone..."
+    type="search"
+  />
+</div>
+
+</div>
+
+
+<div class="tech-grid" id="technology-grid">
+
+
+<!-- 1 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">AI</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Robot foundation models
+</h3>
+
+<p>
+  Large generalist models trained across many tasks,
+  environments and robot embodiments. The goal is to replace
+  task-by-task robot programming with adaptable learned intelligence.
+</p>
+
+<p>
+  Leading directions include NVIDIA GR00T,
+  Google Gemini Robotics, Physical Intelligence π,
+  Skild Brain, Figure Helix, Unitree UnifoLM,
+  AgiBot World models and LimX embodied models.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://deepmind.google/models/gemini-robotics/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Gemini Robotics →
+  </a>
+
+  <a
+    class="card-link"
+    href="https://developer.nvidia.com/isaac/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Isaac GR00T →
+  </a>
+</div>
+
+</article>
+
+
+<!-- 2 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">VLA</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Vision-Language-Action models
+</h3>
+
+<p>
+  VLA models connect visual perception and natural-language
+  instructions directly to physical robot actions.
+  They are becoming one of the central architectures
+  of embodied AI.
+</p>
+
+<p>
+  The frontier is moving toward longer-horizon reasoning,
+  multi-step manipulation, whole-body control and
+  cross-embodiment transfer.
+</p>
+
+</article>
+
+
+<!-- 3 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">◎</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Embodied reasoning & agentic robotics
+</h3>
+
+<p>
+  Robots increasingly combine perception, memory,
+  planning, tool use and action rather than simply
+  executing a learned motor primitive.
+</p>
+
+<p>
+  Important examples include Gemini Robotics ER,
+  LimX COSA and agentic industrial AI systems that
+  coordinate high-level reasoning with low-level control.
+</p>
+
+</article>
+
+
+<!-- 4 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">H</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  General-purpose humanoid robots
+</h3>
+
+<p>
+  Humanoids are being developed for factories,
+  logistics, laboratories, retail and homes.
+  Their human-like geometry allows them to operate
+  in spaces originally designed for people.
+</p>
+
+<p>
+  The key technical challenge is no longer walking alone:
+  useful humanoids require perception, manipulation,
+  reasoning, safety, reliability and economical deployment.
+</p>
+
+</article>
+
+
+<!-- 5 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">↔</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Whole-body loco-manipulation
+</h3>
+
+<p>
+  Walking and manipulation are increasingly controlled as
+  one coupled problem. A humanoid may step, bend,
+  balance, reach and manipulate simultaneously.
+</p>
+
+<p>
+  This is essential for real-world tasks in cluttered homes,
+  warehouses and factories.
+</p>
+
+</article>
+
+
+<!-- 6 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">✋</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Dexterous hands & tactile intelligence
+</h3>
+
+<p>
+  Multi-finger hands, tendon-driven mechanisms,
+  tactile skins, force sensing and vision-based touch
+  are moving manipulation beyond simple parallel grippers.
+</p>
+
+<p>
+  High-value tasks include cable routing, folding,
+  assembly, tool use, delicate grasping and
+  deformable-object manipulation.
+</p>
+
+</article>
+
+
+<!-- 7 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">RL</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Reinforcement learning for robotics
+</h3>
+
+<p>
+  Reinforcement learning allows robots to acquire
+  locomotion and manipulation strategies through
+  trial, evaluation and improvement.
+</p>
+
+<p>
+  Current systems increasingly combine RL with
+  imitation learning, human demonstrations,
+  world models and safety constraints.
+</p>
+
+</article>
+
+
+<!-- 8 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">▶</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Learning from human video
+</h3>
+
+<p>
+  One of robotics' largest bottlenecks is physical interaction data.
+  New systems learn useful priors from internet video,
+  egocentric video, teleoperation and motion capture.
+</p>
+
+<p>
+  This is a major route toward scaling robot intelligence
+  without collecting every behavior directly on a robot.
+</p>
+
+</article>
+
+
+<!-- 9 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">DB</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Robot data engines
+</h3>
+
+<p>
+  Companies are increasingly treating robot fleets
+  as data-generation infrastructure.
+</p>
+
+<p>
+  Teleoperation, autonomous execution,
+  failure recovery and human intervention all become
+  training data for the next generation of policies.
+</p>
+
+</article>
+
+
+<!-- 10 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">∞</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Simulation & sim-to-real
+</h3>
+
+<p>
+  High-fidelity simulators allow millions of robot experiences
+  to be generated before hardware deployment.
+</p>
+
+<p>
+  Key platforms include NVIDIA Isaac Sim / Isaac Lab,
+  MuJoCo, reinforcement-learning environments,
+  digital twins and GPU-accelerated physics engines.
+</p>
+
+</article>
+
+
+<!-- 11 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">WM</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  World models for Physical AI
+</h3>
+
+<p>
+  World models attempt to predict how physical scenes
+  evolve when an agent acts.
+</p>
+
+<p>
+  They can support synthetic training data,
+  planning, evaluation, imagination-based learning
+  and safer testing of rare scenarios.
+</p>
+
+</article>
+
+
+<!-- 12 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">⚡</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Edge AI & onboard inference
+</h3>
+
+<p>
+  Powerful low-power computers increasingly allow large
+  perception and robot-control models to execute directly
+  on the robot.
+</p>
+
+<p>
+  Local inference reduces latency and dependence
+  on network connectivity while improving privacy
+  and reliability.
+</p>
+
+</article>
+
+
+<!-- 13 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">⊙</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Multi-robot collaboration & swarms
+</h3>
+
+<p>
+  Robots are evolving from isolated machines into
+  coordinated fleets that share maps, tasks,
+  policies and operational data.
+</p>
+
+<p>
+  Applications include warehouses, drones,
+  inspection, manufacturing, delivery and
+  coordinated humanoid teams.
+</p>
+
+</article>
+
+
+<!-- 14 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">◉</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Autonomous robot safety
+</h3>
+
+<p>
+  As AI directly controls physical machines,
+  safety must extend beyond collision avoidance
+  to perception, planning, compute,
+  fail-safe control and fleet supervision.
+</p>
+
+<p>
+  This is becoming a major frontier for
+  industrial and humanoid deployment.
+</p>
+
+</article>
+
+
+<!-- 15 -->
+
+<article
+  class="tech-card"
+  data-region="global"
+>
+
+<div class="card-top">
+  <span class="tech-icon">OS</span>
+  <span class="region-badge region-global">
+    Open
+  </span>
+</div>
+
+<h3>
+  Open-source robot learning
+</h3>
+
+<p>
+  Affordable hardware and open models are making
+  modern robot learning accessible to universities,
+  startups and individual researchers.
+</p>
+
+<p>
+  Hugging Face LeRobot now combines robot interfaces,
+  datasets, teleoperation, simulation,
+  imitation learning, RL and VLA policies.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://huggingface.co/docs/lerobot/index"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    LeRobot →
+  </a>
+</div>
+
+</article>
+
+
+<!-- 16 -->
+
+<article
+  class="tech-card"
+  data-region="global west china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">⇄</span>
+  <span class="region-badge region-global">
+    Global
+  </span>
+</div>
+
+<h3>
+  Autonomous battery management
+</h3>
+
+<p>
+  Continuous operation requires robots to
+  autonomously charge, swap batteries or manage
+  energy across long shifts.
+</p>
+
+<p>
+  This is particularly important for factories,
+  warehouses, security robots and humanoid fleets.
+</p>
+
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     CHINA
+     ========================================================= -->
+
+<section class="section-block article-card" id="china">
+
+<p class="eyebrow">
+  China technology frontier
+</p>
+
+<h2>
+  Major Chinese robotics and embodied-AI platforms
+</h2>
+
+<p class="section-intro">
+  China's robotics ecosystem combines fast mechanical iteration,
+  actuator and electronics supply chains, manufacturing scale,
+  large domestic deployment markets and growing investment
+  in embodied-AI models.
+</p>
+
+<div class="tech-grid">
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">U</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  Unitree · H2 / G1 / embodied AI
+</h3>
+
+<p>
+  Unitree combines highly dynamic humanoid and quadruped
+  hardware with increasingly capable embodied models.
+  The H2 represents its larger full-size humanoid platform.
+</p>
+
+<p>
+  Unitree is especially notable for hardware iteration,
+  dynamic motion and increasingly accessible research platforms.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.unitree.com/mobile/H2/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    H2 official →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">W</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  UBTECH · Walker S2
+</h3>
+
+<p>
+  Walker S2 targets industrial humanoid applications
+  and demonstrates autonomous battery swapping
+  for extended operation.
+</p>
+
+<p>
+  UBTECH is focused heavily on factory-oriented
+  humanoid deployment and fleet operation.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.ubtrobot.com/en/humanoid/products/walker-s2"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Official page →
+  </a>
+
+  <a
+    class="card-link video"
+    href="https://www.youtube.com/watch?v=mHP1WGlw5Wk"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    ▶ Watch demo
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">A</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  AgiBot · humanoids + AgiBot World
+</h3>
+
+<p>
+  AgiBot is building a broad portfolio of humanoid
+  and embodied-intelligence systems alongside
+  large-scale robot datasets and developer infrastructure.
+</p>
+
+<p>
+  AgiBot World is particularly relevant for research
+  into imitation learning, reinforcement learning
+  and large-scale embodied datasets.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.agibot.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    AgiBot →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">L</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  LimX Dynamics · Oli / Luna / COSA
+</h3>
+
+<p>
+  LimX develops humanoids and multi-form legged platforms
+  together with its COSA embodied-agent operating system.
+</p>
+
+<p>
+  Its research stack spans locomotion,
+  manipulation, VLA deployment, RL training
+  and developer-oriented robotics infrastructure.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.limxdynamics.com/en/products/oli"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Oli →
+  </a>
+
+  <a
+    class="card-link"
+    href="https://www.limxdynamics.com/en"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    LimX →
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">X</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  XPENG · IRON Physical AI
+</h3>
+
+<p>
+  XPENG is extending capabilities developed for
+  intelligent vehicles into humanoid robotics.
+</p>
+
+<p>
+  IRON combines a human-like mechanical architecture,
+  high onboard AI compute and Physical-AI models
+  with XPENG's automotive manufacturing experience.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.xpeng.com/se/insight/ai-robot"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    IRON →
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">G</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  Galbot · embodied multimodal robotics
+</h3>
+
+<p>
+  Galbot develops general-purpose robots
+  around multimodal perception, embodied models
+  and autonomous task planning.
+</p>
+
+<p>
+  Its research is particularly relevant to
+  commercial service robots, manipulation
+  and long-duration autonomous operation.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.galbot.com/g1"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Galbot G1 →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">T</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  X-Humanoid · Tiangong
+</h3>
+
+<p>
+  Beijing's humanoid innovation ecosystem is developing
+  Tiangong platforms for locomotion,
+  embodied intelligence and open humanoid research.
+</p>
+
+<p>
+  The program is a useful demonstration of rapid progress
+  in dynamic humanoid motion and large-scale experimentation.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.x-humanoid.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    X-Humanoid →
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="china"
+>
+
+<div class="card-top">
+  <span class="tech-icon">FR</span>
+  <span class="region-badge region-china">
+    China
+  </span>
+</div>
+
+<h3>
+  Fourier Intelligence
+</h3>
+
+<p>
+  Fourier develops humanoid systems,
+  rehabilitation robotics and embodied-AI research platforms.
+</p>
+
+<p>
+  It represents the growing connection between
+  humanoid manipulation, healthcare robotics
+  and general-purpose embodied intelligence.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.fftai.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Fourier →
+  </a>
+
+</div>
+
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     WEST
+     ========================================================= -->
+
+<section class="section-block article-card" id="west">
+
+<p class="eyebrow">
+  Western technology frontier
+</p>
+
+<h2>
+  Major North American and European Physical-AI platforms
+</h2>
+
+<p class="section-intro">
+  The Western frontier is particularly strong in
+  foundation models, large-scale AI infrastructure,
+  simulation, robot learning, safety engineering
+  and early enterprise humanoid deployments.
+</p>
+
+<div class="tech-grid">
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">G</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Google DeepMind · Gemini Robotics 2
+</h3>
+
+<p>
+  Gemini Robotics combines multimodal reasoning
+  with direct robot action.
+</p>
+
+<p>
+  The latest direction includes whole-body humanoid control,
+  dexterous manipulation, embodied reasoning,
+  on-device operation and multi-robot collaboration.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://deepmind.google/models/gemini-robotics/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Gemini Robotics →
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">N</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  NVIDIA · Isaac GR00T / Cosmos / Thor
+</h3>
+
+<p>
+  NVIDIA is building a full Physical-AI development stack:
+  data, synthetic worlds, GPU simulation,
+  robot foundation models and edge deployment.
+</p>
+
+<p>
+  Isaac Sim, Isaac Lab, GR00T, Cosmos and Jetson Thor
+  form a particularly influential robotics toolchain.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://developer.nvidia.com/isaac/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Isaac →
+  </a>
+
+  <a
+    class="card-link video"
+    href="https://www.youtube.com/watch?v=yvDDpQZliY8"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    ▶ GR00T video
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">F</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Figure · Figure 03 / Helix 02
+</h3>
+
+<p>
+  Figure is integrating humanoid hardware,
+  high-volume robot manufacturing
+  and its Helix generalist robot AI.
+</p>
+
+<p>
+  Helix 02 moves toward pixels-to-actions,
+  whole-body autonomy for longer,
+  multi-stage real-world tasks.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.figure.ai/helix"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Helix →
+  </a>
+
+  <a
+    class="card-link"
+    href="https://www.figure.ai/figure"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Figure 03 →
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">BD</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Boston Dynamics · Atlas
+</h3>
+
+<p>
+  The electric Atlas platform is moving Boston Dynamics'
+  decades of dynamic robotics research toward
+  enterprise industrial deployment.
+</p>
+
+<p>
+  The platform combines high mobility,
+  manipulation, autonomous operation
+  and enterprise fleet integration.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://bostondynamics.com/products/atlas/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Atlas →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">A2</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Apptronik · Apollo 2
+</h3>
+
+<p>
+  Apptronik is developing humanoids for
+  industrial and general-purpose work while using
+  Robot Park facilities for fleet-scale
+  real-world data collection.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Robot Park →
+  </a>
+
+  <a
+    class="card-link video"
+    href="https://www.youtube.com/watch?v=iPyxwELiD9Q"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    ▶ Watch
+  </a>
+
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">1X</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  1X · NEO home humanoid
+</h3>
+
+<p>
+  NEO is one of the clearest attempts to move humanoid
+  robotics directly into domestic environments.
+</p>
+
+<p>
+  Important research areas include safe compliant hardware,
+  dexterous tendon-driven hands,
+  household manipulation and human-assisted learning.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.1x.tech/neo"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    NEO →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">D</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Agility Robotics · Digit
+</h3>
+
+<p>
+  Digit is focused on useful logistics work
+  in human-designed industrial facilities.
+</p>
+
+<p>
+  Agility is particularly important as an example
+  of humanoid deployment emphasizing operational safety,
+  workflow integration and measurable industrial value.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.agilityrobotics.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Digit →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">π</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Physical Intelligence · π models
+</h3>
+
+<p>
+  Physical Intelligence develops general-purpose
+  robot policies trained across diverse robots,
+  web-scale visual understanding and real-world
+  manipulation data.
+</p>
+
+<p>
+  π0.5 demonstrated a major research direction:
+  generalization to long-horizon tasks
+  in previously unseen environments.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.physicalintelligence.company/download/pi05.pdf"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    π0.5 paper →
+  </a>
+</div>
+
+</article>
+
+
+<article
+  class="tech-card"
+  data-region="west"
+>
+
+<div class="card-top">
+  <span class="tech-icon">S</span>
+  <span class="region-badge region-west">
+    West
+  </span>
+</div>
+
+<h3>
+  Skild AI · omni-bodied intelligence
+</h3>
+
+<p>
+  Skild's goal is a common robot brain
+  that transfers across robot morphologies
+  rather than being tied to one embodiment.
+</p>
+
+<p>
+  This is a particularly important research direction
+  for scalable cross-platform Physical AI.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.skild.ai/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Skild AI →
+  </a>
+</div>
+
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     CHINA VS WEST
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Ecosystem comparison
+</p>
+
+<h2>
+  China and the West: different strengths, same hard problem
+</h2>
+
+<div class="frontier-columns">
+
+<div class="frontier-column china">
+
+<h3>
+  🇨🇳 China
+</h3>
+
+<ul>
+  <li>
+    Extremely deep manufacturing and component supply chains.
+  </li>
+
+  <li>
+    Rapid mechanical iteration and cost reduction.
+  </li>
+
+  <li>
+    Strong actuator, motor, gearbox, battery,
+    electronics and drone ecosystems.
+  </li>
+
+  <li>
+    Large number of humanoid startups
+    experimenting simultaneously.
+  </li>
+
+  <li>
+    Significant robotaxi deployment through
+    Baidu, Pony.ai, WeRide and others.
+  </li>
+
+  <li>
+    Strong commercial leadership in drones
+    and expanding advanced-air-mobility programs.
+  </li>
+
+  <li>
+    Increasing emphasis on robot datasets,
+    embodied models and open developer platforms.
+  </li>
+</ul>
+
+</div>
+
+
+<div class="frontier-column west">
+
+<h3>
+  🌎 North America & Europe
+</h3>
+
+<ul>
+  <li>
+    Strong frontier foundation-model research.
+  </li>
+
+  <li>
+    Leadership in AI training infrastructure,
+    GPU simulation and large-scale model development.
+  </li>
+
+  <li>
+    Strong university-to-startup research pipelines.
+  </li>
+
+  <li>
+    Increasing enterprise humanoid deployments
+    in logistics and manufacturing.
+  </li>
+
+  <li>
+    Mature ecosystems in surgical robotics,
+    warehouse automation and autonomous vehicles.
+  </li>
+
+  <li>
+    Strong emphasis on safety engineering,
+    validation and enterprise integration.
+  </li>
+
+  <li>
+    Fast-growing open-source robot-learning ecosystem.
+  </li>
+</ul>
+
+</div>
+
+</div>
+
+<p class="small-note" style="margin-top:1rem;">
+  These are broad tendencies rather than strict boundaries.
+  Modern robotics supply chains and AI software stacks
+  are highly interconnected across regions.
+</p>
+
+</section>
+
+
+<!-- =========================================================
+     AUTONOMOUS SYSTEMS
+     ========================================================= -->
+
+<section class="section-block article-card" id="mobility">
+
+<p class="eyebrow">
+  Beyond humanoids
+</p>
+
+<h2>
+  Autonomous vehicles, drones, industrial systems and medical robots
+</h2>
+
+<p class="section-intro">
+  Humanoids receive much of the attention, but some of the
+  most mature forms of Physical AI are already operating
+  in vehicles, warehouses, operating rooms,
+  factories and aerial systems.
+</p>
+
+
+<div class="tech-grid">
+
+
+<article class="tech-card" data-region="west">
+
+<div class="card-top">
+  <span class="tech-icon">AV</span>
+  <span class="region-badge region-west">West</span>
+</div>
+
+<h3>
+  Waymo · fully autonomous driving
+</h3>
+
+<p>
+  Waymo remains one of the leading examples
+  of large-scale autonomous driving moving
+  from research toward everyday transportation.
+</p>
+
+<p>
+  Its technology integrates perception,
+  prediction, planning, mapping,
+  simulation and safety engineering.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://waymo.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Waymo →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="china">
+
+<div class="card-top">
+  <span class="tech-icon">AP</span>
+  <span class="region-badge region-china">China</span>
+</div>
+
+<h3>
+  Baidu Apollo Go · robotaxi
+</h3>
+
+<p>
+  Apollo Go is one of China's largest autonomous
+  ride-hailing programs and is expanding
+  outside mainland China.
+</p>
+
+<p>
+  Robotaxis provide an important large-scale testbed
+  for Physical AI, safety validation
+  and real-world autonomous decision-making.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.apollo.auto/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Apollo →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="china">
+
+<div class="card-top">
+  <span class="tech-icon">P</span>
+  <span class="region-badge region-china">China</span>
+</div>
+
+<h3>
+  Pony.ai
+</h3>
+
+<p>
+  Pony.ai is scaling purpose-built autonomous
+  ride-hailing fleets and expanding internationally.
+</p>
+
+<p>
+  Its work illustrates the shift from autonomous-driving
+  prototypes to fleet economics and mass-produced platforms.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.pony.ai/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Pony.ai →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="china">
+
+<div class="card-top">
+  <span class="tech-icon">WR</span>
+  <span class="region-badge region-china">China</span>
+</div>
+
+<h3>
+  WeRide · Robotaxi / Robobus / Robosweeper
+</h3>
+
+<p>
+  WeRide applies a common autonomy stack across
+  robotaxis, autonomous buses, sweepers
+  and other commercial vehicles.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.weride.ai/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    WeRide →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="china">
+
+<div class="card-top">
+  <span class="tech-icon">DJI</span>
+  <span class="region-badge region-china">China</span>
+</div>
+
+<h3>
+  DJI · autonomous drone infrastructure
+</h3>
+
+<p>
+  Automated drone docks combine autonomous takeoff,
+  landing, charging, remote fleet management,
+  inspection and increasingly AI-assisted operations.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://enterprise.dji.com/dock"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    DJI Dock →
+  </a>
+
+  <a
+    class="card-link video"
+    href="https://www.youtube.com/watch?v=ML56Q14eGjA"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    ▶ Dock 3
+  </a>
+
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="china">
+
+<div class="card-top">
+  <span class="tech-icon">✈</span>
+  <span class="region-badge region-china">China</span>
+</div>
+
+<h3>
+  EHang · autonomous eVTOL
+</h3>
+
+<p>
+  EHang is pushing autonomous aviation into
+  passenger-carrying electric vertical-takeoff
+  and landing systems.
+</p>
+
+<p>
+  This creates a new Physical-AI frontier involving
+  autonomy, aviation certification,
+  fleet management and low-altitude transportation.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.ehang.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    EHang →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="west">
+
+<div class="card-top">
+  <span class="tech-icon">OR</span>
+  <span class="region-badge region-west">West</span>
+</div>
+
+<h3>
+  Intuitive · da Vinci 5
+</h3>
+
+<p>
+  Surgical robotics is one of the most successful
+  areas of advanced human-machine collaboration.
+</p>
+
+<p>
+  da Vinci 5 integrates improved computation,
+  force feedback, visualization
+  and data-driven surgical workflows.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.intuitive.com/en-us/products-and-services/da-vinci/5"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    da Vinci 5 →
+  </a>
+
+  <a
+    class="card-link video"
+    href="https://www.youtube.com/watch?v=MxIuOdny2cs"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    ▶ Watch
+  </a>
+
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="china">
+
+<div class="card-top">
+  <span class="tech-icon">TS</span>
+  <span class="region-badge region-china">China</span>
+</div>
+
+<h3>
+  MicroPort MedBot · telesurgery
+</h3>
+
+<p>
+  China's MicroPort MedBot is developing
+  robotic surgery across multiple specialties.
+</p>
+
+<p>
+  Its Toumai platform is especially significant
+  for long-distance telesurgery,
+  where communications, latency,
+  safety and surgical control converge.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://microport.com/healthcare-professional/surgical-robots"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    MedBot →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="west">
+
+<div class="card-top">
+  <span class="tech-icon">WH</span>
+  <span class="region-badge region-west">West</span>
+</div>
+
+<h3>
+  Symbotic · AI warehouse robotics
+</h3>
+
+<p>
+  Modern warehouses increasingly behave like
+  coordinated robotic organisms rather than
+  collections of independent machines.
+</p>
+
+<p>
+  Symbotic combines large robot fleets,
+  high-density storage and AI-based orchestration.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.symbotic.com/solutions/robots/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Symbotic →
+  </a>
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="west">
+
+<div class="card-top">
+  <span class="tech-icon">ABB</span>
+  <span class="region-badge region-west">West</span>
+</div>
+
+<h3>
+  ABB · industrial Physical AI
+</h3>
+
+<p>
+  Conventional industrial robotics is also being
+  transformed by AI vision, generative models,
+  digital twins and autonomous task adaptation.
+</p>
+
+<div class="card-links">
+
+  <a
+    class="card-link"
+    href="https://www.abb.com/global/en/areas/robotics/innovation"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    ABB innovation →
+  </a>
+
+</div>
+
+</article>
+
+
+<article class="tech-card" data-region="west">
+
+<div class="card-top">
+  <span class="tech-icon">UR</span>
+  <span class="region-badge region-west">West</span>
+</div>
+
+<h3>
+  Universal Robots · AI cobots
+</h3>
+
+<p>
+  Collaborative robots are becoming easier to
+  combine with modern AI perception
+  and learned motion policies.
+</p>
+
+<p>
+  This could make advanced automation
+  accessible to smaller manufacturers
+  without large robotics engineering teams.
+</p>
+
+<div class="card-links">
+  <a
+    class="card-link"
+    href="https://www.universal-robots.com/products/ai-accelerator/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    AI Accelerator →
+  </a>
+</div>
+
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     FRONTIER TOPICS
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Research directions
+</p>
+
+<h2>
+  Other technologies worth tracking closely
+</h2>
+
+<div class="watch-grid">
+
+<div class="watch-item">
+<strong>Soft robotics</strong>
+<span>
+  Compliant structures, artificial muscles,
+  soft grippers and robots that safely adapt
+  their shape to physical contact.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Continuum robots</strong>
+<span>
+  Snake-like and flexible manipulators for
+  medical, inspection and confined-space applications.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Variable-stiffness mechanisms</strong>
+<span>
+  Robots that actively change compliance
+  for safety, manipulation and energy efficiency.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Event-based vision</strong>
+<span>
+  Neuromorphic cameras providing extremely low-latency
+  perception for high-speed motion and robotics.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Electronic skin</strong>
+<span>
+  Distributed tactile sensing for contact-rich
+  manipulation and safer human-robot interaction.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Dexterous teleoperation</strong>
+<span>
+  VR, motion capture and bilateral interfaces
+  used both for remote work and robot data collection.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Robot self-improvement</strong>
+<span>
+  Systems that detect failures, request intervention,
+  collect corrective data and improve future policies.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Neural motion planning</strong>
+<span>
+  Learned planners that generate collision-free
+  robot motion more flexibly than hand-designed pipelines.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>AI-native digital twins</strong>
+<span>
+  Real factories and robots mirrored in simulation
+  for training, optimization and predictive operation.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Field robotics</strong>
+<span>
+  Construction, mining, agriculture,
+  energy infrastructure and hazardous-environment robotics.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Exoskeletons & wearable robotics</strong>
+<span>
+  Robotic assistance that augments human mobility,
+  rehabilitation and industrial strength.
+</span>
+</div>
+
+<div class="watch-item">
+<strong>Home robotics</strong>
+<span>
+  The difficult transition from predictable factories
+  into cluttered, constantly changing domestic environments.
+</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     VIDEOS
+     ========================================================= -->
+
+<section class="section-block article-card" id="media">
+
+<p class="eyebrow">
+  Curated media
+</p>
+
+<h2>
+  Videos and technical demonstrations
+</h2>
+
+<p class="section-intro">
+  A selection of demonstrations worth watching
+  for understanding where robotics is moving.
+</p>
+
+
+<div class="media-grid">
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  NVIDIA · Accelerating Humanoid Development with Isaac GR00T
+</h3>
+
+<p>
+  A useful overview of the modern Physical-AI workflow:
+  simulation, data generation, foundation models
+  and humanoid deployment.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=yvDDpQZliY8"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  NVIDIA Research · Physical AI for the Real World
+</h3>
+
+<p>
+  Research perspectives on robot learning,
+  generalist models, simulation
+  and the remaining challenges in Physical AI.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=OTQIS-GTdV4"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  UBTECH · Walker S2 autonomous battery swapping
+</h3>
+
+<p>
+  Demonstrates one of the practical problems
+  humanoid fleets must solve:
+  autonomous energy management.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=mHP1WGlw5Wk"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  Apptronik · Apollo 2 Robot Park
+</h3>
+
+<p>
+  An example of robotics companies turning
+  physical robot fleets into large-scale
+  data-collection infrastructure.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=iPyxwELiD9Q"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  DJI · Dock 3 autonomous drone operations
+</h3>
+
+<p>
+  Shows how aerial robotics is moving from
+  manually flown drones toward unattended
+  autonomous infrastructure.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=ML56Q14eGjA"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  Intuitive · da Vinci 5
+</h3>
+
+<p>
+  A useful example of mature robotic
+  human-machine collaboration
+  in high-precision surgery.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=MxIuOdny2cs"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  Mercedes-Benz AVTR · robotic bionic flaps
+</h3>
+
+<p>
+  A striking example of biomimetic,
+  interactive mechatronics integrated
+  into vehicle design.
+</p>
+
+<a
+  href="https://www.youtube.com/watch?v=zUYlIJ0X54E"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch on YouTube →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  Boston Dynamics · Atlas
+</h3>
+
+<p>
+  Follow the official Atlas page for
+  current industrial humanoid demonstrations,
+  manipulation and mobility.
+</p>
+
+<a
+  href="https://bostondynamics.com/products/atlas/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Atlas demos →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  Figure · Helix / Figure 03
+</h3>
+
+<p>
+  Long-horizon humanoid manipulation,
+  household tasks and whole-body
+  vision-to-action autonomy.
+</p>
+
+<a
+  href="https://www.figure.ai/helix"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch Figure demos →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">▶</div>
+
+<div>
+
+<h3>
+  Google DeepMind · Gemini Robotics
+</h3>
+
+<p>
+  Demonstrations of embodied reasoning,
+  dexterous manipulation,
+  whole-body control and multi-robot collaboration.
+</p>
+
+<a
+  href="https://deepmind.google/models/gemini-robotics/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Explore demos →
+</a>
+
+</div>
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     PODCASTS
+     ========================================================= -->
+
+<section class="section-block article-card" id="podcasts">
+
+<p class="eyebrow">
+  Long-form listening
+</p>
+
+<h2>
+  Podcasts and expert conversations
+</h2>
+
+<p class="section-intro">
+  Demonstrations show what a robot can do;
+  long-form conversations are often better
+  for understanding why the technology matters,
+  what remains difficult and how the ecosystems differ.
+</p>
+
+
+<div class="media-grid">
+
+
+<article class="media-card">
+
+<div class="media-icon">🎙</div>
+
+<div>
+
+<h3>
+  ChinaTalk · The Robots Are Here
+</h3>
+
+<p>
+  A useful discussion of Unitree,
+  China's robotics supply chain,
+  actuators, manufacturing scale
+  and the economics of humanoid robots.
+</p>
+
+<a
+  href="https://www.chinatalk.media/p/the-robots-are-here"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Listen →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">🎙</div>
+
+<div>
+
+<h3>
+  Pekingology · China's embodied-AI industry
+</h3>
+
+<p>
+  A more policy- and industry-focused discussion
+  of China's embodied-AI ecosystem,
+  strengths, limitations and global implications.
+</p>
+
+<a
+  href="https://www.csis.org/podcasts/pekingology/embodied-ai-and-transformation-chinas-robotics-industry"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Listen →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">🎙</div>
+
+<div>
+
+<h3>
+  ChinaPower · China's Embodied AI
+</h3>
+
+<p>
+  Discussion of embodied AI as a strategic
+  technology and its relationship
+  to China's broader AI and manufacturing ambitions.
+</p>
+
+<a
+  href="https://chinapower.csis.org/podcasts/chinas-embodied-ai/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Listen →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">🎙</div>
+
+<div>
+
+<h3>
+  NVIDIA AI Podcast · Bringing Robots to Life with AI
+</h3>
+
+<p>
+  Covers training infrastructure,
+  simulation, sim-to-real,
+  robot learning and onboard inference.
+</p>
+
+<a
+  href="https://www.nvidia.com/en-us/ai-podcast/episode/2fjBHfDgyepAkUHdIJZVgx/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Listen →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">🎙</div>
+
+<div>
+
+<h3>
+  The Robot Report Podcast
+</h3>
+
+<p>
+  Ongoing interviews with robotics companies,
+  researchers and automation leaders,
+  with a strong emphasis on real deployment.
+</p>
+
+<a
+  href="https://podcasts.apple.com/us/podcast/the-robot-report-podcast/id1517684926"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Podcast →
+</a>
+
+</div>
+</article>
+
+
+<article class="media-card">
+
+<div class="media-icon">🎙</div>
+
+<div>
+
+<h3>
+  The Robot Brains Podcast
+</h3>
+
+<p>
+  Pieter Abbeel's long-form conversations
+  with leading researchers in robotics,
+  robot learning and artificial intelligence.
+</p>
+
+<a
+  href="https://shows.acast.com/the-robot-brains"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Episodes →
+</a>
+
+</div>
+</article>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     OPEN SOURCE
+     ========================================================= -->
+
+<section class="section-block article-card" id="opensource">
+
+<p class="eyebrow">
+  Build and experiment
+</p>
+
+<h2>
+  Open-source and developer resources
+</h2>
+
+<p class="section-intro">
+  These tools are useful for researchers who want to move
+  beyond watching demonstrations and actually develop
+  robot-learning systems.
+</p>
+
+<div class="resource-list">
+
+
+<div class="resource-row">
+<strong>Hugging Face LeRobot</strong>
+<span>
+  Robot interfaces, datasets, imitation learning,
+  RL and modern VLA models.
+</span>
+<a
+  href="https://huggingface.co/docs/lerobot/index"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Documentation →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>NVIDIA Isaac</strong>
+<span>
+  Isaac Sim, Isaac Lab, GR00T,
+  robot learning and simulation.
+</span>
+<a
+  href="https://developer.nvidia.com/isaac/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Developer platform →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>MuJoCo</strong>
+<span>
+  High-performance physics simulation
+  widely used in robot learning.
+</span>
+<a
+  href="https://mujoco.org/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  MuJoCo →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>ROS 2</strong>
+<span>
+  Middleware and software ecosystem
+  for modern robotics development.
+</span>
+<a
+  href="https://docs.ros.org/en/rolling/index.html"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  ROS documentation →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>OpenVLA</strong>
+<span>
+  Open vision-language-action research
+  for robot manipulation.
+</span>
+<a
+  href="https://openvla.github.io/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  OpenVLA →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>Open X-Embodiment</strong>
+<span>
+  Cross-robot datasets designed to help
+  transfer skills between embodiments.
+</span>
+<a
+  href="https://robotics-transformer-x.github.io/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Project →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>LimX developer ecosystem</strong>
+<span>
+  Humanoid, bipedal and reinforcement-learning
+  development resources.
+</span>
+<a
+  href="https://www.limxdynamics.com/en/documents"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Documentation →
+</a>
+</div>
+
+
+<div class="resource-row">
+<strong>AgiBot World</strong>
+<span>
+  Real-world embodied AI datasets
+  and robot-learning ecosystem.
+</span>
+<a
+  href="https://www.agibot.com/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  AgiBot →
+</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     REALITY CHECK
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Important perspective
+</p>
+
+<h2>
+  A robotics demo is not the same as a useful autonomous robot
+</h2>
+
+<div class="reality-box">
+
+<h3>
+  What should we actually evaluate?
+</h3>
+
+<p>
+  Dancing, running, martial arts and highly edited
+  manipulation videos demonstrate valuable advances
+  in mechanical design and control—but they do not
+  necessarily demonstrate economically useful autonomy.
+</p>
+
+<p>
+  The harder benchmarks are:
+  <strong>robustness, task completion rate,
+  recovery from mistakes, adaptation,
+  manipulation precision, uptime,
+  battery life, safety, maintenance cost,
+  data efficiency and total cost per useful task.</strong>
+</p>
+
+<p>
+  This distinction matters in both China and the West.
+  The long-term winners may not be the robots
+  with the most spectacular demonstrations,
+  but those that can perform useful work repeatedly
+  with minimal human intervention.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     WHAT TO WATCH
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Research watchlist
+</p>
+
+<h2>
+  The questions likely to define the next phase of robotics
+</h2>
+
+<div class="watch-grid">
+
+
+<div class="watch-item">
+
+<strong>
+  Can one model control many robots?
+</strong>
+
+<span>
+  Cross-embodiment generalization could dramatically
+  reduce the amount of data needed for every new robot.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Can robots learn from internet video?
+</strong>
+
+<span>
+  Human video contains vastly more physical knowledge
+  than all existing robot datasets combined.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Can robots learn continuously?
+</strong>
+
+<span>
+  Truly useful robots need to improve after deployment
+  rather than remain frozen after training.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Can manipulation scale?
+</strong>
+
+<span>
+  Walking is visually impressive,
+  but dexterous contact-rich manipulation
+  is often the harder economic problem.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Can simulation replace expensive data?
+</strong>
+
+<span>
+  Better world models and physics simulation
+  could radically reduce the cost of robot learning.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Can humanoids achieve useful uptime?
+</strong>
+
+<span>
+  Battery management, thermal limits,
+  actuator reliability and maintenance
+  will matter enormously at fleet scale.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Can Physical AI be certified safely?
+</strong>
+
+<span>
+  General learned policies challenge
+  traditional deterministic robot-safety assumptions.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  Will homes or factories come first?
+</strong>
+
+<span>
+  Factories are structured but require reliability;
+  homes offer enormous value but extreme environmental diversity.
+</span>
+
+</div>
+
+
+<div class="watch-item">
+
+<strong>
+  How fast will hardware costs fall?
+</strong>
+
+<span>
+  Cost reductions in actuators, hands,
+  sensing and compute could be as important
+  as improvements in AI.
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+     ========================================================= -->
+
+<section class="section-block article-card">
+
+<p class="eyebrow">
+  Perspective
+</p>
+
+<h2>
+  Physical AI may become one of the defining technologies of the next decade
+</h2>
+
+<p>
+  Large language models gave machines the ability
+  to manipulate symbols, text, images and software.
+  Robotics adds a much harder requirement:
+  intelligence must operate under
+  <strong>physics, uncertainty, contact,
+  limited energy and real-world consequences.</strong>
+</p>
+
+<p>
+  The frontier therefore lies at the intersection of
+  artificial intelligence, mechanism design,
+  control theory, computer vision,
+  reinforcement learning, simulation,
+  high-performance computing,
+  sensing and manufacturing.
+</p>
+
+<p>
+  China and the West are approaching this frontier
+  with different historical strengths,
+  but the destination is increasingly similar:
+  machines that can understand human intent,
+  reason about a physical environment,
+  acquire new skills and execute useful work
+  safely and autonomously.
+</p>
+
+<div class="frontier-callout">
+
+<strong>
+  A useful way to think about the field:
+</strong>
+
+the robot body provides the
+<strong>physical capability</strong>;
+
+sensors provide
+<strong>perception</strong>;
+
+foundation models provide
+<strong>generalization and reasoning</strong>;
+
+control provides
+<strong>stable motion</strong>;
+
+and real-world data provides
+<strong>experience</strong>.
+
+The breakthrough happens when all five become one system.
+
+</div>
+
+</section>
+
+</main>
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<p>
+  <strong>AIRLab Hassen</strong>
+  · Robotics, autonomy, Lie theory,
+  quantum computation, and machine learning.
+</p>
+
+<p class="footer-links">
+
 <a href="/">Home</a>
 <a href="/research.html">Research</a>
 <a href="/publications.html">Publications</a>
 <a href="/resources.html">Resources</a>
 <a href="/blog.html">Blog</a>
 <a href="/robotics-amharic.html">ሮቦቲክስ</a>
-<a aria-current="page" href="/cutting-edge.html">Cutting-edge</a>
+<a href="/cutting-edge.html">Cutting-edge</a>
 <a href="/contact.html">Contact</a>
-</nav>
-</div>
-</header>
-<div class="page-shell">
-<aside aria-label="Profile summary" class="profile-sidebar">
-<div class="profile-card">
-<div class="avatar-wrap"><img alt="Robotics research visual from original Google Site" class="profile-avatar" data-asset-dir="/assets/img" decoding="async" height="941" loading="lazy" src="/assets/img/futuristic-robotics-ai-lab-scene.png" width="1672"/></div>
-<h2>Hassen Nigatu</h2>
-<p class="sidebar-subtitle">Robotics researcher</p>
-<p class="sidebar-note">Robotic mechanisms, screw-theoretic kinematics, parallel manipulators, robot optimization, and intelligent manipulation.</p>
-<div class="sidebar-links">
-<a href="/publications.html">Publications</a>
-<a href="/research.html">Research</a>
-<a href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar</a>
-<a href="https://github.com/hassity123" rel="noopener noreferrer" target="_blank">GitHub</a>
-</div>
-</div>
-</aside>
-<main class="content-area" id="main">
-<section class="page-hero"><p class="eyebrow">Cutting-edge</p><h1>Timely robotics software and hardware innovations.</h1><p>This page introduces timely cutting-edge innovations and advancements in robotics software and hardware.</p></section>
-<section class="section-block cards-two">
-<article><span class="pill">Video highlight</span><h2>Foldaway immersive virtual reality robotic controller</h2><p>Original media: “CES 2019: Foldaway is Making a Thumbstick for VR That Pushes Back.” The video entry is preserved as a reference because Google Drive media cannot be bundled directly into this static export.</p></article>
-<article>
-  <span class="pill">Video highlight</span>
-  <h2>
-    <a href="https://www.youtube.com/watch?v=zUYlIJ0X54E" target="_blank" rel="noopener noreferrer">
-      Robotic bionic flap mounted on the back of Mercedes AVTR 2020
-    </a>
-  </h2>
-  <p>Original media: “EPFL: unveils robotic bionic flaps for interactive Mercedes Benz AVTR .”</p>
-</article>
 
-<article><span class="pill">Talk</span><h2>A talk on Parallel Manipulators</h2><p>Dr. Clément Gosselin.</p></article>
-<article><span class="pill">Talk</span><h2>A talk on Teaching Robotics</h2><p><a class="text-link" href="https://www.google.com/search?q=Dr.+Ilan+Bonev+Teaching+Robotics" rel="noopener noreferrer" target="_blank">Dr. Ilan Bonev</a>.</p></article>
-</section>
-</main>
+<a
+  href="https://sites.google.com/site/hassennrobotics/home?read_current=1"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Original Google Site
+</a>
+
+</p>
+
 </div>
-<footer class="site-footer">
-<div class="footer-inner">
-<p><strong>AIRLab Hassen</strong> · Robotics, autonomy, Lie theory, quantum computation, and machine learning.</p>
-<p class="footer-links"><a href="/">Home</a><a href="/research.html">Research</a><a href="/publications.html">Publications</a><a href="/resources.html">Resources</a><a href="/blog.html">Blog</a><a href="/robotics-amharic.html">ሮቦቲክስ</a><a href="/cutting-edge.html">Cutting-edge</a><a href="/contact.html">Contact</a><a href="https://sites.google.com/site/hassennrobotics/home?read_current=1" rel="noopener noreferrer" target="_blank">Original Google Site</a></p>
-</div>
+
 </footer>
-<button aria-label="Back to top" class="back-to-top" data-back-to-top="" type="button">↑</button>
-<script defer="" src="/assets/js/site.js"></script>
+
+
+<button
+  aria-label="Back to top"
+  class="back-to-top"
+  data-back-to-top=""
+  type="button"
+>
+  ↑
+</button>
+
+
+<script defer src="/assets/js/site.js"></script>
+
+
+<!-- =========================================================
+     TECHNOLOGY FILTER + SEARCH
+     ========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const buttons =
+    document.querySelectorAll(".filter-btn");
+
+  const cards =
+    document.querySelectorAll(
+      "#technology-grid .tech-card"
+    );
+
+  const search =
+    document.getElementById(
+      "technology-search"
+    );
+
+  let currentFilter = "all";
+
+  function updateCards() {
+
+    const searchTerm =
+      search.value
+        .toLowerCase()
+        .trim();
+
+    cards.forEach(function (card) {
+
+      const regions =
+        (card.dataset.region || "")
+        .toLowerCase();
+
+      const text =
+        card.textContent
+        .toLowerCase();
+
+      const matchesRegion =
+        currentFilter === "all" ||
+        regions.includes(currentFilter);
+
+      const matchesSearch =
+        !searchTerm ||
+        text.includes(searchTerm);
+
+      card.hidden =
+        !(matchesRegion && matchesSearch);
+
+    });
+
+  }
+
+
+  buttons.forEach(function (button) {
+
+    button.addEventListener(
+      "click",
+      function () {
+
+        buttons.forEach(function (b) {
+          b.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        currentFilter =
+          button.dataset.filter;
+
+        updateCards();
+
+      }
+    );
+
+  });
+
+
+  search.addEventListener(
+    "input",
+    updateCards
+  );
+
+});
+
+</script>
+
 </body>
 </html>
