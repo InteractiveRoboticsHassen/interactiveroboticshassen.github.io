@@ -1,129 +1,4657 @@
 <!doctype html>
-
 <html lang="en">
+
 <head>
+
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Research · AIRLab Hassen</title>
 
-<meta content="Research interests, featured robotics projects, and mechanism design gallery for AIRLab Hassen." name="description"/><meta content="#f7fafc" name="theme-color"/><meta content="AIRLab Hassen" property="og:site_name"/><meta content="Research · AIRLab Hassen" property="og:title"/><meta content="Research interests, featured robotics projects, and mechanism design gallery for AIRLab Hassen." property="og:description"/><meta content="website" property="og:type"/><meta content="https://airlabhassen.github.io/research.html" property="og:url"/><meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Research · AIRLab Hassen" name="twitter:title"/><meta content="Research interests, featured robotics projects, and mechanism design gallery for AIRLab Hassen." name="twitter:description"/><meta content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png" name="twitter:image"/><link href="https://airlabhassen.github.io/research.html" rel="canonical"/><link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/site.webmanifest" rel="manifest"/><link href="/assets/css/styles.css" rel="stylesheet"/><style>
-    .feature-card figure a {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-    }
+<meta
+  content="width=device-width,initial-scale=1"
+  name="viewport"
+/>
 
-    /* MMT figure is tall, so keep the whole image visible instead of letting
-       the site-wide feature-card image rules crop it or make it too large. */
-    .feature-card figure.mmt-figure {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #fff;
-      padding: clamp(0.75rem, 2vw, 1.25rem);
-      min-height: 250px;
-      height: auto !important;
-      aspect-ratio: auto !important;
-    }
+<title>
+  Research · AIRLab Hassen
+</title>
 
-    .feature-card figure.mmt-figure img {
-      display: block;
-      width: auto !important;
-      max-width: 100% !important;
-      height: auto !important;
-      max-height: 340px !important;
-      object-fit: contain !important;
-      object-position: center center !important;
-    }
 
-    @media (max-width: 760px) {
-      .feature-card figure.mmt-figure {
-        min-height: 220px;
-      }
+<meta
+  name="description"
+  content="Research portfolio of Hassen Nigatu and AIRLab Hassen covering mathematical robotics, screw theory, Lie groups, parallel manipulators, origami and reconfigurable mechanisms, intelligent manipulation, physics-informed learning, and quantum computing for robotics."
+/>
 
-      .feature-card figure.mmt-figure img {
-        max-height: 280px !important;
-      }
-    }
-  </style></head>
+<meta
+  content="#f7fafc"
+  name="theme-color"
+/>
+
+
+<!-- =========================================================
+     SOCIAL META
+     ========================================================= -->
+
+<meta
+  content="AIRLab Hassen"
+  property="og:site_name"
+/>
+
+<meta
+  content="Research · AIRLab Hassen"
+  property="og:title"
+/>
+
+<meta
+  content="Mathematical robotics, mechanism synthesis, parallel manipulators, intelligent manipulation, physics-informed learning, and quantum robotics."
+  property="og:description"
+/>
+
+<meta
+  content="website"
+  property="og:type"
+/>
+
+<meta
+  content="https://airlabhassen.github.io/research.html"
+  property="og:url"
+/>
+
+<meta
+  content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png"
+  property="og:image"
+/>
+
+<meta
+  content="summary_large_image"
+  name="twitter:card"
+/>
+
+<meta
+  content="Research · AIRLab Hassen"
+  name="twitter:title"
+/>
+
+<meta
+  content="Research in mechanism science, geometric robotics, intelligent manipulation, hybrid learning, and quantum computing for robotics."
+  name="twitter:description"
+/>
+
+<meta
+  content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png"
+  name="twitter:image"
+/>
+
+
+<link
+  href="https://airlabhassen.github.io/research.html"
+  rel="canonical"
+/>
+
+<link
+  href="/assets/img/favicon.svg"
+  rel="icon"
+  type="image/svg+xml"
+/>
+
+<link
+  href="/site.webmanifest"
+  rel="manifest"
+/>
+
+<link
+  href="/assets/css/styles.css"
+  rel="stylesheet"
+/>
+
+
+<!-- =========================================================
+     MATHJAX
+     ========================================================= -->
+
+<script>
+
+window.MathJax = {
+
+  tex: {
+
+    inlineMath: [
+      ['\\(', '\\)'],
+      ['$', '$']
+    ],
+
+    displayMath: [
+      ['\\[', '\\]'],
+      ['$$', '$$']
+    ]
+
+  },
+
+  svg: {
+    fontCache: 'global'
+  }
+
+};
+
+</script>
+
+<script
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+<!-- =========================================================
+     RESEARCH PAGE DESIGN
+     ========================================================= -->
+
+<style>
+
+
+/* =========================================================
+   COLOR SYSTEM
+   ========================================================= */
+
+:root {
+
+  --r-blue: #0b4f91;
+  --r-blue-2: #2563eb;
+  --r-navy: #082f5d;
+  --r-cyan: #0ea5e9;
+
+  --r-green: #059669;
+  --r-purple: #7c3aed;
+  --r-orange: #d97706;
+
+  --r-text: #172033;
+  --r-muted: #64748b;
+
+  --r-border:
+    rgba(15, 23, 42, 0.09);
+
+  --r-soft:
+    #f8fafc;
+
+  --r-shadow:
+    0 14px 34px
+    rgba(15,23,42,.055);
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.research-hero {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding-bottom: 1.3rem;
+
+}
+
+
+.research-hero::after {
+
+  content: "";
+
+  display: block;
+
+  height: 1px;
+
+  margin-top: 1.35rem;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(37,99,235,.32),
+      transparent
+    );
+
+}
+
+
+.research-hero h1 {
+
+  max-width: 920px;
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.2rem
+    );
+
+  line-height: 1.06;
+
+  letter-spacing:
+    -0.04em;
+
+}
+
+
+.research-hero-lead {
+
+  max-width: 920px;
+
+  color: #475569;
+
+  font-size: 1.05rem;
+
+  line-height: 1.75;
+
+}
+
+
+.research-chip-row {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: .5rem;
+
+  margin-top: 1rem;
+
+}
+
+
+.research-chip {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    .43rem .72rem;
+
+  border-radius: 999px;
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid
+    rgba(37,99,235,.14);
+
+  color:
+    #174c88;
+
+  font-size: .8rem;
+
+  font-weight: 680;
+
+}
+
+
+/* =========================================================
+   QUICK NAVIGATION
+   ========================================================= */
+
+.research-jump {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: .48rem;
+
+  margin-top: 1rem;
+
+}
+
+
+.research-jump a {
+
+  text-decoration: none;
+
+  padding:
+    .43rem .7rem;
+
+  border-radius: 9px;
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  color:
+    #334155;
+
+  font-size: .8rem;
+
+  font-weight: 700;
+
+}
+
+
+/* =========================================================
+   RESEARCH VISION
+   ========================================================= */
+
+.research-vision {
+
+  display: grid;
+
+  grid-template-columns:
+    1.4fr .8fr;
+
+  gap: 1rem;
+
+}
+
+
+.vision-main,
+.vision-side {
+
+  padding: 1.25rem;
+
+  border-radius: 20px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background:
+    #fff;
+
+  box-shadow:
+    var(--r-shadow);
+
+}
+
+
+.vision-main {
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0,
+      rgba(37,99,235,.09),
+      transparent 37%
+    ),
+
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f7fbff
+    );
+
+}
+
+
+.vision-main h2,
+.vision-side h2 {
+
+  margin-top: 0;
+
+}
+
+
+.vision-main p {
+
+  line-height: 1.7;
+
+  color: #526175;
+
+}
+
+
+.vision-equation {
+
+  margin-top: 1rem;
+
+  padding:
+    .9rem 1rem;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,.78);
+
+  border:
+    1px solid
+    rgba(37,99,235,.13);
+
+  overflow-x: auto;
+
+}
+
+
+.vision-side ul {
+
+  margin-bottom: 0;
+
+  padding-left: 1.15rem;
+
+}
+
+
+.vision-side li {
+
+  margin:
+    .42rem 0;
+
+  line-height: 1.5;
+
+  color: #526175;
+
+}
+
+
+/* =========================================================
+   PRIMARY RESEARCH PILLARS
+   ========================================================= */
+
+.pillar-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: 1rem;
+
+}
+
+
+.pillar-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 100%;
+
+  padding: 1.25rem;
+
+  border-radius: 20px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+  box-shadow:
+    0 10px 28px
+    rgba(15,23,42,.045);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+.pillar-card:hover {
+
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 18px 40px
+    rgba(15,23,42,.08);
+
+}
+
+
+.pillar-card.geometry {
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0,
+      rgba(37,99,235,.11),
+      transparent 43%
+    ),
+
+    linear-gradient(
+      180deg,
+      #fff,
+      #f5f9ff
+    );
+
+}
+
+
+.pillar-card.hybrid {
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0,
+      rgba(5,150,105,.11),
+      transparent 43%
+    ),
+
+    linear-gradient(
+      180deg,
+      #fff,
+      #f5fbf8
+    );
+
+}
+
+
+.pillar-card.quantum {
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0,
+      rgba(124,58,237,.11),
+      transparent 43%
+    ),
+
+    linear-gradient(
+      180deg,
+      #fff,
+      #faf7ff
+    );
+
+}
+
+
+.pillar-number {
+
+  width: 40px;
+
+  height: 40px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: .75rem;
+
+  border-radius: 12px;
+
+  color: #fff;
+
+  font-weight: 850;
+
+}
+
+
+.geometry .pillar-number {
+  background: #2563eb;
+}
+
+
+.hybrid .pillar-number {
+  background: #059669;
+}
+
+
+.quantum .pillar-number {
+  background: #7c3aed;
+}
+
+
+.pillar-card h3 {
+
+  margin:
+    .25rem 0 .55rem;
+
+  font-size: 1.12rem;
+
+}
+
+
+.pillar-card p {
+
+  color: #526175;
+
+  line-height: 1.6;
+
+  font-size: .92rem;
+
+}
+
+
+.pillar-card ul {
+
+  padding-left: 1.15rem;
+
+  margin-bottom: 0;
+
+}
+
+
+.pillar-card li {
+
+  margin:
+    .38rem 0;
+
+  color: #526175;
+
+  font-size: .86rem;
+
+  line-height: 1.45;
+
+}
+
+
+/* =========================================================
+   RESEARCH MAP SVG
+   ========================================================= */
+
+.research-map {
+
+  margin: 1rem 0 0;
+
+}
+
+
+.research-map svg {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 20px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+  box-shadow:
+    0 10px 30px
+    rgba(15,23,42,.045);
+
+}
+
+
+.research-map figcaption {
+
+  margin-top: .65rem;
+
+  color: #64748b;
+
+  line-height: 1.5;
+
+  font-size: .88rem;
+
+}
+
+
+/* =========================================================
+   TOPIC CARDS
+   ========================================================= */
+
+.topic-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: .9rem;
+
+}
+
+
+.topic-card {
+
+  padding: 1rem;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #fafcff
+    );
+
+  border:
+    1px solid
+    var(--r-border);
+
+}
+
+
+.topic-icon {
+
+  width: 38px;
+
+  height: 38px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 11px;
+
+  margin-bottom: .6rem;
+
+  background: #eff6ff;
+
+  color: #174c88;
+
+  font-weight: 850;
+
+  font-size: .72rem;
+
+}
+
+
+.topic-card h3 {
+
+  margin:
+    .2rem 0 .4rem;
+
+  font-size: .98rem;
+
+}
+
+
+.topic-card p {
+
+  margin: 0;
+
+  color: #64748b;
+
+  line-height: 1.55;
+
+  font-size: .85rem;
+
+}
+
+
+/* =========================================================
+   FEATURED RESEARCH
+   ========================================================= */
+
+.featured-research-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0,1fr)
+    );
+
+  gap: 1rem;
+
+}
+
+
+.research-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+  box-shadow:
+    0 10px 28px
+    rgba(15,23,42,.045);
+
+}
+
+
+.research-card-media {
+
+  height: 245px;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      #ffffff,
+      #f7fafc
+    );
+
+  border-bottom:
+    1px solid
+    rgba(15,23,42,.06);
+
+}
+
+
+.research-card-media img {
+
+  width: 100%;
+
+  height: 100%;
+
+  max-width: 100%;
+
+  max-height: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  display: block;
+
+}
+
+
+.research-card-body {
+
+  padding:
+    1.05rem 1.15rem 1.15rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+}
+
+
+.research-card h3 {
+
+  margin:
+    .55rem 0 .45rem;
+
+  line-height: 1.34;
+
+  font-size: 1.05rem;
+
+}
+
+
+.research-card p {
+
+  color: #526175;
+
+  line-height: 1.6;
+
+  font-size: .9rem;
+
+}
+
+
+.research-card .card-link-row {
+
+  margin-top: auto;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: .45rem;
+
+}
+
+
+.research-card .card-link-row a {
+
+  text-decoration: none;
+
+  padding:
+    .4rem .63rem;
+
+  border-radius: 9px;
+
+  border:
+    1px solid
+    rgba(37,99,235,.15);
+
+  background:
+    #f7fbff;
+
+  color:
+    #174c88;
+
+  font-size: .78rem;
+
+  font-weight: 750;
+
+}
+
+
+/* =========================================================
+   VENUE / STATUS TAGS
+   ========================================================= */
+
+.venue-label {
+
+  display: inline-flex;
+
+  width: fit-content;
+
+  padding:
+    .3rem .55rem;
+
+  border-radius: 999px;
+
+  background:
+    #eef6ff;
+
+  border:
+    1px solid
+    #d5e8ff;
+
+  color:
+    #174c88;
+
+  font-size: .68rem;
+
+  font-weight: 850;
+
+  letter-spacing: .02em;
+
+}
+
+
+.emerging-label {
+
+  display: inline-flex;
+
+  width: fit-content;
+
+  padding:
+    .3rem .55rem;
+
+  border-radius: 999px;
+
+  background:
+    #f3e8ff;
+
+  border:
+    1px solid
+    #ddd6fe;
+
+  color:
+    #6d28d9;
+
+  font-size: .68rem;
+
+  font-weight: 850;
+
+}
+
+
+/* =========================================================
+   METHOD SECTION
+   ========================================================= */
+
+.method-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0,1fr)
+    );
+
+  gap: .75rem;
+
+}
+
+
+.method-step {
+
+  position: relative;
+
+  padding: 1rem;
+
+  border-radius: 16px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+}
+
+
+.method-step strong {
+
+  display: block;
+
+  margin-bottom: .4rem;
+
+  color: var(--r-navy);
+
+}
+
+
+.method-step p {
+
+  margin: 0;
+
+  color: #64748b;
+
+  line-height: 1.5;
+
+  font-size: .84rem;
+
+}
+
+
+/* =========================================================
+   EXPERIMENTAL PLATFORMS
+   ========================================================= */
+
+.platform-banner {
+
+  margin-bottom: 1rem;
+
+}
+
+
+.platform-banner img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 20px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  box-shadow:
+    var(--r-shadow);
+
+}
+
+
+.platform-banner figcaption {
+
+  margin-top: .6rem;
+
+  color: #64748b;
+
+  font-size: .88rem;
+
+}
+
+
+.platform-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: .8rem;
+
+}
+
+
+.platform-item {
+
+  padding: .9rem;
+
+  border-radius: 15px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+}
+
+
+.platform-item strong {
+
+  display: block;
+
+  margin-bottom: .25rem;
+
+  color: var(--r-navy);
+
+}
+
+
+.platform-item span {
+
+  color: #64748b;
+
+  font-size: .83rem;
+
+  line-height: 1.45;
+
+}
+
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.research-gallery {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: .9rem;
+
+}
+
+
+.research-gallery figure {
+
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: #fff;
+
+  border:
+    1px solid
+    var(--r-border);
+
+}
+
+
+.gallery-media {
+
+  height: 205px;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #fafcff;
+
+}
+
+
+.gallery-media img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+
+.research-gallery figcaption {
+
+  padding:
+    .7rem .8rem .8rem;
+
+  color: #526175;
+
+  font-size: .82rem;
+
+  line-height: 1.4;
+
+}
+
+
+/* =========================================================
+   EQUATION BLOCK
+   ========================================================= */
+
+.equation-row {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: .8rem;
+
+}
+
+
+.equation-box {
+
+  padding: 1rem;
+
+  border-radius: 15px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+}
+
+
+.equation-box h3 {
+
+  margin-top: 0;
+
+  font-size: .95rem;
+
+}
+
+
+.math-block {
+
+  overflow-x: auto;
+
+  padding:
+    .7rem .8rem;
+
+  border-radius: 12px;
+
+  background:
+    #f7fbff;
+
+  border:
+    1px solid
+    rgba(37,99,235,.10);
+
+}
+
+
+/* =========================================================
+   RESEARCH TIMELINE
+   ========================================================= */
+
+.timeline {
+
+  position: relative;
+
+  display: grid;
+
+  gap: .8rem;
+
+  margin-top: .8rem;
+
+}
+
+
+.timeline-item {
+
+  display: grid;
+
+  grid-template-columns:
+    82px 1fr;
+
+  gap: .85rem;
+
+}
+
+
+.timeline-year {
+
+  font-weight: 850;
+
+  color:
+    var(--r-blue);
+
+}
+
+
+.timeline-content {
+
+  padding:
+    .9rem 1rem;
+
+  border-radius: 14px;
+
+  background: #fff;
+
+  border:
+    1px solid
+    var(--r-border);
+
+}
+
+
+.timeline-content strong {
+
+  display: block;
+
+  margin-bottom: .25rem;
+
+}
+
+
+.timeline-content p {
+
+  margin: 0;
+
+  color: #64748b;
+
+  line-height: 1.5;
+
+  font-size: .85rem;
+
+}
+
+
+/* =========================================================
+   CURRENT + FUTURE
+   ========================================================= */
+
+.future-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: .8rem;
+
+}
+
+
+.future-card {
+
+  padding: 1rem;
+
+  border-radius: 16px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #fff,
+      #fafcff
+    );
+
+}
+
+
+.future-card strong {
+
+  display: block;
+
+  color: var(--r-navy);
+
+  margin-bottom: .3rem;
+
+}
+
+
+.future-card span {
+
+  color: #64748b;
+
+  line-height: 1.5;
+
+  font-size: .84rem;
+
+}
+
+
+/* =========================================================
+   CODE / SOFTWARE
+   ========================================================= */
+
+.software-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: .8rem;
+
+}
+
+
+.software-card {
+
+  padding: 1rem;
+
+  border-radius: 15px;
+
+  border:
+    1px solid
+    var(--r-border);
+
+  background: #fff;
+
+}
+
+
+.software-card h3 {
+
+  margin-top: 0;
+
+  font-size: .95rem;
+
+}
+
+
+.software-card p {
+
+  color: #64748b;
+
+  font-size: .84rem;
+
+  line-height: 1.5;
+
+}
+
+
+.software-card a {
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  font-size: .82rem;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .pillar-grid,
+  .topic-grid,
+  .platform-grid,
+  .research-gallery,
+  .future-grid,
+  .software-grid {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      );
+
+  }
+
+
+  .method-grid {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      );
+
+  }
+
+
+  .featured-research-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .research-vision {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .pillar-grid,
+  .topic-grid,
+  .platform-grid,
+  .research-gallery,
+  .future-grid,
+  .software-grid,
+  .equation-row,
+  .method-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .timeline-item {
+
+    grid-template-columns: 1fr;
+
+    gap: .3rem;
+
+  }
+
+
+  .research-card-media {
+
+    height: 215px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
 <body class="">
-<a class="skip-link" href="#main">Skip to main content</a>
-<header class="topbar" data-header="">
-<div class="topbar-inner">
-<a aria-label="AIRLab Hassen home" class="site-title" href="/">
-<span aria-hidden="true" class="site-mark">AIR</span>
-<span><strong>AIRLab Hassen</strong><small>Robotics · Mechanisms · Kinematics · Quantum · ML</small></span>
+
+
+<a
+  class="skip-link"
+  href="#main"
+>
+  Skip to main content
 </a>
-<button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
-<nav aria-label="Primary navigation" class="site-nav" id="site-nav">
-<a href="/">Home</a>
-<a aria-current="page" href="/research.html">Research</a>
-<a href="/publications.html">Publications</a>
-<a href="/resources.html">Resources</a>
-<a href="/blog.html">Blog</a>
-<a href="/cutting-edge.html">Cutting-edge</a>
-<a href="/robotics-amharic.html">ሮቦቲክስ</a>
-<a href="/contact.html">Contact</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header
+  class="topbar"
+  data-header=""
+>
+
+<div class="topbar-inner">
+
+
+<a
+  aria-label="AIRLab Hassen home"
+  class="site-title"
+  href="/"
+>
+
+<span
+  aria-hidden="true"
+  class="site-mark"
+>
+  AIR
+</span>
+
+<span>
+
+<strong>
+  AIRLab Hassen
+</strong>
+
+<small>
+  Robotics · Mechanisms · Kinematics · Quantum · ML
+</small>
+
+</span>
+
+</a>
+
+
+<button
+  aria-controls="site-nav"
+  aria-expanded="false"
+  class="nav-toggle"
+  type="button"
+>
+  Menu
+</button>
+
+
+<nav
+  aria-label="Primary navigation"
+  class="site-nav"
+  id="site-nav"
+>
+
+<a href="/">
+  Home
+</a>
+
+<a
+  aria-current="page"
+  href="/research.html"
+>
+  Research
+</a>
+
+<a href="/publications.html">
+  Publications
+</a>
+
+<a href="/resources.html">
+  Resources
+</a>
+
+<a href="/blog.html">
+  Blog
+</a>
+
+<a href="/cutting-edge.html">
+  Cutting-edge
+</a>
+
+<a href="/robotics-amharic.html">
+  ሮቦቲክስ
+</a>
+
+<a href="/contact.html">
+  Contact
+</a>
+
 </nav>
+
 </div>
 </header>
+
+
+<!-- =========================================================
+     PAGE
+     ========================================================= -->
+
 <div class="page-shell">
-<aside aria-label="Profile summary" class="profile-sidebar">
+
+
+<!-- =========================================================
+     SIDEBAR
+     ========================================================= -->
+
+<aside
+  aria-label="Profile summary"
+  class="profile-sidebar"
+>
+
 <div class="profile-card">
-<div class="avatar-wrap"><img alt="Robotics research visual from original Google Site" class="profile-avatar" data-asset-dir="/assets/img" decoding="async" height="941" loading="lazy" src="/assets/img/futuristic-robotics-ai-lab-scene.png" width="1672"/></div>
-<h2>Hassen Nigatu</h2>
-<p class="sidebar-subtitle">Robotics researcher</p>
-<p class="sidebar-note">Robotic mechanisms, screw-theoretic kinematics, parallel manipulators, robot optimization, and intelligent manipulation.</p>
-<div class="sidebar-links">
-<a href="/publications.html">Publications</a>
-<a href="/research.html">Research</a>
-<a href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ" rel="noopener noreferrer" target="_blank">Google Scholar</a>
-<a href="https://github.com/hassity123" rel="noopener noreferrer" target="_blank">GitHub</a>
+
+
+<div class="avatar-wrap">
+
+<img
+  alt="Robotics research visual"
+  class="profile-avatar"
+  data-asset-dir="/assets/img"
+  decoding="async"
+  height="941"
+  loading="lazy"
+  src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+  width="1672"
+/>
+
 </div>
+
+
+<h2>
+  Hassen Nigatu
+</h2>
+
+
+<p class="sidebar-subtitle">
+  Robotics researcher
+</p>
+
+
+<p class="sidebar-note">
+
+Robotic mechanism science,
+screw-theoretic kinematics,
+parallel manipulators,
+Lie-group synthesis,
+intelligent manipulation,
+physics-informed learning,
+and quantum computing for robotics.
+
+</p>
+
+
+<div class="sidebar-links">
+
+<a href="/publications.html">
+  Publications
+</a>
+
+<a href="/research.html">
+  Research
+</a>
+
+<a
+  href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Google Scholar
+</a>
+
+<a
+  href="https://github.com/hassity123"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub
+</a>
+
+</div>
+
 </div>
 </aside>
-<main class="content-area" id="main">
-<section class="page-hero">
-<p class="eyebrow">Research</p>
-<h1>From analytic robot kinematics to quantum-native optimization.</h1>
-<p>Structured research portfolio covering core interests, article abstracts, hardware concepts, simulation projects, and code resources.</p>
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main
+  class="content-area"
+  id="main"
+>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="page-hero research-hero">
+
+<p class="eyebrow">
+  Research
+</p>
+
+
+<h1>
+
+Geometry,
+mechanism intelligence,
+and emerging computation for robotics.
+
+</h1>
+
+
+<p class="research-hero-lead">
+
+My research investigates how robotic systems can be
+<strong>understood analytically</strong>,
+<strong>designed systematically</strong>,
+<strong>optimized intelligently</strong>,
+and ultimately made more capable through
+data-driven and emerging computational methods.
+
+The work spans mathematical mechanism theory,
+screw-theoretic kinematics,
+Lie groups and Lie algebra,
+parallel and reconfigurable robots,
+origami and compliant mechanisms,
+intelligent manipulation,
+physics-informed learning,
+reinforcement learning,
+industrial automation,
+and quantum computing for robotics.
+
+</p>
+
+
+<div class="research-chip-row">
+
+<span class="research-chip">
+  Screw Theory
+</span>
+
+<span class="research-chip">
+  Lie Groups &amp; Lie Algebra
+</span>
+
+<span class="research-chip">
+  Parallel Manipulators
+</span>
+
+<span class="research-chip">
+  Mechanism Synthesis
+</span>
+
+<span class="research-chip">
+  Origami Robotics
+</span>
+
+<span class="research-chip">
+  Intelligent Manipulation
+</span>
+
+<span class="research-chip">
+  Physics-Informed Learning
+</span>
+
+<span class="research-chip">
+  Reinforcement Learning
+</span>
+
+<span class="research-chip">
+  Quantum Robotics
+</span>
+
+</div>
+
+
+<div class="research-jump">
+
+<a href="#vision">
+  Research vision
+</a>
+
+<a href="#pillars">
+  Core pillars
+</a>
+
+<a href="#featured">
+  Featured work
+</a>
+
+<a href="#methods">
+  Methods
+</a>
+
+<a href="#platforms">
+  Experimental platforms
+</a>
+
+<a href="#gallery">
+  Gallery
+</a>
+
+<a href="#timeline">
+  Research evolution
+</a>
+
+<a href="#future">
+  Current directions
+</a>
+
+</div>
+
 </section>
-<section class="section-block compact-block">
-<h2>Research interests</h2>
-<div class="tag-cloud"><span>Robotic mechanisms’ design and analysis</span><span>Theoretical kinematics in screw theory and Lie algebra</span><span>Reconfigurable and modular robots</span><span>Continuum robot analysis and simulation</span><span>Continuum parallel robots</span><span>Kinematics, dynamics, and screw algebra</span><span>Mechanism theory and development</span><span>Manipulation theory and multi-fingered hands</span><span>Rehabilitation and medical robotics</span><span>Robotized packaging and industrial robotics</span><span>Physics-based animation and machine learning</span><span>Quantum computation for robotics</span></div>
+
+
+<!-- =========================================================
+     RESEARCH VISION
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="vision"
+>
+
+
+<div class="research-vision">
+
+
+<div class="vision-main">
+
+<p class="eyebrow">
+  Research philosophy
+</p>
+
+<h2>
+  Structure first. Intelligence second.
+</h2>
+
+<p>
+
+A robot should not be treated only as a collection
+of motors and sensors.
+
+Its geometry determines its allowable motion.
+Its constraints determine its force transmission.
+Its architecture determines its singularities,
+workspace and stiffness.
+Its controller determines how these capabilities
+are exploited.
+And its data-driven intelligence determines how
+well it can adapt when analytical models
+are incomplete.
+
+</p>
+
+
+<p>
+
+My research therefore progresses from
+<strong>
+  mechanism geometry
+</strong>
+to
+<strong>
+  analytical modeling
+</strong>,
+then to
+<strong>
+  optimization and intelligent control
+</strong>,
+and finally toward
+<strong>
+  physics-informed and quantum-enhanced methods
+</strong>.
+
+</p>
+
+
+<div class="vision-equation">
+
+\[
+\boxed{
+\text{Geometry}
+\rightarrow
+\text{Kinematics}
+\rightarrow
+\text{Constraint}
+\rightarrow
+\text{Optimization}
+\rightarrow
+\text{Intelligence}
+}
+\]
+
+</div>
+
+</div>
+
+
+<aside class="vision-side">
+
+<p class="eyebrow">
+  Central questions
+</p>
+
+<h2>
+  What I study
+</h2>
+
+
+<ul>
+
+<li>
+  What motions can a mechanism physically realize?
+</li>
+
+<li>
+  How do passive constraints affect actual mobility?
+</li>
+
+<li>
+  How can parasitic motion be identified and minimized?
+</li>
+
+<li>
+  How can parallel architectures be synthesized systematically?
+</li>
+
+<li>
+  How should geometry be optimized for workspace and dexterity?
+</li>
+
+<li>
+  How can learning improve systems without ignoring physics?
+</li>
+
+<li>
+  Can quantum algorithms help solve expensive robot optimization problems?
+</li>
+
+</ul>
+
+</aside>
+
+</div>
+
 </section>
-<section class="section-block research-feature-list">
-<article class="feature-card">
-<figure><img alt="Quantum Machine Learning and Grover’s Algorithm for robotic manipulator optimization" data-asset-dir="/assets/img" decoding="async" height="603" loading="lazy" src="/assets/img/ral-2025-qml-grover-robotic-manipulators.png" width="787"/></figure>
-<div><span class="pill">RA-L 2025</span><h2>Quantum Machine Learning and Grover’s Algorithm for robot optimization</h2><p>Optimizing high-degree-of-freedom robotic manipulators requires searching complex, high-dimensional configuration spaces. This work introduces a quantum-native framework integrating quantum machine learning with Grover’s algorithm for efficient kinematic optimization.</p><a class="text-link" href="https://ieeexplore.ieee.org/document/11223101/" rel="noopener noreferrer" target="_blank">IEEE Xplore</a></div>
+
+
+<!-- =========================================================
+     CORE PILLARS
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="pillars"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Core research pillars
+</p>
+
+<h2>
+  Three interconnected directions
+</h2>
+
+</div>
+
+
+<div class="pillar-grid">
+
+
+<!-- 1 -->
+
+<article class="pillar-card geometry">
+
+<div class="pillar-number">
+  1
+</div>
+
+<h3>
+  Mathematical Robotics &amp; Mechanism Science
+</h3>
+
+
+<p>
+
+Geometry-first analysis and design of
+robotic mechanisms using screw theory,
+Lie theory,
+constraint spaces,
+Jacobian methods
+and mechanism synthesis.
+
+</p>
+
+
+<ul>
+
+<li>
+  Screw systems and reciprocal screws
+</li>
+
+<li>
+  Lie groups \(SO(3)\) and \(SE(3)\)
+</li>
+
+<li>
+  Lie algebras \(so(3)\) and \(se(3)\)
+</li>
+
+<li>
+  Parallel robot synthesis
+</li>
+
+<li>
+  Parasitic-motion analysis
+</li>
+
+<li>
+  Workspace and dexterity optimization
+</li>
+
+</ul>
+
 </article>
-<article class="feature-card reverse">
-<figure class="mmt-figure"><img alt="A modified Lie group-based synthesis for parallel mechanisms addressing uncontrollable and immovable limb cases" data-asset-dir="/assets/img" decoding="async" height="732" loading="lazy" src="/assets/img/mmt-2025-modified-lie-group-synthesis.png" width="336"/></figure>
-<div><span class="pill">Mechanism and Machine Theory</span><h2>A Modified Lie Group-Based Synthesis for Parallel Mechanisms: Addressing Uncontrollable and Immovable Limb Cases</h2><p>The enhanced method integrates passive degrees of freedom and immovable limb effects into the synthesis process, improving motion representation for mechanisms where conventional intersection operations can fail.</p><a class="text-link" href="https://www.sciencedirect.com/science/article/pii/S0094114X25002721" rel="noopener noreferrer" target="_blank">ScienceDirect</a></div>
+
+
+<!-- 2 -->
+
+<article class="pillar-card hybrid">
+
+<div class="pillar-number">
+  2
+</div>
+
+<h3>
+  Physics-Guided &amp; Data-Driven Robotics
+</h3>
+
+
+<p>
+
+Hybrid robotic intelligence combining
+analytical structure with neural networks,
+reinforcement learning
+and learned corrections.
+
+</p>
+
+
+<ul>
+
+<li>
+  Physics-informed learning
+</li>
+
+<li>
+  Deep neural kinematic correction
+</li>
+
+<li>
+  Reinforcement learning
+</li>
+
+<li>
+  Bayesian estimation
+</li>
+
+<li>
+  Constraint-aware learning
+</li>
+
+<li>
+  Hybrid analytical / learned control
+</li>
+
+</ul>
+
 </article>
-<article class="feature-card">
-<figure><a href="https://www.youtube.com/shorts/cSlBQdhHBWo" rel="noopener noreferrer" target="_blank"><img alt="A parallel robot for dynamic balancing video preview" data-asset-dir="/assets/img" decoding="async" height="720" loading="lazy" src="/assets/img/parallel-robot-dynamic-balancing-video.svg" width="1200"/></a></figure>
-<div><span class="pill">Parallel robot balancing</span><h2>A Parallel Robot for Dynamic Balancing</h2><p>The project shows a three-limb R–R–S parallel manipulator performing high-precision tip–tilt balancing using a constraint-consistent 6×6 Jacobian and passive joint angle estimation instead of direct platform pose sensing.</p><ul class="clean-list"><li>Three identical R–R–S limbs, 120° apart.</li><li>Controlled Rx–Ry tip–tilt with constrained Tx, Ty, and Rz.</li><li>Jerk-limited trajectories, Jacobian synchronization, and ball-position feedback.</li></ul><a class="text-link" href="https://www.youtube.com/shorts/cSlBQdhHBWo" rel="noopener noreferrer" target="_blank">Video</a></div>
+
+
+<!-- 3 -->
+
+<article class="pillar-card quantum">
+
+<div class="pillar-number">
+  3
+</div>
+
+<h3>
+  Quantum Computing for Robotics
+</h3>
+
+
+<p>
+
+Investigation of hybrid and quantum-native algorithms
+for expensive robotic search,
+optimization
+and machine-learning problems.
+
+</p>
+
+
+<ul>
+
+<li>
+  Quantum machine learning
+</li>
+
+<li>
+  Variational quantum circuits
+</li>
+
+<li>
+  Grover search
+</li>
+
+<li>
+  Kinematic optimization
+</li>
+
+<li>
+  Quantum reinforcement learning
+</li>
+
+<li>
+  Quantum planning and multi-robot systems
+</li>
+
+</ul>
+
 </article>
+
+</div>
+
 </section>
+
+
+<!-- =========================================================
+     RESEARCH MAP
+     ========================================================= -->
+
 <section class="section-block">
-<div class="section-heading"><p class="eyebrow">Project gallery</p><h2>Mechanisms, robots, and simulation artifacts</h2></div>
-<div class="figure-row three"><figure><img alt="Modular robot concept" data-asset-dir="/assets/img" decoding="async" height="426" loading="lazy" src="/assets/img/modular-robot-concept.png" width="842"/><figcaption>Modular robot concept</figcaption></figure><figure><img alt="3PRS PKM Sprint Z3" data-asset-dir="/assets/img" decoding="async" height="504" loading="lazy" src="/assets/img/3prs-pkm-sprint-z3.png" width="704"/><figcaption>3PRS PKM (Sprint Z3)</figcaption></figure><figure><img alt="Parallel kinematic machines 3PRS and 3RPS" data-asset-dir="/assets/img" decoding="async" height="616" loading="lazy" src="/assets/img/parallel-kinematic-machines-3prs-3rps.png" width="1082"/><figcaption>Parallel kinematic machines (3PRS and 3RPS)</figcaption></figure><figure><img alt="Minimal actuation driven dual-axis sun tracker" data-asset-dir="/assets/img" decoding="async" height="638" loading="lazy" src="/assets/img/minimal-actuation-dual-axis-sun-tracker.png" width="1261"/><figcaption>Minimal actuation driven dual-axis sun tracker</figcaption></figure><figure><img alt="Constraint-embedded parasitic motion analysis workflow" data-asset-dir="/assets/img" decoding="async" height="720" loading="lazy" src="/assets/img/constraint-embedded-parasitic-motion-analysis-workflow.png" width="1194"/><figcaption>Constraint-embedded parasitic motion analysis workflow</figcaption></figure><figure><img alt="Serial and parallel manipulators" data-asset-dir="/assets/img" decoding="async" height="588" loading="lazy" src="/assets/img/serial-and-parallel-manipulators.png" width="1192"/><figcaption>Serial and parallel manipulators</figcaption></figure></div>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Research architecture
+</p>
+
+<h2>
+  From physical structure to intelligent computation
+</h2>
+
+</div>
+
+
+<figure class="research-map">
+
+
+<svg
+  viewBox="0 0 1200 430"
+  role="img"
+  aria-labelledby="researchMapTitle researchMapDesc"
+>
+
+
+<title id="researchMapTitle">
+  AIRLab research architecture
+</title>
+
+
+<desc id="researchMapDesc">
+
+Diagram showing mechanism geometry,
+screw and Lie theory,
+optimization,
+learning,
+and quantum computation
+forming an integrated robotics research pipeline.
+
+</desc>
+
+
+<defs>
+
+
+<linearGradient
+  id="mapBg"
+  x1="0"
+  x2="1"
+>
+
+<stop
+  offset="0%"
+  stop-color="#f8fbff"
+/>
+
+<stop
+  offset="100%"
+  stop-color="#f5f7ff"
+/>
+
+</linearGradient>
+
+
+<marker
+  id="researchArrow"
+  viewBox="0 0 10 10"
+  refX="9"
+  refY="5"
+  markerWidth="7"
+  markerHeight="7"
+  orient="auto-start-reverse"
+>
+
+<path
+  d="M 0 0 L 10 5 L 0 10 z"
+  fill="#2563eb"
+/>
+
+</marker>
+
+
+</defs>
+
+
+<rect
+  width="1200"
+  height="430"
+  rx="22"
+  fill="url(#mapBg)"
+/>
+
+
+<text
+  x="55"
+  y="56"
+  font-size="27"
+  font-weight="700"
+  fill="#0b376b"
+>
+
+Integrated Research Framework
+
+</text>
+
+
+<text
+  x="55"
+  y="88"
+  font-size="16"
+  fill="#64748b"
+>
+
+Mechanism geometry provides structure; learning and advanced computation extend capability.
+
+</text>
+
+
+<!-- Geometry -->
+
+<rect
+  x="45"
+  y="150"
+  width="185"
+  height="145"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfdbfe"
+/>
+
+<text
+  x="138"
+  y="187"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Mechanism
+</text>
+
+<text
+  x="138"
+  y="216"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Geometry
+</text>
+
+<text
+  x="138"
+  y="253"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  links · joints · topology
+</text>
+
+
+<!-- Arrow -->
+
+<line
+  x1="232"
+  y1="223"
+  x2="290"
+  y2="223"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#researchArrow)"
+/>
+
+
+<!-- Theory -->
+
+<rect
+  x="300"
+  y="150"
+  width="195"
+  height="145"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfdbfe"
+/>
+
+<text
+  x="398"
+  y="185"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Screw &amp;
+</text>
+
+<text
+  x="398"
+  y="214"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Lie Theory
+</text>
+
+<text
+  x="398"
+  y="253"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  twists · constraints · groups
+</text>
+
+
+<!-- Arrow -->
+
+<line
+  x1="497"
+  y1="223"
+  x2="555"
+  y2="223"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#researchArrow)"
+/>
+
+
+<!-- Modeling -->
+
+<rect
+  x="565"
+  y="150"
+  width="195"
+  height="145"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfdbfe"
+/>
+
+<text
+  x="662"
+  y="187"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Modeling &amp;
+</text>
+
+<text
+  x="662"
+  y="216"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Optimization
+</text>
+
+<text
+  x="662"
+  y="253"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  workspace · Jacobian · design
+</text>
+
+
+<!-- Split arrows -->
+
+<line
+  x1="762"
+  y1="223"
+  x2="820"
+  y2="178"
+  stroke="#059669"
+  stroke-width="3"
+/>
+
+<line
+  x1="762"
+  y1="223"
+  x2="820"
+  y2="270"
+  stroke="#7c3aed"
+  stroke-width="3"
+/>
+
+
+<!-- Learning -->
+
+<rect
+  x="830"
+  y="115"
+  width="250"
+  height="125"
+  rx="18"
+  fill="#f5fbf8"
+  stroke="#a7f3d0"
+/>
+
+<text
+  x="955"
+  y="157"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#047857"
+>
+  Physics-Guided AI
+</text>
+
+<text
+  x="955"
+  y="194"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  DNN · RL · estimation · control
+</text>
+
+
+<!-- Quantum -->
+
+<rect
+  x="830"
+  y="260"
+  width="250"
+  height="125"
+  rx="18"
+  fill="#faf7ff"
+  stroke="#ddd6fe"
+/>
+
+<text
+  x="955"
+  y="302"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#6d28d9"
+>
+  Quantum Robotics
+</text>
+
+<text
+  x="955"
+  y="339"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  QML · Grover · optimization
+</text>
+
+
+<!-- convergence -->
+
+<path
+  d="M1081 178 C1140 178 1140 250 1100 250"
+  fill="none"
+  stroke="#059669"
+  stroke-width="2.5"
+/>
+
+<path
+  d="M1081 322 C1140 322 1140 250 1100 250"
+  fill="none"
+  stroke="#7c3aed"
+  stroke-width="2.5"
+/>
+
+
+<circle
+  cx="1105"
+  cy="250"
+  r="25"
+  fill="#0b4f91"
+/>
+
+
+<text
+  x="1105"
+  y="255"
+  text-anchor="middle"
+  font-size="13"
+  font-weight="700"
+  fill="#ffffff"
+>
+  ROBOT
+</text>
+
+
+</svg>
+
+
+<figcaption>
+
+Research framework connecting mechanism architecture,
+geometric modeling,
+optimization,
+learning
+and quantum computation.
+
+</figcaption>
+
+</figure>
+
 </section>
-<section class="section-block split-block">
-<div><p class="eyebrow">Project taxonomy</p><h2>Kinematics, control, animation, machine learning, and HCI</h2></div>
-<div class="project-list"><article><h3>Kinematics</h3><ul><li>Serial robots: UR10 kinematics</li><li>Parallel robots: Sprint Z3 and A3 Head</li><li>Mobile robots: modular robot</li></ul></article><article><h3>Control</h3><ul><li><a class="text-link" href="https://github.com/hassity123/Keyboard-touch-Dynamizel-control-" rel="noopener noreferrer" target="_blank">Dynamixel keyboard-based control</a></li><li>Servo control via Bluetooth</li></ul></article><article><h3>Physics-based animation</h3><ul><li>Rope simulation</li><li>Snake simulation</li><li>Cloth simulation</li><li>Bouncing ball</li></ul></article><article><h3>Machine learning and HCI</h3><ul><li>Korean alphabet recognition</li><li><a class="text-link" href="https://github.com/hassity123/Voice-based-control-PowerPoint" rel="noopener noreferrer" target="_blank">Voice-based PowerPoint control</a></li></ul></article></div>
+
+
+<!-- =========================================================
+     RESEARCH TOPICS
+     ========================================================= -->
+
+<section class="section-block">
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Research domains
+</p>
+
+<h2>
+  Specific technical areas
+</h2>
+
+</div>
+
+
+<div class="topic-grid">
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  ST
+</div>
+
+<h3>
+  Screw Theory
+</h3>
+
+<p>
+  Twist and wrench spaces,
+  reciprocal screws,
+  Plücker coordinates,
+  constraint analysis
+  and screw-based performance modeling.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  LG
+</div>
+
+<h3>
+  Lie Groups &amp; Lie Algebra
+</h3>
+
+<p>
+  \(SO(3)\), \(SE(3)\),
+  subgroup structure,
+  Lie-algebraic synthesis
+  and geometric classification of robot motions.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  PM
+</div>
+
+<h3>
+  Parallel Manipulators
+</h3>
+
+<p>
+  Lower-DoF PKMs,
+  parasitic motion,
+  singularity analysis,
+  kinematic optimization
+  and architecture synthesis.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  RG
+</div>
+
+<h3>
+  Reconfigurable Mechanisms
+</h3>
+
+<p>
+  Mechanisms whose mobility,
+  topology
+  or functional behavior changes
+  through configuration.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  OR
+</div>
+
+<h3>
+  Origami &amp; Morphing Robots
+</h3>
+
+<p>
+  Foldable structures,
+  thickness accommodation,
+  multiple locomotion,
+  kinematically decoupled origami mechanisms
+  and morphing surfaces.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  CR
+</div>
+
+<h3>
+  Continuum Robotics
+</h3>
+
+<p>
+  Continuously deformable mechanisms,
+  continuum parallel structures,
+  simulation,
+  kinematics
+  and medical-robotics applications.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  IM
+</div>
+
+<h3>
+  Intelligent Manipulation
+</h3>
+
+<p>
+  Underactuated hands,
+  adaptive grasping,
+  Fin-Ray-inspired gripping,
+  robotic assembly
+  and contact-rich manipulation.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  AI
+</div>
+
+<h3>
+  Robot Learning
+</h3>
+
+<p>
+  Reinforcement learning,
+  deep neural models,
+  hybrid model-based learning,
+  physics-guided intelligence
+  and Bayesian estimation.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-icon">
+  QR
+</div>
+
+<h3>
+  Quantum Robotics
+</h3>
+
+<p>
+  Quantum machine learning,
+  variational circuits,
+  Grover search,
+  quantum optimization,
+  quantum RL
+  and future robotic applications.
+</p>
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- =========================================================
+     MATHEMATICAL FOUNDATION
+     ========================================================= -->
+
+<section class="section-block">
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Analytical foundation
+</p>
+
+<h2>
+  Mathematical tools used across the research
+</h2>
+
+</div>
+
+
+<div class="equation-row">
+
+
+<div class="equation-box">
+
+<h3>
+  Rigid-body motion
+</h3>
+
+<div class="math-block">
+
+\[
+T =
+\begin{bmatrix}
+R & p\\
+0 & 1
+\end{bmatrix}
+\in SE(3)
+\]
+
+</div>
+
+</div>
+
+
+<div class="equation-box">
+
+<h3>
+  Screw representation
+</h3>
+
+<div class="math-block">
+
+\[
+\mathcal S
+=
+\begin{bmatrix}
+\omega\\
+v
+\end{bmatrix}
+\]
+
+</div>
+
+</div>
+
+
+<div class="equation-box">
+
+<h3>
+  Differential kinematics
+</h3>
+
+<div class="math-block">
+
+\[
+V = J(q)\dot q
+\]
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURED RESEARCH
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="featured"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Featured research
+</p>
+
+<h2>
+  Representative publications and projects
+</h2>
+
+</div>
+
+
+<div class="featured-research-grid">
+
+
+<!-- QML -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Quantum machine learning and Grover's algorithm for robotic manipulator optimization"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/ral-2025-qml-grover-robotic-manipulators.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  IEEE RA-L · 2025
+</span>
+
+<h3>
+  Quantum Machine Learning and Grover’s Algorithm for Quantum Optimization of Robotic Manipulators
+</h3>
+
+<p>
+
+A quantum-native optimization framework
+combining a parameterized quantum model
+with Grover search
+for robot kinematic optimization.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://ieeexplore.ieee.org/document/11223101/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  IEEE Xplore
+</a>
+
+<a
+  href="https://arxiv.org/abs/2509.07216"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Preprint
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- QML REVIEW -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Quantum computing and robotics research visual"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  Quantum Robotics · 2026
+</span>
+
+<h3>
+  Quantum Machine Learning for Robotics: Algorithms, Applications, and Future Directions
+</h3>
+
+<p>
+
+A comprehensive review of quantum machine learning,
+quantum reinforcement learning,
+planning,
+optimization,
+multi-robot systems
+and the near- and long-term roadmap
+for quantum-enhanced robotics.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://doi.org/10.65218/jius.2026.13"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  DOI
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- MMT -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Modified Lie group-based synthesis for parallel mechanisms"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/mmt-2025-modified-lie-group-synthesis.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  Mechanism and Machine Theory · 2025
+</span>
+
+<h3>
+  Modified Lie Group-Based Synthesis for Parallel Mechanisms
+</h3>
+
+<p>
+
+A systematic extension of Lie-group-based mechanism synthesis
+that addresses uncontrollable passive DoF,
+ineffective joints
+and immovable limb cases.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://www.sciencedirect.com/science/article/pii/S0094114X25002721"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  ScienceDirect
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- SO3 -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="SO(3) parallel robot variants and humanoid eye prototype"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/ral-2025-so3-humanoid-eye.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  IEEE RA-L · 2025
+</span>
+
+<h3>
+  Unveiling SO(3) Parallel Robot Variants
+</h3>
+
+<p>
+
+Analytical Lie-algebra classification
+of rotational parallel robot variants,
+followed by evaluation
+and application of an optimized architecture
+to a humanoid robotic eye.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://doi.org/10.1109/LRA.2025.3606380"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  DOI
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- ORIGAMI DNN -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Origami parallel robot research"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  Actuators · 2025
+</span>
+
+<h3>
+  DNN-Augmented Three-DoF Origami Parallel Robot
+</h3>
+
+<p>
+
+A kinematically decoupled origami parallel robot
+for precise heave and tilt motion,
+augmented with deep neural modeling
+for enhanced motion accuracy.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://doi.org/10.3390/act14060291"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  DOI
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- RCIM -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Novel screw fastening manipulator"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/rcim-2026-screw-fastening-manipulator.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  RCIM · 2026
+</span>
+
+<h3>
+  Novel Screw Fastening Manipulator for Small-Batch Production
+</h3>
+
+<p>
+
+A robotic fastening system addressing
+multi-phase operation
+and intelligent torque estimation,
+demonstrating the transition
+from mechanism design
+toward industrial robotic intelligence.
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- STARFISH -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Active morphable pneumatic bilayer planar actuator inspired by starfish"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/ral-2025-starfish-pneumatic-actuator.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  IEEE RA-L · 2025
+</span>
+
+<h3>
+  Starfish-Inspired Active Morphable Pneumatic Bilayer Actuator
+</h3>
+
+<p>
+
+Bio-inspired morphing actuation
+combining pneumatic deformation,
+programmable geometry
+and robotic morphing behavior.
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- GRIPPER -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Under-actuated robotic gripper inspired by a human finger"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/iros-2024-under-actuated-gripper.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  IEEE/RSJ IROS · 2024
+</span>
+
+<h3>
+  Under-Actuated Robotic Gripper with Multiple Grasping Modes
+</h3>
+
+<p>
+
+A biologically inspired
+multi-mode gripper architecture
+designed around underactuation
+and human-finger-inspired grasping mechanics.
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- ORIGAMI LOCOMOTION -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Multiple-locomotion origami robot"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/iros-2024-origami-robot.png"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  IEEE/RSJ IROS · 2024
+</span>
+
+<h3>
+  Multiple-Locomotion Origami Robot
+</h3>
+
+<p>
+
+Theoretical modeling
+and bio-inspired trajectory optimization
+for an origami robot
+capable of multiple locomotion modes.
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- RL PREPRINT -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<img
+  alt="Cooperative Delta and 3-RRS parallel robot research"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-robot-dynamic-balancing-video.svg"
+/>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="emerging-label">
+  Emerging Research · 2026
+</span>
+
+<h3>
+  Kinematics-Aware Reinforcement Learning for Cooperative Parallel Robot Insertion
+</h3>
+
+<p>
+
+A cooperative Delta + 3-RRS robotic framework
+combining geometric design optimization
+with Rainbow deep reinforcement learning
+for constrained peg-in-hole manipulation.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://arxiv.org/abs/2605.11697"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Preprint
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- BALANCING -->
+
+<article class="research-card">
+
+<div class="research-card-media">
+
+<a
+  href="https://www.youtube.com/shorts/cSlBQdhHBWo"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+
+<img
+  alt="Parallel robot for dynamic balancing"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-robot-dynamic-balancing-video.svg"
+/>
+
+</a>
+
+</div>
+
+
+<div class="research-card-body">
+
+<span class="venue-label">
+  Experimental Research
+</span>
+
+<h3>
+  Parallel Robot for Dynamic Balancing
+</h3>
+
+<p>
+
+A three-limb parallel manipulator
+for high-precision tip–tilt balancing,
+using Jacobian-based synchronization,
+constraint-consistent motion
+and ball-position feedback.
+
+</p>
+
+
+<div class="card-link-row">
+
+<a
+  href="https://www.youtube.com/shorts/cSlBQdhHBWo"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch video
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     METHODS
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="methods"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Methodology
+</p>
+
+<h2>
+  Typical research workflow
+</h2>
+
+</div>
+
+
+<div class="method-grid">
+
+
+<div class="method-step">
+
+<strong>
+  01 · Architecture
+</strong>
+
+<p>
+
+Define links,
+joints,
+topology,
+actuation
+and task requirements.
+
+</p>
+
+</div>
+
+
+<div class="method-step">
+
+<strong>
+  02 · Geometry
+</strong>
+
+<p>
+
+Derive allowable
+motion and constraint spaces
+using screw or Lie methods.
+
+</p>
+
+</div>
+
+
+<div class="method-step">
+
+<strong>
+  03 · Optimization
+</strong>
+
+<p>
+
+Study workspace,
+conditioning,
+dexterity,
+parasitic motion
+and geometric parameters.
+
+</p>
+
+</div>
+
+
+<div class="method-step">
+
+<strong>
+  04 · Intelligence
+</strong>
+
+<p>
+
+Add control,
+estimation,
+learning
+or quantum optimization
+where computational complexity requires it.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIMENTAL PLATFORMS
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="platforms"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Experimental research platforms
+</p>
+
+<h2>
+  Hardware supporting the analytical work
+</h2>
+
+</div>
+
+
+<figure class="platform-banner">
+
+<img
+  alt="AIRLab Hassen experimental robotic testbeds"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/Resources.png"
+/>
+
+<figcaption>
+
+Robotic platforms and modular testbeds
+used for mechanism,
+control,
+manipulation
+and embodied-intelligence experiments.
+
+</figcaption>
+
+</figure>
+
+
+<div class="platform-grid">
+
+
+<div class="platform-item">
+
+<strong>
+  Fairino FR3 + Fin-Ray gripper
+</strong>
+
+<span>
+
+Collaborative manipulation,
+adaptive grasping,
+assembly
+and human-safe experimental work.
+
+</span>
+
+</div>
+
+
+<div class="platform-item">
+
+<strong>
+  3-RRS parallel robot
+</strong>
+
+<span>
+
+Rotational and balancing experiments,
+constraint modeling,
+orientation control
+and RL-assisted cooperative manipulation.
+
+</span>
+
+</div>
+
+
+<div class="platform-item">
+
+<strong>
+  3-limb R-P-S testbed
+</strong>
+
+<span>
+
+Parallel mechanism experiments
+for lower-DoF motion,
+constraint analysis
+and architecture studies.
+
+</span>
+
+</div>
+
+
+<div class="platform-item">
+
+<strong>
+  SO(3) parallel robot
+</strong>
+
+<span>
+
+Orientation mechanism
+for rotational workspace,
+dexterity
+and humanoid-eye-related studies.
+
+</span>
+
+</div>
+
+
+<div class="platform-item">
+
+<strong>
+  Miniaturized origami parallel robot
+</strong>
+
+<span>
+
+Compact mechanism platform
+for foldable robotics,
+precision motion
+and intelligent model compensation.
+
+</span>
+
+</div>
+
+
+<div class="platform-item">
+
+<strong>
+  2RRS/RRRU platform
+</strong>
+
+<span>
+
+Parallel-robot research platform
+for mechanism development,
+kinematic experimentation
+and high-precision motion studies.
+
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="gallery"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Mechanism gallery
+</p>
+
+<h2>
+  Selected models, prototypes, and analytical artifacts
+</h2>
+
+</div>
+
+
+<div class="research-gallery">
+
+
+<figure>
+
+<div class="gallery-media">
+
+<img
+  alt="Modular robot concept"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/modular-robot-concept.png"
+/>
+
+</div>
+
+<figcaption>
+  Modular robot concept
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<div class="gallery-media">
+
+<img
+  alt="3PRS parallel kinematic machine Sprint Z3"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/3prs-pkm-sprint-z3.png"
+/>
+
+</div>
+
+<figcaption>
+  3PRS PKM — Sprint Z3
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<div class="gallery-media">
+
+<img
+  alt="Parallel kinematic machines 3PRS and 3RPS"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
+/>
+
+</div>
+
+<figcaption>
+  3PRS and 3RPS parallel kinematic machines
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<div class="gallery-media">
+
+<img
+  alt="Minimal actuation dual-axis sun tracker"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/minimal-actuation-dual-axis-sun-tracker.png"
+/>
+
+</div>
+
+<figcaption>
+  Minimal-actuation dual-axis sun tracker
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<div class="gallery-media">
+
+<img
+  alt="Constraint embedded parasitic motion analysis workflow"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/constraint-embedded-parasitic-motion-analysis-workflow.png"
+/>
+
+</div>
+
+<figcaption>
+  Constraint-embedded parasitic-motion analysis
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<div class="gallery-media">
+
+<img
+  alt="Serial and parallel manipulators"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/serial-and-parallel-manipulators.png"
+/>
+
+</div>
+
+<figcaption>
+  Serial and parallel robotic architectures
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     RESEARCH EVOLUTION
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="timeline"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Research evolution
+</p>
+
+<h2>
+  From classical mechanism analysis to hybrid intelligence
+</h2>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+  2012–2014
+</div>
+
+<div class="timeline-content">
+
+<strong>
+  Screw-theoretic PKM modeling
+</strong>
+
+<p>
+
+Dynamic formulation,
+Jacobian analysis,
+stiffness modeling
+and acceleration analysis
+of lower-DoF parallel mechanisms.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+  2020–2021
+</div>
+
+<div class="timeline-content">
+
+<strong>
+  Parasitic motion and constraint-embedded analysis
+</strong>
+
+<p>
+
+Analytical coupling relations,
+structural constraints,
+3RPS/3PRS concomitant motion
+and constraint-embedded Jacobian methods.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+  2023
+</div>
+
+<div class="timeline-content">
+
+<strong>
+  Dimensionally homogeneous optimization
+</strong>
+
+<p>
+
+Workspace optimization
+and performance evaluation
+using dimensionally homogeneous,
+constraint-consistent Jacobian formulations.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+  2024–2025
+</div>
+
+<div class="timeline-content">
+
+<strong>
+  Mechanism intelligence and architectural expansion
+</strong>
+
+<p>
+
+Origami robots,
+underactuated grasping,
+SO(3) parallel robots,
+deep neural augmentation,
+bio-inspired actuation
+and Lie-group-based mechanism synthesis.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+  2025–2026
+</div>
+
+<div class="timeline-content">
+
+<strong>
+  Quantum and learning-enhanced robotics
+</strong>
+
+<p>
+
+Quantum-native manipulator optimization,
+quantum robotics review,
+industrial Bayesian estimation
+and reinforcement-learning-based cooperative parallel robots.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CURRENT DIRECTIONS
+     ========================================================= -->
+
+<section
+  class="section-block"
+  id="future"
+>
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Current and future directions
+</p>
+
+<h2>
+  Where the research is moving
+</h2>
+
+</div>
+
+
+<div class="future-grid">
+
+
+<div class="future-card">
+
+<strong>
+  Lie-Group Robot Synthesis
+</strong>
+
+<span>
+
+More systematic architecture generation
+for parallel and reconfigurable robots,
+including passive and degenerate cases.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Physics-Informed Robotics
+</strong>
+
+<span>
+
+Learning dynamics,
+friction,
+compliance
+and uncertainty
+without discarding analytical structure.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Constraint-Aware Reinforcement Learning
+</strong>
+
+<span>
+
+Embedding kinematic feasibility,
+workspace boundaries
+and singularity awareness
+inside robotic learning policies.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Quantum Robot Optimization
+</strong>
+
+<span>
+
+Extending hybrid quantum-classical methods
+to inverse kinematics,
+architecture optimization,
+planning
+and robot coordination.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Dexterous Adaptive Manipulation
+</strong>
+
+<span>
+
+Underactuation,
+Fin-Ray-inspired grasping,
+tactile behavior
+and intelligent robotic assembly.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Cooperative Parallel Robotics
+</strong>
+
+<span>
+
+Multi-mechanism systems
+that combine complementary mobility
+for precision manipulation and insertion.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Origami &amp; Morphing Systems
+</strong>
+
+<span>
+
+Compact,
+reconfigurable
+and shape-programmable mechanisms
+for lightweight robotic systems.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Continuum Parallel Robots
+</strong>
+
+<span>
+
+Merging continuum mechanics
+with parallel architecture
+for medical
+and constrained-space applications.
+
+</span>
+
+</div>
+
+
+<div class="future-card">
+
+<strong>
+  Hybrid Intelligent Robotics
+</strong>
+
+<span>
+
+Combining geometric mechanics,
+machine learning,
+physical constraints
+and emerging computation
+within unified robotic systems.
+
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SOFTWARE / IMPLEMENTATION
+     ========================================================= -->
+
+<section class="section-block">
+
+
+<div class="section-heading">
+
+<p class="eyebrow">
+  Implementation
+</p>
+
+<h2>
+  Software, controls, and computational projects
+</h2>
+
+</div>
+
+
+<div class="software-grid">
+
+
+<div class="software-card">
+
+<h3>
+  Robot Kinematics
+</h3>
+
+<p>
+
+Serial robot kinematics,
+UR10 modeling,
+Sprint Z3,
+A3 Head
+and parallel robot analysis.
+
+</p>
+
+</div>
+
+
+<div class="software-card">
+
+<h3>
+  Robot Control
+</h3>
+
+<p>
+
+Dynamixel control,
+servo control,
+Bluetooth interfaces
+and experimental mechanism actuation.
+
+</p>
+
+<a
+  href="https://github.com/hassity123/Keyboard-touch-Dynamizel-control-"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub →
+</a>
+
+</div>
+
+
+<div class="software-card">
+
+<h3>
+  Physics-Based Simulation
+</h3>
+
+<p>
+
+Rope,
+snake,
+cloth,
+bouncing-ball
+and physical animation experiments.
+
+</p>
+
+</div>
+
+
+<div class="software-card">
+
+<h3>
+  Machine Learning
+</h3>
+
+<p>
+
+Korean alphabet recognition,
+deep neural mechanism models,
+reinforcement learning
+and robotic estimation.
+
+</p>
+
+</div>
+
+
+<div class="software-card">
+
+<h3>
+  Human–Computer Interaction
+</h3>
+
+<p>
+
+Voice-driven interfaces
+and interactive robotic / presentation control.
+
+</p>
+
+<a
+  href="https://github.com/hassity123/Voice-based-control-PowerPoint"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub →
+</a>
+
+</div>
+
+
+<div class="software-card">
+
+<h3>
+  Quantum Robotics
+</h3>
+
+<p>
+
+Variational quantum circuits,
+quantum optimization
+and hybrid quantum-classical robot computation.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+     ========================================================= -->
+
+<section class="section-block">
+
+
+<div class="vision-main">
+
+<p class="eyebrow">
+  Research direction
+</p>
+
+<h2>
+  Toward structurally intelligent robots
+</h2>
+
+
+<p>
+
+The long-term objective is not simply to build
+more complicated robots.
+
+It is to develop robotic systems whose
+<strong>
+  geometry,
+  mathematical model,
+  mechanism architecture,
+  learning system
+  and computational strategy
+</strong>
+are designed together.
+
+</p>
+
+
+<p>
+
+This means using mathematics
+to preserve physical meaning,
+learning to handle uncertainty,
+optimization to improve performance,
+and emerging computation
+to address problems that become difficult
+as robotic systems grow in dimension and complexity.
+
+</p>
+
+
+<div class="vision-equation">
+
+\[
+\boxed{
+\text{Mechanism Science}
++
+\text{Geometric Robotics}
++
+\text{Machine Intelligence}
++
+\text{Quantum Computing}
+}
+\]
+
+</div>
+
+</div>
+
+</section>
+
+
 </main>
 </div>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
 <footer class="site-footer">
+
 <div class="footer-inner">
-<p><strong>AIRLab Hassen</strong> · Robotics, autonomy, Lie theory, quantum computation, and machine learning.</p>
-<p class="footer-links"><a href="/">Home</a><a href="/research.html">Research</a><a href="/publications.html">Publications</a><a href="/resources.html">Resources</a><a href="/blog.html">Blog</a><a href="/cutting-edge.html">Cutting-edge</a><a href="/robotics-amharic.html">ሮቦቲክስ</a><a href="/contact.html">Contact</a><a href="https://sites.google.com/site/hassennrobotics/home?read_current=1" rel="noopener noreferrer" target="_blank">Original Google Site</a></p>
+
+
+<p>
+
+<strong>
+  AIRLab Hassen
+</strong>
+
+· Robotics,
+autonomy,
+Lie theory,
+quantum computation,
+and machine learning.
+
+</p>
+
+
+<p class="footer-links">
+
+<a href="/">
+  Home
+</a>
+
+<a href="/research.html">
+  Research
+</a>
+
+<a href="/publications.html">
+  Publications
+</a>
+
+<a href="/resources.html">
+  Resources
+</a>
+
+<a href="/blog.html">
+  Blog
+</a>
+
+<a href="/cutting-edge.html">
+  Cutting-edge
+</a>
+
+<a href="/robotics-amharic.html">
+  ሮቦቲክስ
+</a>
+
+<a href="/contact.html">
+  Contact
+</a>
+
+<a
+  href="https://sites.google.com/site/hassennrobotics/home?read_current=1"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Original Google Site
+</a>
+
+</p>
+
 </div>
 </footer>
-<button aria-label="Back to top" class="back-to-top" data-back-to-top="" type="button">↑</button>
-<script defer="" src="/assets/js/site.js"></script>
+
+
+<button
+  aria-label="Back to top"
+  class="back-to-top"
+  data-back-to-top=""
+  type="button"
+>
+  ↑
+</button>
+
+
+<script
+  defer
+  src="/assets/js/site.js">
+</script>
+
+
 </body>
 </html>
