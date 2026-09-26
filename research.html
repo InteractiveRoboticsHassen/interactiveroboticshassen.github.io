@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
@@ -7,77 +6,80 @@
 <meta charset="utf-8"/>
 
 <meta
-content="width=device-width,initial-scale=1"
-name="viewport"
+  content="width=device-width,initial-scale=1"
+  name="viewport"
 />
 
 <title>
   Research · AIRLab Hassen
 </title>
 
+
 <meta
-name="description"
-content="Research portfolio of Hassen Nigatu and AIRLab Hassen covering mathematical robotics, screw theory, Lie groups, parallel manipulators, origami and reconfigurable mechanisms, intelligent manipulation, physics-informed learning, and quantum computing for robotics."
+  name="description"
+  content="Research portfolio of Hassen Nigatu and AIRLab Hassen covering mathematical robotics, screw theory, Lie groups, parallel manipulators, origami and reconfigurable mechanisms, intelligent manipulation, physics-informed learning, and quantum computing for robotics."
 />
 
 <meta
-content="#f7fafc"
-name="theme-color"
+  content="#f7fafc"
+  name="theme-color"
 />
+
 
 <!-- =========================================================
      SOCIAL META
      ========================================================= -->
 
 <meta
-content="AIRLab Hassen"
-property="og:site_name"
+  content="AIRLab Hassen"
+  property="og:site_name"
 />
 
 <meta
-content="Research · AIRLab Hassen"
-property="og:title"
+  content="Research · AIRLab Hassen"
+  property="og:title"
 />
 
 <meta
-content="Mathematical robotics, mechanism synthesis, parallel manipulators, intelligent manipulation, physics-informed learning, and quantum robotics."
-property="og:description"
+  content="Mathematical robotics, mechanism synthesis, parallel manipulators, intelligent manipulation, physics-informed learning, and quantum robotics."
+  property="og:description"
 />
 
 <meta
-content="website"
-property="og:type"
+  content="website"
+  property="og:type"
 />
 
 <meta
-content="https://airlabhassen.github.io/research.html"
-property="og:url"
+  content="https://airlabhassen.github.io/research.html"
+  property="og:url"
 />
 
 <meta
-content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png"
-property="og:image"
+  content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png"
+  property="og:image"
 />
 
 <meta
-content="summary_large_image"
-name="twitter:card"
+  content="summary_large_image"
+  name="twitter:card"
 />
 
 <meta
-content="Research · AIRLab Hassen"
-name="twitter:title"
+  content="Research · AIRLab Hassen"
+  name="twitter:title"
 />
 
 <meta
-content="Research in mechanism science, geometric robotics, intelligent manipulation, hybrid learning, and quantum computing for robotics."
-name="twitter:description"
+  content="Research in mechanism science, geometric robotics, intelligent manipulation, hybrid learning, and quantum computing for robotics."
+  name="twitter:description"
 />
 
 <meta
-content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png"
-name="twitter:image"
+  content="https://airlabhassen.github.io/assets/img/futuristic-robotics-ai-lab-scene.png"
+  name="twitter:image"
 />
+
 
 <link
   href="https://airlabhassen.github.io/research.html"
@@ -99,6 +101,7 @@ name="twitter:image"
   href="/assets/css/styles.css"
   rel="stylesheet"
 />
+
 
 <!-- =========================================================
      MATHJAX
@@ -134,6 +137,7 @@ window.MathJax = {
   async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+
 
 <!-- =========================================================
      RESEARCH PAGE DESIGN
@@ -339,10 +343,6 @@ window.MathJax = {
 
   gap: 1rem;
 
-  /* Prevent the shorter card from being stretched to the
-     height of the longer card and creating unused interior space. */
-  align-items: start;
-
 }
 
 
@@ -419,168 +419,6 @@ window.MathJax = {
     rgba(37,99,235,.13);
 
   overflow-x: auto;
-
-}
-
-
-/* Keep MathJax from adding unnecessary vertical breathing room
-   inside this compact research-vision block. */
-
-.vision-equation > mjx-container[display="true"] {
-
-  margin:
-    .2rem 0 !important;
-
-}
-
-
-/* Compact interpretation figure placed directly below the equation. */
-
-.vision-equation-guide {
-
-  margin:
-    .65rem 0 0;
-
-  padding-top: .65rem;
-
-  border-top:
-    1px solid
-    rgba(37,99,235,.12);
-
-  text-align: left;
-
-}
-
-
-.vision-equation-guide figcaption {
-
-  display: flex;
-
-  align-items: baseline;
-
-  justify-content: space-between;
-
-  gap: .75rem;
-
-  margin:
-    0 0 .5rem;
-
-  color: #64748b;
-
-  font-size: .7rem;
-
-  line-height: 1.35;
-
-}
-
-
-.vision-equation-guide figcaption strong {
-
-  flex: 0 0 auto;
-
-  color: var(--r-blue);
-
-  font-size: .76rem;
-
-}
-
-
-.vision-equation-guide-flow {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0,1fr)
-    );
-
-  gap: .42rem;
-
-}
-
-
-.vision-equation-guide-step {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: .38rem;
-
-  min-width: 0;
-
-  padding:
-    .42rem .48rem;
-
-  border-radius: 9px;
-
-  background: #fff;
-
-  border:
-    1px solid
-    rgba(15,23,42,.07);
-
-}
-
-
-.vision-equation-guide-number {
-
-  width: 23px;
-
-  height: 23px;
-
-  flex:
-    0 0 23px;
-
-  display: grid;
-
-  place-items: center;
-
-  border-radius: 7px;
-
-  background: #eaf3ff;
-
-  color: #1d4ed8;
-
-  font-size: .62rem;
-
-  font-weight: 850;
-
-}
-
-
-.vision-equation-guide-copy {
-
-  min-width: 0;
-
-}
-
-
-.vision-equation-guide-copy strong {
-
-  display: block;
-
-  color: var(--r-navy);
-
-  font-size: .69rem;
-
-  line-height: 1.1;
-
-}
-
-
-.vision-equation-guide-detail {
-
-  display: block;
-
-  margin-top: .04rem;
-
-  color: #64748b;
-
-  font-size: .59rem;
-
-  line-height: 1.12;
 
 }
 
@@ -1751,68 +1589,21 @@ window.MathJax = {
 
 }
 
-
-@media (max-width: 560px) {
-
-  .vision-equation-guide figcaption {
-
-    display: block;
-
-  }
-
-
-  .vision-equation-guide figcaption span {
-
-    display: block;
-
-    margin-top: .18rem;
-
-  }
-
-
-  .vision-equation-guide-flow {
-
-    grid-template-columns: 1fr;
-
-  }
-
-
-  .vision-equation-guide-step {
-
-    padding: .5rem;
-
-  }
-
-
-  .vision-equation-guide-copy strong {
-
-    font-size: .74rem;
-
-  }
-
-
-  .vision-equation-guide-detail {
-
-    font-size: .65rem;
-
-  }
-
-}
-
 </style>
 
 </head>
 
+
 <body class="">
 
+
 <a
-class="skip-link"
-href="#main"
-
-
-
-Skip to main content
+  class="skip-link"
+  href="#main"
+>
+  Skip to main content
 </a>
+
 
 <!-- =========================================================
      HEADER
@@ -1825,20 +1616,18 @@ Skip to main content
 
 <div class="topbar-inner">
 
+
 <a
-aria-label="AIRLab Hassen home"
-class="site-title"
-href="/"
-
-
+  aria-label="AIRLab Hassen home"
+  class="site-title"
+  href="/"
+>
 
 <span
-aria-hidden="true"
-class="site-mark"
-
-
-
-AIR
+  aria-hidden="true"
+  class="site-mark"
+>
+  AIR
 </span>
 
 <span>
@@ -1855,16 +1644,16 @@ AIR
 
 </a>
 
+
 <button
-aria-controls="site-nav"
-aria-expanded="false"
-class="nav-toggle"
-type="button"
-
-
-
-Menu
+  aria-controls="site-nav"
+  aria-expanded="false"
+  class="nav-toggle"
+  type="button"
+>
+  Menu
 </button>
+
 
 <nav
   aria-label="Primary navigation"
@@ -1877,12 +1666,10 @@ Menu
 </a>
 
 <a
-aria-current="page"
-href="/research.html"
-
-
-
-Research
+  aria-current="page"
+  href="/research.html"
+>
+  Research
 </a>
 
 <a href="/publications.html">
@@ -1914,11 +1701,13 @@ Research
 </div>
 </header>
 
+
 <!-- =========================================================
      PAGE
      ========================================================= -->
 
 <div class="page-shell">
+
 
 <!-- =========================================================
      SIDEBAR
@@ -1931,28 +1720,32 @@ Research
 
 <div class="profile-card">
 
+
 <div class="avatar-wrap">
 
 <img
-alt="Robotics research visual"
-class="profile-avatar"
-data-asset-dir="/assets/img"
-decoding="async"
-height="941"
-loading="lazy"
-src="/assets/img/futuristic-robotics-ai-lab-scene.png"
-width="1672"
+  alt="Robotics research visual"
+  class="profile-avatar"
+  data-asset-dir="/assets/img"
+  decoding="async"
+  height="941"
+  loading="lazy"
+  src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+  width="1672"
 />
 
 </div>
+
 
 <h2>
   Hassen Nigatu
 </h2>
 
+
 <p class="sidebar-subtitle">
   Robotics researcher
 </p>
+
 
 <p class="sidebar-note">
 
@@ -1966,6 +1759,7 @@ and quantum computing for robotics.
 
 </p>
 
+
 <div class="sidebar-links">
 
 <a href="/publications.html">
@@ -1977,29 +1771,26 @@ and quantum computing for robotics.
 </a>
 
 <a
-href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-Google Scholar
+  href="https://scholar.google.com/citations?hl=en&amp;user=d44IAP0AAAAJ"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Google Scholar
 </a>
 
 <a
-href="https://github.com/hassity123"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-GitHub
+  href="https://github.com/hassity123"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub
 </a>
 
 </div>
 
 </div>
 </aside>
+
 
 <!-- =========================================================
      MAIN
@@ -2009,6 +1800,7 @@ GitHub
   class="content-area"
   id="main"
 >
+
 
 <!-- =========================================================
      HERO
@@ -2020,6 +1812,7 @@ GitHub
   Research
 </p>
 
+
 <h1>
 
 Geometry,
@@ -2027,6 +1820,7 @@ mechanism intelligence,
 and emerging computation for robotics.
 
 </h1>
+
 
 <p class="research-hero-lead">
 
@@ -2049,6 +1843,7 @@ industrial automation,
 and quantum computing for robotics.
 
 </p>
+
 
 <div class="research-chip-row">
 
@@ -2090,6 +1885,7 @@ and quantum computing for robotics.
 
 </div>
 
+
 <div class="research-jump">
 
 <a href="#vision">
@@ -2128,6 +1924,7 @@ and quantum computing for robotics.
 
 </section>
 
+
 <!-- =========================================================
      RESEARCH VISION
      ========================================================= -->
@@ -2137,7 +1934,9 @@ and quantum computing for robotics.
   id="vision"
 >
 
+
 <div class="research-vision">
+
 
 <div class="vision-main">
 
@@ -2166,26 +1965,28 @@ are incomplete.
 
 </p>
 
+
 <p>
 
 My research therefore progresses from
 <strong>
-mechanism geometry
+  mechanism geometry
 </strong>
 to
 <strong>
-analytical modeling
+  analytical modeling
 </strong>,
 then to
 <strong>
-optimization and intelligent control
+  optimization and intelligent control
 </strong>,
 and finally toward
 <strong>
-physics-informed and quantum-enhanced methods
+  physics-informed and quantum-enhanced methods
 </strong>.
 
 </p>
+
 
 <div class="vision-equation">
 
@@ -2203,108 +2004,10 @@ physics-informed and quantum-enhanced methods
 }
 \]
 
-<!-- A compact interpretation of the equation fills the former
-     unused space without requiring another image asset. -->
-
-<figure
-  aria-labelledby="vision-sequence-caption"
-  class="vision-equation-guide"
->
-
-<figcaption id="vision-sequence-caption">
-
-<strong>
-  How to read the sequence
-</strong>
-
-<span>
-  Structure defines the admissible space;
-  intelligence then extends capability within it.
-</span>
-
-</figcaption>
-
-<div
-  class="vision-equation-guide-flow"
-  role="list"
->
-
-<div
-  class="vision-equation-guide-step"
-  role="listitem"
->
-
-<span class="vision-equation-guide-number">
-  01
-</span>
-
-<span class="vision-equation-guide-copy">
-
-<strong>
-  Feasible motion
-</strong>
-
-<span class="vision-equation-guide-detail">
-  Geometry + kinematics
-</span>
-
-</span>
-
-</div>
-
-<div
-  class="vision-equation-guide-step"
-  role="listitem"
->
-
-<span class="vision-equation-guide-number">
-  02
-</span>
-
-<span class="vision-equation-guide-copy">
-
-<strong>
-  Reliable performance
-</strong>
-
-<span class="vision-equation-guide-detail">
-  Constraints + optimization
-</span>
-
-</span>
-
-</div>
-
-<div
-  class="vision-equation-guide-step"
-  role="listitem"
->
-
-<span class="vision-equation-guide-number">
-  03
-</span>
-
-<span class="vision-equation-guide-copy">
-
-<strong>
-  Adaptive behavior
-</strong>
-
-<span class="vision-equation-guide-detail">
-  Control + learning
-</span>
-
-</span>
-
 </div>
 
 </div>
 
-</figure>
-
-</div>
-
-</div>
 
 <aside class="vision-side">
 
@@ -2315,6 +2018,7 @@ physics-informed and quantum-enhanced methods
 <h2>
   What I study
 </h2>
+
 
 <ul>
 
@@ -2354,6 +2058,7 @@ physics-informed and quantum-enhanced methods
 
 </section>
 
+
 <!-- =========================================================
      CORE PILLARS
      ========================================================= -->
@@ -2362,6 +2067,7 @@ physics-informed and quantum-enhanced methods
   class="section-block"
   id="pillars"
 >
+
 
 <div class="section-heading">
 
@@ -2375,7 +2081,9 @@ physics-informed and quantum-enhanced methods
 
 </div>
 
+
 <div class="pillar-grid">
+
 
 <!-- 1 -->
 
@@ -2389,6 +2097,7 @@ physics-informed and quantum-enhanced methods
   Mathematical Robotics &amp; Mechanism Science
 </h3>
 
+
 <p>
 
 Geometry-first analysis and design of
@@ -2399,6 +2108,7 @@ Jacobian methods
 and mechanism synthesis.
 
 </p>
+
 
 <ul>
 
@@ -2430,6 +2140,7 @@ and mechanism synthesis.
 
 </article>
 
+
 <!-- 2 -->
 
 <article class="pillar-card hybrid">
@@ -2442,6 +2153,7 @@ and mechanism synthesis.
   Physics-Guided &amp; Data-Driven Robotics
 </h3>
 
+
 <p>
 
 Hybrid robotic intelligence combining
@@ -2450,6 +2162,7 @@ reinforcement learning
 and learned corrections.
 
 </p>
+
 
 <ul>
 
@@ -2481,6 +2194,7 @@ and learned corrections.
 
 </article>
 
+
 <!-- 3 -->
 
 <article class="pillar-card quantum">
@@ -2493,6 +2207,7 @@ and learned corrections.
   Quantum Computing for Robotics
 </h3>
 
+
 <p>
 
 Investigation of hybrid and quantum-native algorithms
@@ -2501,6 +2216,7 @@ optimization
 and machine-learning problems.
 
 </p>
+
 
 <ul>
 
@@ -2536,11 +2252,13 @@ and machine-learning problems.
 
 </section>
 
+
 <!-- =========================================================
      RESEARCH MAP
      ========================================================= -->
 
 <section class="section-block">
+
 
 <div class="section-heading">
 
@@ -2554,18 +2272,21 @@ and machine-learning problems.
 
 </div>
 
+
 <figure class="research-map">
 
-<svg
-viewBox="0 0 1200 430"
-role="img"
-aria-labelledby="researchMapTitle researchMapDesc"
 
+<svg
+  viewBox="0 0 1200 430"
+  role="img"
+  aria-labelledby="researchMapTitle researchMapDesc"
+>
 
 
 <title id="researchMapTitle">
   AIRLab research architecture
 </title>
+
 
 <desc id="researchMapDesc">
 
@@ -2578,384 +2299,372 @@ forming an integrated robotics research pipeline.
 
 </desc>
 
+
 <defs>
 
+
 <linearGradient
-id="mapBg"
-x1="0"
-x2="1"
-
-
+  id="mapBg"
+  x1="0"
+  x2="1"
+>
 
 <stop
-offset="0%"
-stop-color="#f8fbff"
+  offset="0%"
+  stop-color="#f8fbff"
 />
 
 <stop
-offset="100%"
-stop-color="#f5f7ff"
+  offset="100%"
+  stop-color="#f5f7ff"
 />
 
 </linearGradient>
 
+
 <marker
-id="researchArrow"
-viewBox="0 0 10 10"
-refX="9"
-refY="5"
-markerWidth="7"
-markerHeight="7"
-orient="auto-start-reverse"
-
-
+  id="researchArrow"
+  viewBox="0 0 10 10"
+  refX="9"
+  refY="5"
+  markerWidth="7"
+  markerHeight="7"
+  orient="auto-start-reverse"
+>
 
 <path
-d="M 0 0 L 10 5 L 0 10 z"
-fill="#2563eb"
+  d="M 0 0 L 10 5 L 0 10 z"
+  fill="#2563eb"
 />
 
 </marker>
 
+
 </defs>
 
+
 <rect
-width="1200"
-height="430"
-rx="22"
-fill="url(#mapBg)"
+  width="1200"
+  height="430"
+  rx="22"
+  fill="url(#mapBg)"
 />
 
+
 <text
-x="55"
-y="56"
-font-size="27"
-font-weight="700"
-fill="#0b376b"
-
-
+  x="55"
+  y="56"
+  font-size="27"
+  font-weight="700"
+  fill="#0b376b"
+>
 
 Integrated Research Framework
 
 </text>
 
+
 <text
-x="55"
-y="88"
-font-size="16"
-fill="#64748b"
-
-
+  x="55"
+  y="88"
+  font-size="16"
+  fill="#64748b"
+>
 
 Mechanism geometry provides structure; learning and advanced computation extend capability.
 
 </text>
 
+
 <!-- Geometry -->
 
 <rect
-x="45"
-y="150"
-width="185"
-height="145"
-rx="18"
-fill="#ffffff"
-stroke="#bfdbfe"
+  x="45"
+  y="150"
+  width="185"
+  height="145"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfdbfe"
 />
 
 <text
-x="138"
-y="187"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#0b4f91"
-
-
-
-Mechanism
+  x="138"
+  y="187"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Mechanism
 </text>
 
 <text
-x="138"
-y="216"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#0b4f91"
-
-
-
-Geometry
+  x="138"
+  y="216"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Geometry
 </text>
 
 <text
-x="138"
-y="253"
-text-anchor="middle"
-font-size="14"
-fill="#64748b"
-
-
-
-links · joints · topology
+  x="138"
+  y="253"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  links · joints · topology
 </text>
+
 
 <!-- Arrow -->
 
 <line
-x1="232"
-y1="223"
-x2="290"
-y2="223"
-stroke="#2563eb"
-stroke-width="3"
-marker-end="url(#researchArrow)"
+  x1="232"
+  y1="223"
+  x2="290"
+  y2="223"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#researchArrow)"
 />
+
 
 <!-- Theory -->
 
 <rect
-x="300"
-y="150"
-width="195"
-height="145"
-rx="18"
-fill="#ffffff"
-stroke="#bfdbfe"
+  x="300"
+  y="150"
+  width="195"
+  height="145"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfdbfe"
 />
 
 <text
-x="398"
-y="185"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#0b4f91"
-
-
-
-Screw &
+  x="398"
+  y="185"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Screw &amp;
 </text>
 
 <text
-x="398"
-y="214"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#0b4f91"
-
-
-
-Lie Theory
+  x="398"
+  y="214"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Lie Theory
 </text>
 
 <text
-x="398"
-y="253"
-text-anchor="middle"
-font-size="14"
-fill="#64748b"
-
-
-
-twists · constraints · groups
+  x="398"
+  y="253"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  twists · constraints · groups
 </text>
+
 
 <!-- Arrow -->
 
 <line
-x1="497"
-y1="223"
-x2="555"
-y2="223"
-stroke="#2563eb"
-stroke-width="3"
-marker-end="url(#researchArrow)"
+  x1="497"
+  y1="223"
+  x2="555"
+  y2="223"
+  stroke="#2563eb"
+  stroke-width="3"
+  marker-end="url(#researchArrow)"
 />
+
 
 <!-- Modeling -->
 
 <rect
-x="565"
-y="150"
-width="195"
-height="145"
-rx="18"
-fill="#ffffff"
-stroke="#bfdbfe"
+  x="565"
+  y="150"
+  width="195"
+  height="145"
+  rx="18"
+  fill="#ffffff"
+  stroke="#bfdbfe"
 />
 
 <text
-x="662"
-y="187"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#0b4f91"
-
-
-
-Modeling &
+  x="662"
+  y="187"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Modeling &amp;
 </text>
 
 <text
-x="662"
-y="216"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#0b4f91"
-
-
-
-Optimization
+  x="662"
+  y="216"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#0b4f91"
+>
+  Optimization
 </text>
 
 <text
-x="662"
-y="253"
-text-anchor="middle"
-font-size="14"
-fill="#64748b"
-
-
-
-workspace · Jacobian · design
+  x="662"
+  y="253"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  workspace · Jacobian · design
 </text>
+
 
 <!-- Split arrows -->
 
 <line
-x1="762"
-y1="223"
-x2="820"
-y2="178"
-stroke="#059669"
-stroke-width="3"
+  x1="762"
+  y1="223"
+  x2="820"
+  y2="178"
+  stroke="#059669"
+  stroke-width="3"
 />
 
 <line
-x1="762"
-y1="223"
-x2="820"
-y2="270"
-stroke="#7c3aed"
-stroke-width="3"
+  x1="762"
+  y1="223"
+  x2="820"
+  y2="270"
+  stroke="#7c3aed"
+  stroke-width="3"
 />
+
 
 <!-- Learning -->
 
 <rect
-x="830"
-y="115"
-width="250"
-height="125"
-rx="18"
-fill="#f5fbf8"
-stroke="#a7f3d0"
+  x="830"
+  y="115"
+  width="250"
+  height="125"
+  rx="18"
+  fill="#f5fbf8"
+  stroke="#a7f3d0"
 />
 
 <text
-x="955"
-y="157"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#047857"
-
-
-
-Physics-Guided AI
+  x="955"
+  y="157"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#047857"
+>
+  Physics-Guided AI
 </text>
 
 <text
-x="955"
-y="194"
-text-anchor="middle"
-font-size="14"
-fill="#64748b"
-
-
-
-DNN · RL · estimation · control
+  x="955"
+  y="194"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  DNN · RL · estimation · control
 </text>
+
 
 <!-- Quantum -->
 
 <rect
-x="830"
-y="260"
-width="250"
-height="125"
-rx="18"
-fill="#faf7ff"
-stroke="#ddd6fe"
+  x="830"
+  y="260"
+  width="250"
+  height="125"
+  rx="18"
+  fill="#faf7ff"
+  stroke="#ddd6fe"
 />
 
 <text
-x="955"
-y="302"
-text-anchor="middle"
-font-size="18"
-font-weight="700"
-fill="#6d28d9"
-
-
-
-Quantum Robotics
+  x="955"
+  y="302"
+  text-anchor="middle"
+  font-size="18"
+  font-weight="700"
+  fill="#6d28d9"
+>
+  Quantum Robotics
 </text>
 
 <text
-x="955"
-y="339"
-text-anchor="middle"
-font-size="14"
-fill="#64748b"
-
-
-
-QML · Grover · optimization
+  x="955"
+  y="339"
+  text-anchor="middle"
+  font-size="14"
+  fill="#64748b"
+>
+  QML · Grover · optimization
 </text>
+
 
 <!-- convergence -->
 
 <path
-d="M1081 178 C1140 178 1140 250 1100 250"
-fill="none"
-stroke="#059669"
-stroke-width="2.5"
+  d="M1081 178 C1140 178 1140 250 1100 250"
+  fill="none"
+  stroke="#059669"
+  stroke-width="2.5"
 />
 
 <path
-d="M1081 322 C1140 322 1140 250 1100 250"
-fill="none"
-stroke="#7c3aed"
-stroke-width="2.5"
+  d="M1081 322 C1140 322 1140 250 1100 250"
+  fill="none"
+  stroke="#7c3aed"
+  stroke-width="2.5"
 />
+
 
 <circle
-cx="1105"
-cy="250"
-r="25"
-fill="#0b4f91"
+  cx="1105"
+  cy="250"
+  r="25"
+  fill="#0b4f91"
 />
 
+
 <text
-x="1105"
-y="255"
-text-anchor="middle"
-font-size="13"
-font-weight="700"
-fill="#ffffff"
-
-
-
-ROBOT
+  x="1105"
+  y="255"
+  text-anchor="middle"
+  font-size="13"
+  font-weight="700"
+  fill="#ffffff"
+>
+  ROBOT
 </text>
 
+
 </svg>
+
 
 <figcaption>
 
@@ -2971,11 +2680,13 @@ and quantum computation.
 
 </section>
 
+
 <!-- =========================================================
      RESEARCH TOPICS
      ========================================================= -->
 
 <section class="section-block">
+
 
 <div class="section-heading">
 
@@ -2989,7 +2700,9 @@ and quantum computation.
 
 </div>
 
+
 <div class="topic-grid">
+
 
 <div class="topic-card">
 
@@ -3011,6 +2724,7 @@ and quantum computation.
 
 </div>
 
+
 <div class="topic-card">
 
 <div class="topic-icon">
@@ -3029,6 +2743,7 @@ and quantum computation.
 </p>
 
 </div>
+
 
 <div class="topic-card">
 
@@ -3050,6 +2765,7 @@ and quantum computation.
 
 </div>
 
+
 <div class="topic-card">
 
 <div class="topic-icon">
@@ -3068,6 +2784,7 @@ and quantum computation.
 </p>
 
 </div>
+
 
 <div class="topic-card">
 
@@ -3089,6 +2806,7 @@ and quantum computation.
 
 </div>
 
+
 <div class="topic-card">
 
 <div class="topic-icon">
@@ -3108,6 +2826,7 @@ and quantum computation.
 </p>
 
 </div>
+
 
 <div class="topic-card">
 
@@ -3129,6 +2848,7 @@ and quantum computation.
 
 </div>
 
+
 <div class="topic-card">
 
 <div class="topic-icon">
@@ -3148,6 +2868,7 @@ and quantum computation.
 </p>
 
 </div>
+
 
 <div class="topic-card">
 
@@ -3174,11 +2895,13 @@ and quantum computation.
 
 </section>
 
+
 <!-- =========================================================
      MATHEMATICAL FOUNDATION
      ========================================================= -->
 
 <section class="section-block">
+
 
 <div class="section-heading">
 
@@ -3192,7 +2915,9 @@ and quantum computation.
 
 </div>
 
+
 <div class="equation-row">
+
 
 <div class="equation-box">
 
@@ -3202,18 +2927,19 @@ and quantum computation.
 
 <div class="math-block">
 
-[
+\[
 T =
 \begin{bmatrix}
-R & p\
+R & p\\
 0 & 1
 \end{bmatrix}
 \in SE(3)
-]
+\]
 
 </div>
 
 </div>
+
 
 <div class="equation-box">
 
@@ -3223,15 +2949,19 @@ R & p\
 
 <div class="math-block">
 
+\[
+\mathcal S
+=
 \begin{bmatrix}
-\omega\
+\omega\\
 v
 \end{bmatrix}
-]
+\]
 
 </div>
 
 </div>
+
 
 <div class="equation-box">
 
@@ -3241,9 +2971,9 @@ v
 
 <div class="math-block">
 
-[
+\[
 V = J(q)\dot q
-]
+\]
 
 </div>
 
@@ -3253,6 +2983,7 @@ V = J(q)\dot q
 
 </section>
 
+
 <!-- =========================================================
      FEATURED RESEARCH
      ========================================================= -->
@@ -3261,6 +2992,7 @@ V = J(q)\dot q
   class="section-block"
   id="featured"
 >
+
 
 <div class="section-heading">
 
@@ -3274,7 +3006,9 @@ V = J(q)\dot q
 
 </div>
 
+
 <div class="featured-research-grid">
+
 
 <!-- QML -->
 
@@ -3283,13 +3017,14 @@ V = J(q)\dot q
 <div class="research-card-media">
 
 <img
-alt="Quantum machine learning and Grover's algorithm for robotic manipulator optimization"
-loading="lazy"
-decoding="async"
-src="/assets/img/ral-2025-qml-grover-robotic-manipulators.png"
+  alt="Quantum machine learning and Grover's algorithm for robotic manipulator optimization"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/ral-2025-qml-grover-robotic-manipulators.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3310,26 +3045,23 @@ for robot kinematic optimization.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://ieeexplore.ieee.org/document/11223101/"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-IEEE Xplore
+  href="https://ieeexplore.ieee.org/document/11223101/"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  IEEE Xplore
 </a>
 
 <a
-href="https://arxiv.org/abs/2509.07216"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-Preprint
+  href="https://arxiv.org/abs/2509.07216"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Preprint
 </a>
 
 </div>
@@ -3338,6 +3070,7 @@ Preprint
 
 </article>
 
+
 <!-- QML REVIEW -->
 
 <article class="research-card">
@@ -3345,13 +3078,14 @@ Preprint
 <div class="research-card-media">
 
 <img
-alt="Quantum computing and robotics research visual"
-loading="lazy"
-decoding="async"
-src="/assets/img/futuristic-robotics-ai-lab-scene.png"
+  alt="Quantum computing and robotics research visual"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/futuristic-robotics-ai-lab-scene.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3375,16 +3109,15 @@ for quantum-enhanced robotics.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://doi.org/10.65218/jius.2026.13"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-DOI
+  href="https://doi.org/10.65218/jius.2026.13"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  DOI
 </a>
 
 </div>
@@ -3393,6 +3126,7 @@ DOI
 
 </article>
 
+
 <!-- MMT -->
 
 <article class="research-card">
@@ -3400,13 +3134,14 @@ DOI
 <div class="research-card-media">
 
 <img
-alt="Modified Lie group-based synthesis for parallel mechanisms"
-loading="lazy"
-decoding="async"
-src="/assets/img/mmt-2025-modified-lie-group-synthesis.png"
+  alt="Modified Lie group-based synthesis for parallel mechanisms"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/mmt-2025-modified-lie-group-synthesis.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3427,16 +3162,15 @@ and immovable limb cases.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://www.sciencedirect.com/science/article/pii/S0094114X25002721"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-ScienceDirect
+  href="https://www.sciencedirect.com/science/article/pii/S0094114X25002721"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  ScienceDirect
 </a>
 
 </div>
@@ -3445,6 +3179,7 @@ ScienceDirect
 
 </article>
 
+
 <!-- SO3 -->
 
 <article class="research-card">
@@ -3452,13 +3187,14 @@ ScienceDirect
 <div class="research-card-media">
 
 <img
-alt="SO(3) parallel robot variants and humanoid eye prototype"
-loading="lazy"
-decoding="async"
-src="/assets/img/ral-2025-so3-humanoid-eye.png"
+  alt="SO(3) parallel robot variants and humanoid eye prototype"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/ral-2025-so3-humanoid-eye.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3480,16 +3216,15 @@ to a humanoid robotic eye.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://doi.org/10.1109/LRA.2025.3606380"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-DOI
+  href="https://doi.org/10.1109/LRA.2025.3606380"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  DOI
 </a>
 
 </div>
@@ -3498,6 +3233,7 @@ DOI
 
 </article>
 
+
 <!-- ORIGAMI DNN -->
 
 <article class="research-card">
@@ -3505,13 +3241,14 @@ DOI
 <div class="research-card-media">
 
 <img
-alt="Origami parallel robot research"
-loading="lazy"
-decoding="async"
-src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
+  alt="Origami parallel robot research"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3532,16 +3269,15 @@ for enhanced motion accuracy.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://doi.org/10.3390/act14060291"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-DOI
+  href="https://doi.org/10.3390/act14060291"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  DOI
 </a>
 
 </div>
@@ -3550,6 +3286,7 @@ DOI
 
 </article>
 
+
 <!-- RCIM -->
 
 <article class="research-card">
@@ -3557,13 +3294,14 @@ DOI
 <div class="research-card-media">
 
 <img
-alt="Novel screw fastening manipulator"
-loading="lazy"
-decoding="async"
-src="/assets/img/rcim-2026-screw-fastening-manipulator.png"
+  alt="Novel screw fastening manipulator"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/rcim-2026-screw-fastening-manipulator.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3590,6 +3328,7 @@ toward industrial robotic intelligence.
 
 </article>
 
+
 <!-- STARFISH -->
 
 <article class="research-card">
@@ -3597,13 +3336,14 @@ toward industrial robotic intelligence.
 <div class="research-card-media">
 
 <img
-alt="Active morphable pneumatic bilayer planar actuator inspired by starfish"
-loading="lazy"
-decoding="async"
-src="/assets/img/ral-2025-starfish-pneumatic-actuator.png"
+  alt="Active morphable pneumatic bilayer planar actuator inspired by starfish"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/ral-2025-starfish-pneumatic-actuator.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3628,6 +3368,7 @@ and robotic morphing behavior.
 
 </article>
 
+
 <!-- GRIPPER -->
 
 <article class="research-card">
@@ -3635,13 +3376,14 @@ and robotic morphing behavior.
 <div class="research-card-media">
 
 <img
-alt="Under-actuated robotic gripper inspired by a human finger"
-loading="lazy"
-decoding="async"
-src="/assets/img/iros-2024-under-actuated-gripper.png"
+  alt="Under-actuated robotic gripper inspired by a human finger"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/iros-2024-under-actuated-gripper.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3666,6 +3408,7 @@ and human-finger-inspired grasping mechanics.
 
 </article>
 
+
 <!-- ORIGAMI LOCOMOTION -->
 
 <article class="research-card">
@@ -3673,13 +3416,14 @@ and human-finger-inspired grasping mechanics.
 <div class="research-card-media">
 
 <img
-alt="Multiple-locomotion origami robot"
-loading="lazy"
-decoding="async"
-src="/assets/img/iros-2024-origami-robot.png"
+  alt="Multiple-locomotion origami robot"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/iros-2024-origami-robot.png"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3704,6 +3448,7 @@ capable of multiple locomotion modes.
 
 </article>
 
+
 <!-- RL PREPRINT -->
 
 <article class="research-card">
@@ -3711,13 +3456,14 @@ capable of multiple locomotion modes.
 <div class="research-card-media">
 
 <img
-alt="Cooperative Delta and 3-RRS parallel robot research"
-loading="lazy"
-decoding="async"
-src="/assets/img/parallel-robot-dynamic-balancing-video.svg"
+  alt="Cooperative Delta and 3-RRS parallel robot research"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-robot-dynamic-balancing-video.svg"
 />
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3738,16 +3484,15 @@ for constrained peg-in-hole manipulation.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://arxiv.org/abs/2605.11697"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-Preprint
+  href="https://arxiv.org/abs/2605.11697"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Preprint
 </a>
 
 </div>
@@ -3756,6 +3501,7 @@ Preprint
 
 </article>
 
+
 <!-- BALANCING -->
 
 <article class="research-card">
@@ -3763,22 +3509,22 @@ Preprint
 <div class="research-card-media">
 
 <a
-href="https://www.youtube.com/shorts/cSlBQdhHBWo"
-rel="noopener noreferrer"
-target="_blank"
-
-
+  href="https://www.youtube.com/shorts/cSlBQdhHBWo"
+  rel="noopener noreferrer"
+  target="_blank"
+>
 
 <img
-alt="Parallel robot for dynamic balancing"
-loading="lazy"
-decoding="async"
-src="/assets/img/parallel-robot-dynamic-balancing-video.svg"
+  alt="Parallel robot for dynamic balancing"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-robot-dynamic-balancing-video.svg"
 />
 
 </a>
 
 </div>
+
 
 <div class="research-card-body">
 
@@ -3800,16 +3546,15 @@ and ball-position feedback.
 
 </p>
 
+
 <div class="card-link-row">
 
 <a
-href="https://www.youtube.com/shorts/cSlBQdhHBWo"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-Watch video
+  href="https://www.youtube.com/shorts/cSlBQdhHBWo"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Watch video
 </a>
 
 </div>
@@ -3818,9 +3563,11 @@ Watch video
 
 </article>
 
+
 </div>
 
 </section>
+
 
 <!-- =========================================================
      METHODS
@@ -3830,6 +3577,7 @@ Watch video
   class="section-block"
   id="methods"
 >
+
 
 <div class="section-heading">
 
@@ -3843,7 +3591,9 @@ Watch video
 
 </div>
 
+
 <div class="method-grid">
+
 
 <div class="method-step">
 
@@ -3863,6 +3613,7 @@ and task requirements.
 
 </div>
 
+
 <div class="method-step">
 
 <strong>
@@ -3878,6 +3629,7 @@ using screw or Lie methods.
 </p>
 
 </div>
+
 
 <div class="method-step">
 
@@ -3897,6 +3649,7 @@ and geometric parameters.
 
 </div>
 
+
 <div class="method-step">
 
 <strong>
@@ -3915,9 +3668,11 @@ where computational complexity requires it.
 
 </div>
 
+
 </div>
 
 </section>
+
 
 <!-- =========================================================
      EXPERIMENTAL PLATFORMS
@@ -3927,6 +3682,7 @@ where computational complexity requires it.
   class="section-block"
   id="platforms"
 >
+
 
 <div class="section-heading">
 
@@ -3940,13 +3696,14 @@ where computational complexity requires it.
 
 </div>
 
+
 <figure class="platform-banner">
 
 <img
-alt="AIRLab Hassen experimental robotic testbeds"
-loading="lazy"
-decoding="async"
-src="/assets/img/Resources.png"
+  alt="AIRLab Hassen experimental robotic testbeds"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/Resources.png"
 />
 
 <figcaption>
@@ -3961,7 +3718,9 @@ and embodied-intelligence experiments.
 
 </figure>
 
+
 <div class="platform-grid">
+
 
 <div class="platform-item">
 
@@ -3980,6 +3739,7 @@ and human-safe experimental work.
 
 </div>
 
+
 <div class="platform-item">
 
 <strong>
@@ -3996,6 +3756,7 @@ and RL-assisted cooperative manipulation.
 </span>
 
 </div>
+
 
 <div class="platform-item">
 
@@ -4014,6 +3775,7 @@ and architecture studies.
 
 </div>
 
+
 <div class="platform-item">
 
 <strong>
@@ -4031,6 +3793,7 @@ and humanoid-eye-related studies.
 
 </div>
 
+
 <div class="platform-item">
 
 <strong>
@@ -4047,6 +3810,7 @@ and intelligent model compensation.
 </span>
 
 </div>
+
 
 <div class="platform-item">
 
@@ -4069,6 +3833,7 @@ and high-precision motion studies.
 
 </section>
 
+
 <!-- =========================================================
      GALLERY
      ========================================================= -->
@@ -4077,6 +3842,7 @@ and high-precision motion studies.
   class="section-block"
   id="gallery"
 >
+
 
 <div class="section-heading">
 
@@ -4090,17 +3856,19 @@ and high-precision motion studies.
 
 </div>
 
+
 <div class="research-gallery">
+
 
 <figure>
 
 <div class="gallery-media">
 
 <img
-alt="Modular robot concept"
-loading="lazy"
-decoding="async"
-src="/assets/img/modular-robot-concept.png"
+  alt="Modular robot concept"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/modular-robot-concept.png"
 />
 
 </div>
@@ -4111,15 +3879,16 @@ src="/assets/img/modular-robot-concept.png"
 
 </figure>
 
+
 <figure>
 
 <div class="gallery-media">
 
 <img
-alt="3PRS parallel kinematic machine Sprint Z3"
-loading="lazy"
-decoding="async"
-src="/assets/img/3prs-pkm-sprint-z3.png"
+  alt="3PRS parallel kinematic machine Sprint Z3"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/3prs-pkm-sprint-z3.png"
 />
 
 </div>
@@ -4130,15 +3899,16 @@ src="/assets/img/3prs-pkm-sprint-z3.png"
 
 </figure>
 
+
 <figure>
 
 <div class="gallery-media">
 
 <img
-alt="Parallel kinematic machines 3PRS and 3RPS"
-loading="lazy"
-decoding="async"
-src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
+  alt="Parallel kinematic machines 3PRS and 3RPS"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
 />
 
 </div>
@@ -4149,15 +3919,16 @@ src="/assets/img/parallel-kinematic-machines-3prs-3rps.png"
 
 </figure>
 
+
 <figure>
 
 <div class="gallery-media">
 
 <img
-alt="Minimal actuation dual-axis sun tracker"
-loading="lazy"
-decoding="async"
-src="/assets/img/minimal-actuation-dual-axis-sun-tracker.png"
+  alt="Minimal actuation dual-axis sun tracker"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/minimal-actuation-dual-axis-sun-tracker.png"
 />
 
 </div>
@@ -4168,15 +3939,16 @@ src="/assets/img/minimal-actuation-dual-axis-sun-tracker.png"
 
 </figure>
 
+
 <figure>
 
 <div class="gallery-media">
 
 <img
-alt="Constraint embedded parasitic motion analysis workflow"
-loading="lazy"
-decoding="async"
-src="/assets/img/constraint-embedded-parasitic-motion-analysis-workflow.png"
+  alt="Constraint embedded parasitic motion analysis workflow"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/constraint-embedded-parasitic-motion-analysis-workflow.png"
 />
 
 </div>
@@ -4187,15 +3959,16 @@ src="/assets/img/constraint-embedded-parasitic-motion-analysis-workflow.png"
 
 </figure>
 
+
 <figure>
 
 <div class="gallery-media">
 
 <img
-alt="Serial and parallel manipulators"
-loading="lazy"
-decoding="async"
-src="/assets/img/serial-and-parallel-manipulators.png"
+  alt="Serial and parallel manipulators"
+  loading="lazy"
+  decoding="async"
+  src="/assets/img/serial-and-parallel-manipulators.png"
 />
 
 </div>
@@ -4210,6 +3983,7 @@ src="/assets/img/serial-and-parallel-manipulators.png"
 
 </section>
 
+
 <!-- =========================================================
      RESEARCH EVOLUTION
      ========================================================= -->
@@ -4218,6 +3992,7 @@ src="/assets/img/serial-and-parallel-manipulators.png"
   class="section-block"
   id="timeline"
 >
+
 
 <div class="section-heading">
 
@@ -4231,7 +4006,9 @@ src="/assets/img/serial-and-parallel-manipulators.png"
 
 </div>
 
+
 <div class="timeline">
+
 
 <div class="timeline-item">
 
@@ -4259,6 +4036,7 @@ of lower-DoF parallel mechanisms.
 
 </div>
 
+
 <div class="timeline-item">
 
 <div class="timeline-year">
@@ -4284,6 +4062,7 @@ and constraint-embedded Jacobian methods.
 
 </div>
 
+
 <div class="timeline-item">
 
 <div class="timeline-year">
@@ -4308,6 +4087,7 @@ constraint-consistent Jacobian formulations.
 </div>
 
 </div>
+
 
 <div class="timeline-item">
 
@@ -4336,6 +4116,7 @@ and Lie-group-based mechanism synthesis.
 
 </div>
 
+
 <div class="timeline-item">
 
 <div class="timeline-year">
@@ -4361,9 +4142,11 @@ and reinforcement-learning-based cooperative parallel robots.
 
 </div>
 
+
 </div>
 
 </section>
+
 
 <!-- =========================================================
      CURRENT DIRECTIONS
@@ -4373,6 +4156,7 @@ and reinforcement-learning-based cooperative parallel robots.
   class="section-block"
   id="future"
 >
+
 
 <div class="section-heading">
 
@@ -4386,7 +4170,9 @@ and reinforcement-learning-based cooperative parallel robots.
 
 </div>
 
+
 <div class="future-grid">
+
 
 <div class="future-card">
 
@@ -4403,6 +4189,7 @@ including passive and degenerate cases.
 </span>
 
 </div>
+
 
 <div class="future-card">
 
@@ -4422,6 +4209,7 @@ without discarding analytical structure.
 
 </div>
 
+
 <div class="future-card">
 
 <strong>
@@ -4438,6 +4226,7 @@ inside robotic learning policies.
 </span>
 
 </div>
+
 
 <div class="future-card">
 
@@ -4457,6 +4246,7 @@ and robot coordination.
 
 </div>
 
+
 <div class="future-card">
 
 <strong>
@@ -4474,6 +4264,7 @@ and intelligent robotic assembly.
 
 </div>
 
+
 <div class="future-card">
 
 <strong>
@@ -4489,6 +4280,7 @@ for precision manipulation and insertion.
 </span>
 
 </div>
+
 
 <div class="future-card">
 
@@ -4507,6 +4299,7 @@ for lightweight robotic systems.
 
 </div>
 
+
 <div class="future-card">
 
 <strong>
@@ -4523,6 +4316,7 @@ and constrained-space applications.
 </span>
 
 </div>
+
 
 <div class="future-card">
 
@@ -4546,11 +4340,13 @@ within unified robotic systems.
 
 </section>
 
+
 <!-- =========================================================
      SOFTWARE / IMPLEMENTATION
      ========================================================= -->
 
 <section class="section-block">
+
 
 <div class="section-heading">
 
@@ -4564,7 +4360,9 @@ within unified robotic systems.
 
 </div>
 
+
 <div class="software-grid">
+
 
 <div class="software-card">
 
@@ -4584,6 +4382,7 @@ and parallel robot analysis.
 
 </div>
 
+
 <div class="software-card">
 
 <h3>
@@ -4600,16 +4399,15 @@ and experimental mechanism actuation.
 </p>
 
 <a
-href="https://github.com/hassity123/Keyboard-touch-Dynamizel-control-"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-GitHub →
+  href="https://github.com/hassity123/Keyboard-touch-Dynamizel-control-"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub →
 </a>
 
 </div>
+
 
 <div class="software-card">
 
@@ -4629,6 +4427,7 @@ and physical animation experiments.
 
 </div>
 
+
 <div class="software-card">
 
 <h3>
@@ -4646,6 +4445,7 @@ and robotic estimation.
 
 </div>
 
+
 <div class="software-card">
 
 <h3>
@@ -4660,16 +4460,15 @@ and interactive robotic / presentation control.
 </p>
 
 <a
-href="https://github.com/hassity123/Voice-based-control-PowerPoint"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-GitHub →
+  href="https://github.com/hassity123/Voice-based-control-PowerPoint"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  GitHub →
 </a>
 
 </div>
+
 
 <div class="software-card">
 
@@ -4691,11 +4490,13 @@ and hybrid quantum-classical robot computation.
 
 </section>
 
+
 <!-- =========================================================
      CLOSING
      ========================================================= -->
 
 <section class="section-block">
+
 
 <div class="vision-main">
 
@@ -4707,6 +4508,7 @@ and hybrid quantum-classical robot computation.
   Toward structurally intelligent robots
 </h2>
 
+
 <p>
 
 The long-term objective is not simply to build
@@ -4714,15 +4516,16 @@ more complicated robots.
 
 It is to develop robotic systems whose
 <strong>
-geometry,
-mathematical model,
-mechanism architecture,
-learning system
-and computational strategy
+  geometry,
+  mathematical model,
+  mechanism architecture,
+  learning system
+  and computational strategy
 </strong>
 are designed together.
 
 </p>
+
 
 <p>
 
@@ -4736,9 +4539,10 @@ as robotic systems grow in dimension and complexity.
 
 </p>
 
+
 <div class="vision-equation">
 
-[
+\[
 \boxed{
 \text{Mechanism Science}
 +
@@ -4748,7 +4552,7 @@ as robotic systems grow in dimension and complexity.
 +
 \text{Quantum Computing}
 }
-]
+\]
 
 </div>
 
@@ -4756,8 +4560,10 @@ as robotic systems grow in dimension and complexity.
 
 </section>
 
+
 </main>
 </div>
+
 
 <!-- =========================================================
      FOOTER
@@ -4766,6 +4572,7 @@ as robotic systems grow in dimension and complexity.
 <footer class="site-footer">
 
 <div class="footer-inner">
+
 
 <p>
 
@@ -4780,6 +4587,7 @@ quantum computation,
 and machine learning.
 
 </p>
+
 
 <p class="footer-links">
 
@@ -4816,13 +4624,11 @@ and machine learning.
 </a>
 
 <a
-href="https://sites.google.com/site/hassennrobotics/home?read_current=1"
-rel="noopener noreferrer"
-target="_blank"
-
-
-
-Original Google Site
+  href="https://sites.google.com/site/hassennrobotics/home?read_current=1"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Original Google Site
 </a>
 
 </p>
@@ -4830,22 +4636,22 @@ Original Google Site
 </div>
 </footer>
 
+
 <button
-aria-label="Back to top"
-class="back-to-top"
-data-back-to-top=""
-type="button"
-
-
-
-↑
+  aria-label="Back to top"
+  class="back-to-top"
+  data-back-to-top=""
+  type="button"
+>
+  ↑
 </button>
+
 
 <script
   defer
   src="/assets/js/site.js">
 </script>
 
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"7939e04a4baf43c8b86a560f74aac60e","spa":2}' crossorigin="anonymous"></script>
+
 </body>
 </html>
