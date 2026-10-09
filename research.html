@@ -1589,12 +1589,628 @@ window.MathJax = {
 
 }
 
+/* =========================================================
+   RESEARCH PAGE — POLISHED LAYOUT OVERRIDES
+   Scoped to this page so the shared site stylesheet is safe.
+   ========================================================= */
+
+body.research-page {
+  --r-ink: #132238;
+  --r-copy: #45566d;
+  --r-subtle: #6b7b91;
+  --r-line: rgba(15, 47, 93, .11);
+  --r-blue: #0b4f91;
+  --r-blue-2: #2563eb;
+  --r-navy: #082f5d;
+  --r-cyan: #0ea5e9;
+  --r-green: #059669;
+  --r-purple: #7c3aed;
+  --r-shadow-soft: 0 18px 50px rgba(26, 54, 93, .07);
+  --r-shadow-card: 0 12px 34px rgba(26, 54, 93, .065);
+  color: var(--r-ink);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(37, 99, 235, .055), transparent 28rem),
+    linear-gradient(180deg, #fbfdff 0%, #f7fafe 38%, #ffffff 100%);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.research-page *,
+body.research-page *::before,
+body.research-page *::after {
+  box-sizing: border-box;
+}
+
+/* --- Main shell: generous content width, no squeezed research column --- */
+body.research-page .page-shell {
+  width: min(1480px, calc(100% - 48px));
+  max-width: none;
+  margin: 0 auto;
+  padding: 2.25rem 0 4.5rem;
+  display: grid;
+  grid-template-columns: minmax(220px, 255px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+
+body.research-page .profile-sidebar,
+body.research-page .content-area,
+body.research-page .research-vision,
+body.research-page .vision-main,
+body.research-page .vision-side,
+body.research-page .pillar-card,
+body.research-page .topic-card,
+body.research-page .research-card {
+  min-width: 0;
+}
+
+body.research-page .content-area {
+  width: 100%;
+  max-width: none;
+}
+
+/* --- Profile rail --- */
+body.research-page .profile-card {
+  position: sticky;
+  top: 92px;
+  padding: 1rem;
+  border: 1px solid var(--r-line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .90);
+  box-shadow: var(--r-shadow-card);
+  backdrop-filter: blur(10px);
+}
+
+body.research-page .avatar-wrap {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 17px;
+  background: #eef4fb;
+}
+
+body.research-page .profile-avatar {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+body.research-page .profile-card h2 {
+  margin: .95rem 0 .15rem;
+  font-size: 1.16rem;
+  letter-spacing: -.02em;
+}
+
+body.research-page .sidebar-subtitle {
+  margin: 0 0 .7rem;
+  color: var(--r-blue);
+  font-weight: 760;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+body.research-page .sidebar-note {
+  margin: 0;
+  color: var(--r-copy);
+  font-size: .84rem;
+  line-height: 1.6;
+}
+
+body.research-page .sidebar-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .45rem;
+  margin-top: .95rem;
+}
+
+body.research-page .sidebar-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: .55rem .65rem;
+  border: 1px solid rgba(37, 99, 235, .12);
+  border-radius: 10px;
+  background: #f7faff;
+  color: #174c88;
+  text-decoration: none;
+  font-size: .76rem;
+  font-weight: 760;
+}
+
+/* --- Spacing rhythm --- */
+body.research-page .section-block {
+  margin: 0 0 clamp(2.3rem, 5vw, 4.6rem);
+  scroll-margin-top: 105px;
+}
+
+body.research-page .section-heading {
+  margin-bottom: 1.15rem;
+}
+
+body.research-page .section-heading h2,
+body.research-page .vision-main h2,
+body.research-page .vision-side h2 {
+  color: var(--r-ink);
+  letter-spacing: -.03em;
+}
+
+body.research-page .section-heading h2 {
+  margin: .2rem 0 0;
+  font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+  line-height: 1.18;
+}
+
+body.research-page .eyebrow {
+  margin: 0 0 .5rem;
+  color: #1f5f9f;
+  font-size: .69rem;
+  font-weight: 850;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+/* --- Hero becomes a clear, premium introduction instead of loose text --- */
+body.research-page .research-hero {
+  margin: 0 0 clamp(2.3rem, 5vw, 4.2rem);
+  padding: clamp(1.5rem, 3.3vw, 2.65rem);
+  border: 1px solid rgba(37, 99, 235, .12);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 94% 8%, rgba(14, 165, 233, .16), transparent 24rem),
+    radial-gradient(circle at 8% 100%, rgba(37, 99, 235, .09), transparent 26rem),
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(245,249,255,.96));
+  box-shadow: var(--r-shadow-soft);
+}
+
+body.research-page .research-hero::after {
+  display: none;
+}
+
+body.research-page .research-hero h1 {
+  max-width: 17ch;
+  margin: .25rem 0 1rem;
+  color: #0b2444;
+  font-size: clamp(2.25rem, 5vw, 4.35rem);
+  line-height: .99;
+  letter-spacing: -.055em;
+}
+
+body.research-page .research-hero-lead {
+  max-width: 980px;
+  margin: 0;
+  color: var(--r-copy);
+  font-size: clamp(.98rem, 1.3vw, 1.09rem);
+  line-height: 1.78;
+}
+
+body.research-page .research-chip-row {
+  gap: .55rem;
+  margin-top: 1.35rem;
+}
+
+body.research-page .research-chip {
+  min-height: 36px;
+  padding: .48rem .74rem;
+  border: 1px solid rgba(37,99,235,.13);
+  border-radius: 999px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 4px 14px rgba(26,54,93,.035);
+  color: #174c88;
+  font-size: .76rem;
+  font-weight: 760;
+}
+
+body.research-page .research-jump {
+  gap: .5rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(15,47,93,.08);
+}
+
+body.research-page .research-jump a {
+  padding: .46rem .7rem;
+  border-color: rgba(15,47,93,.09);
+  background: rgba(248,250,252,.9);
+  color: #34465e;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+body.research-page .research-jump a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37,99,235,.24);
+  background: #fff;
+}
+
+/* =========================================================
+   RESEARCH VISION — the key fix for the screenshot
+   One full-width philosophy panel + a horizontal question grid.
+   This prevents the tall narrow right column and the empty left card.
+   ========================================================= */
+body.research-page .research-vision {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+body.research-page .vision-main,
+body.research-page .vision-side {
+  border: 1px solid var(--r-line);
+  border-radius: 24px;
+  box-shadow: var(--r-shadow-card);
+}
+
+body.research-page .vision-main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 4vw, 3.25rem);
+  row-gap: .9rem;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  background:
+    radial-gradient(circle at 96% 4%, rgba(37,99,235,.10), transparent 22rem),
+    linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+}
+
+body.research-page .vision-main > .eyebrow,
+body.research-page .vision-main > h2,
+body.research-page .vision-main > .vision-equation,
+body.research-page .vision-main > .vision-flow {
+  grid-column: 1 / -1;
+}
+
+body.research-page .vision-main h2 {
+  margin: -.05rem 0 .2rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.35rem);
+  line-height: 1.08;
+}
+
+body.research-page .vision-main > p {
+  margin: 0;
+  color: var(--r-copy);
+  font-size: .96rem;
+  line-height: 1.76;
+}
+
+body.research-page .vision-main > p strong {
+  color: #173d69;
+}
+
+body.research-page .vision-flow {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  justify-content: start;
+  align-items: center;
+  gap: .45rem;
+  margin-top: .55rem;
+  padding: .9rem 1rem;
+  overflow-x: auto;
+  border: 1px solid rgba(37,99,235,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.82);
+  scrollbar-width: thin;
+}
+
+body.research-page .vision-flow span {
+  white-space: nowrap;
+  padding: .47rem .68rem;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #164d88;
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+body.research-page .vision-flow b {
+  color: #6f8bad;
+  font-size: .95rem;
+}
+
+body.research-page .vision-side {
+  padding: clamp(1.25rem, 2.7vw, 2rem);
+  color: #eaf2ff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(14,165,233,.22), transparent 19rem),
+    linear-gradient(135deg, #0a284c 0%, #0c3a69 100%);
+  border-color: rgba(255,255,255,.08);
+  box-shadow: 0 18px 44px rgba(8, 47, 93, .14);
+}
+
+body.research-page .vision-side .eyebrow {
+  color: #8dd7ff;
+}
+
+body.research-page .vision-side h2 {
+  margin: -.05rem 0 1rem;
+  color: #fff;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+}
+
+body.research-page .vision-side ul {
+  counter-reset: research-question;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: .72rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.research-page .vision-side li {
+  counter-increment: research-question;
+  display: grid;
+  grid-template-columns: 2.1rem minmax(0,1fr);
+  gap: .7rem;
+  align-items: start;
+  margin: 0;
+  padding: .9rem;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  background: rgba(255,255,255,.055);
+  color: #e7f0fb;
+  font-size: .84rem;
+  line-height: 1.52;
+}
+
+body.research-page .vision-side li::before {
+  content: counter(research-question, decimal-leading-zero);
+  display: grid;
+  place-items: center;
+  width: 2.05rem;
+  height: 2.05rem;
+  border: 1px solid rgba(141,215,255,.26);
+  border-radius: 10px;
+  background: rgba(141,215,255,.10);
+  color: #a9e2ff;
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+/* --- Intelligent grids: cards wrap before they become narrow --- */
+body.research-page .pillar-grid {
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1rem;
+}
+
+body.research-page .topic-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .85rem;
+}
+
+body.research-page .featured-research-grid {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+body.research-page .method-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .8rem;
+}
+
+body.research-page .platform-grid,
+body.research-page .research-gallery,
+body.research-page .future-grid,
+body.research-page .software-grid,
+body.research-page .equation-row {
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: .85rem;
+}
+
+/* --- Unified card treatment --- */
+body.research-page .pillar-card,
+body.research-page .topic-card,
+body.research-page .research-card,
+body.research-page .method-step,
+body.research-page .platform-item,
+body.research-page .research-gallery figure,
+body.research-page .equation-box,
+body.research-page .timeline-content,
+body.research-page .future-card,
+body.research-page .software-card {
+  border-color: var(--r-line);
+  box-shadow: 0 9px 26px rgba(26,54,93,.045);
+}
+
+body.research-page .pillar-card,
+body.research-page .topic-card,
+body.research-page .method-step,
+body.research-page .platform-item,
+body.research-page .equation-box,
+body.research-page .future-card,
+body.research-page .software-card {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+body.research-page .pillar-card:hover,
+body.research-page .topic-card:hover,
+body.research-page .method-step:hover,
+body.research-page .platform-item:hover,
+body.research-page .future-card:hover,
+body.research-page .software-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.19);
+  box-shadow: 0 16px 34px rgba(26,54,93,.075);
+}
+
+body.research-page .topic-card {
+  padding: 1.05rem;
+  border-radius: 18px;
+}
+
+body.research-page .topic-icon {
+  border: 1px solid rgba(37,99,235,.08);
+}
+
+body.research-page .research-card {
+  border-radius: 22px;
+}
+
+body.research-page .research-card-media {
+  height: clamp(210px, 24vw, 275px);
+  background: linear-gradient(180deg, #fbfdff, #f5f9fd);
+}
+
+body.research-page .research-card-body {
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+body.research-page .research-card h3 {
+  color: #183451;
+}
+
+body.research-page .research-map svg,
+body.research-page .platform-banner img {
+  border-radius: 22px;
+  box-shadow: var(--r-shadow-card);
+}
+
+body.research-page .timeline {
+  gap: .7rem;
+}
+
+body.research-page .timeline-item {
+  grid-template-columns: 74px minmax(0,1fr);
+  align-items: start;
+}
+
+body.research-page .timeline-year {
+  padding-top: .9rem;
+}
+
+/* --- Comfortable mobile/tablet behavior --- */
+@media (max-width: 1160px) {
+  body.research-page .page-shell {
+    width: min(1060px, calc(100% - 36px));
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+  }
+
+  body.research-page .profile-card {
+    position: static;
+    display: grid;
+    grid-template-columns: 132px minmax(0,1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: 1rem;
+    align-items: start;
+  }
+
+  body.research-page .avatar-wrap {
+    grid-row: 1 / 4;
+    aspect-ratio: 1 / 1;
+  }
+
+  body.research-page .profile-card h2 {
+    margin-top: .1rem;
+  }
+
+  body.research-page .sidebar-links {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body.research-page .page-shell {
+    width: min(100% - 24px, 720px);
+    padding-top: 1rem;
+  }
+
+  body.research-page .research-hero {
+    padding: 1.25rem;
+    border-radius: 22px;
+  }
+
+  body.research-page .research-hero h1 {
+    max-width: none;
+    font-size: clamp(2rem, 11vw, 3.15rem);
+  }
+
+  body.research-page .vision-main {
+    grid-template-columns: 1fr;
+    padding: 1.2rem;
+  }
+
+  body.research-page .vision-main > .eyebrow,
+  body.research-page .vision-main > h2,
+  body.research-page .vision-main > .vision-equation,
+  body.research-page .vision-main > .vision-flow {
+    grid-column: 1;
+  }
+
+  body.research-page .vision-side {
+    padding: 1.15rem;
+  }
+
+  body.research-page .vision-side ul {
+    grid-template-columns: 1fr;
+  }
+
+  body.research-page .featured-research-grid,
+  body.research-page .pillar-grid,
+  body.research-page .topic-grid,
+  body.research-page .method-grid,
+  body.research-page .platform-grid,
+  body.research-page .research-gallery,
+  body.research-page .future-grid,
+  body.research-page .software-grid,
+  body.research-page .equation-row {
+    grid-template-columns: 1fr;
+  }
+
+  body.research-page .profile-card {
+    grid-template-columns: 88px minmax(0,1fr);
+    padding: .85rem;
+  }
+
+  body.research-page .sidebar-note {
+    display: none;
+  }
+
+  body.research-page .sidebar-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.research-page .timeline-item {
+    grid-template-columns: 1fr;
+    gap: .3rem;
+  }
+
+  body.research-page .timeline-year {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body.research-page .page-shell {
+    width: min(100% - 18px, 460px);
+  }
+
+  body.research-page .profile-sidebar {
+    display: none;
+  }
+
+  body.research-page .research-chip {
+    font-size: .72rem;
+  }
+
+  body.research-page .research-jump {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.research-page .research-jump a {
+    text-align: center;
+  }
+}
+
+
 </style>
 
 </head>
 
 
-<body class="">
+<body class="research-page">
 
 
 <a
@@ -1988,21 +2604,17 @@ and finally toward
 </p>
 
 
-<div class="vision-equation">
+<div class="vision-flow" aria-label="Research progression from geometry to intelligence">
 
-\[
-\boxed{
-\text{Geometry}
-\rightarrow
-\text{Kinematics}
-\rightarrow
-\text{Constraint}
-\rightarrow
-\text{Optimization}
-\rightarrow
-\text{Intelligence}
-}
-\]
+<span>Geometry</span>
+<b aria-hidden="true">→</b>
+<span>Kinematics</span>
+<b aria-hidden="true">→</b>
+<span>Constraints</span>
+<b aria-hidden="true">→</b>
+<span>Optimization</span>
+<b aria-hidden="true">→</b>
+<span>Intelligence</span>
 
 </div>
 
@@ -4653,5 +5265,6 @@ and machine learning.
 </script>
 
 
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"7939e04a4baf43c8b86a560f74aac60e","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
