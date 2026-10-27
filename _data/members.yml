@@ -18,3 +18,22 @@ members: []
 #   research_direction: "Research direction"
 #   email: "member@example.edu"
 #   explanation: "Brief profile and current work."
+
+
+members:
+  - name: "Dr. Shi"
+    role: "Researcher (PhD)"
+    research_direction: "To be updated"
+    email: ""
+    explanation: >
+      Research interests and current work
+      will be added soon.
+
+  - name: "Dong Yu"
+    role: "MSc Student"
+    research_direction: "To be updated"
+    email: ""
+    explanation: >
+      Research interests and current work
+      will be added soon.
+
