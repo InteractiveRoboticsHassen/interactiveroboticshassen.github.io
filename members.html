@@ -7,14 +7,35 @@ lang: en
 social_image: /assets/img/futuristic-robotics-ai-lab-scene.png
 nav_key: members
 page_css: /assets/css/pages/members.css
+
+# These temporary profiles appear only while _data/members.yml has no members.
+# Once real member records are added to that file, they replace these automatically.
+preview_members:
+  - name: "Dr. Shi"
+    role: "PhD"
+    research_direction: "To be updated"
+    explanation: "Research interests and current work will be added soon."
+  - name: "Dong Yu"
+    role: "MSc"
+    research_direction: "To be updated"
+    explanation: "Research interests and current work will be added soon."
 ---
+
+<style>
+  /* Keep each member card full-width, like the PI card. */
+  .members-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+</style>
 
 <section class="page-hero members-hero">
   <p class="eyebrow">People</p>
   <h1>Lab head and members.</h1>
   <p>
-    Meet the researchers contributing to AIRLab Hassen. Profiles include each
-    person's research direction, contact email, and a short explanation of their work.
+    Meet the researchers contributing to AIRLab Hassen. Discover their research
+    directions, current work, and contact information as profiles become available.
   </p>
 </section>
 
@@ -28,7 +49,7 @@ page_css: /assets/css/pages/members.css
   <article class="member-card member-card-lead">
     <figure class="member-photo">
       <img
-        alt="{{ pi.photo_alt | escape }}"
+        alt="{{ pi.photo_alt | default: pi.name | escape }}"
         decoding="async"
         loading="eager"
         src="{{ pi.photo | relative_url }}"
@@ -36,24 +57,31 @@ page_css: /assets/css/pages/members.css
     </figure>
 
     <div class="member-copy">
-      <p class="member-role">{{ pi.role }}</p>
-      <h3>{{ pi.name }}</h3>
+      <p class="member-role">{{ pi.role | escape }}</p>
+      <h3>{{ pi.name | escape }}</h3>
 
       <dl class="member-facts">
         <div>
           <dt>Research direction</dt>
-          <dd>{{ pi.research_direction }}</dd>
+          <dd>{{ pi.research_direction | escape }}</dd>
         </div>
         <div>
           <dt>Email</dt>
-          <dd><a href="mailto:{{ pi.email }}">{{ pi.email }}</a></dd>
+          <dd>
+            <a href="mailto:{{ pi.email | escape }}">{{ pi.email | escape }}</a>
+          </dd>
         </div>
       </dl>
 
-      <p class="member-explanation">{{ pi.explanation }}</p>
+      <p class="member-explanation">{{ pi.explanation | escape }}</p>
     </div>
   </article>
 </section>
+
+{% assign team_members = site.data.members.members %}
+{% if team_members == nil or team_members.size == 0 %}
+  {% assign team_members = page.preview_members %}
+{% endif %}
 
 <section aria-labelledby="members-heading" class="section-block members-section">
   <div class="section-heading">
@@ -61,12 +89,11 @@ page_css: /assets/css/pages/members.css
     <h2 id="members-heading">Members</h2>
   </div>
 
-  {% if site.data.members.members.size > 0 %}
-  <div class="member-grid">
-    {% for member in site.data.members.members %}
-    <article class="member-card">
+  <div class="members-list">
+    {% for member in team_members %}
+    <article class="member-card member-card-lead">
       <figure class="member-photo">
-        {% if member.photo %}
+        {% if member.photo and member.photo != "" %}
         <img
           alt="{{ member.photo_alt | default: member.name | escape }}"
           decoding="async"
@@ -74,40 +101,42 @@ page_css: /assets/css/pages/members.css
           src="{{ member.photo | relative_url }}"
         />
         {% else %}
-        <div aria-label="Photo coming soon" class="member-photo-placeholder" role="img">
-          {{ member.name | slice: 0 }}
+        <div
+          aria-label="Portrait not yet available for {{ member.name | escape }}"
+          class="member-photo-placeholder"
+          role="img"
+        >
+          {{ member.name | remove: "Dr. " | slice: 0, 1 | upcase }}
         </div>
         {% endif %}
       </figure>
 
       <div class="member-copy">
-        <p class="member-role">{{ member.role }}</p>
-        <h3>{{ member.name }}</h3>
+        <p class="member-role">{{ member.role | default: "Lab member" | escape }}</p>
+        <h3>{{ member.name | escape }}</h3>
 
         <dl class="member-facts">
           <div>
             <dt>Research direction</dt>
-            <dd>{{ member.research_direction }}</dd>
+            <dd>{{ member.research_direction | default: "To be updated" | escape }}</dd>
           </div>
           <div>
             <dt>Email</dt>
-            <dd><a href="mailto:{{ member.email }}">{{ member.email }}</a></dd>
+            <dd>
+              {% if member.email and member.email != "" %}
+              <a href="mailto:{{ member.email | escape }}">{{ member.email | escape }}</a>
+              {% else %}
+              To be updated
+              {% endif %}
+            </dd>
           </div>
         </dl>
 
-        <p class="member-explanation">{{ member.explanation }}</p>
+        <p class="member-explanation">
+          {{ member.explanation | default: "Profile details will be added soon." | escape }}
+        </p>
       </div>
     </article>
     {% endfor %}
   </div>
-  {% else %}
-  <article class="member-directory-note">
-    <h3>Additional profiles</h3>
-    <p>
-      Additional confirmed member profiles will be published here. Each profile
-      is prepared to include a photo, research direction, email address, and a
-      concise explanation of the member's work.
-    </p>
-  </article>
-  {% endif %}
 </section>
