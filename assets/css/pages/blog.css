@@ -1,0 +1,641 @@
+:root {
+  --blog-blue: #0b4f91;
+  --blog-blue-2: #2563eb;
+  --blog-cyan: #0ea5e9;
+  --blog-navy: #0a2342;
+  --blog-text: #172033;
+  --blog-muted: #64748b;
+  --blog-border: rgba(15, 23, 42, 0.09);
+
+  --robotics-bg: #f5f9ff;
+  --pinn-bg: #f4fbf8;
+  --quantum-bg: #faf7ff;
+
+  --robotics-accent: #2563eb;
+  --pinn-accent: #059669;
+  --quantum-accent: #7c3aed;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.blog-research-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-research-hero::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 1.25rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(37,99,235,.32),
+      transparent
+    );
+}
+
+.blog-lead {
+  max-width: 900px;
+  font-size: 1.04rem;
+  line-height: 1.75;
+  color: #475569;
+}
+
+.research-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+
+.research-pill {
+  padding: .43rem .75rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--blog-border);
+  color: #334155;
+  font-size: .84rem;
+  font-weight: 650;
+}
+
+
+/* ---------------------------------------------------------
+   THREE PILLARS
+   --------------------------------------------------------- */
+
+.research-tracks {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.track-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 1.3rem;
+  border-radius: 20px;
+
+  background: #fff;
+  border: 1px solid var(--blog-border);
+
+  box-shadow:
+    0 12px 30px rgba(15,23,42,.05);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 38px rgba(15,23,42,.08);
+}
+
+.track-card.robotics {
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(37,99,235,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #fff,
+      var(--robotics-bg)
+    );
+}
+
+.track-card.pinn {
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(5,150,105,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #fff,
+      var(--pinn-bg)
+    );
+}
+
+.track-card.quantum {
+  background:
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(124,58,237,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #fff,
+      var(--quantum-bg)
+    );
+}
+
+.track-number {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  color: #fff;
+  font-weight: 800;
+
+  margin-bottom: .8rem;
+}
+
+.robotics .track-number {
+  background: var(--robotics-accent);
+}
+
+.pinn .track-number {
+  background: var(--pinn-accent);
+}
+
+.quantum .track-number {
+  background: var(--quantum-accent);
+}
+
+.track-card h2 {
+  font-size: 1.15rem;
+  margin: 0 0 .55rem;
+}
+
+.track-card p {
+  color: #526175;
+  line-height: 1.6;
+}
+
+.track-card a {
+  display: inline-block;
+  margin-top: .25rem;
+
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   CATEGORY HEADER
+   --------------------------------------------------------- */
+
+.category-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.category-title-wrap {
+  max-width: 800px;
+}
+
+.category-index {
+  display: grid;
+  place-items: center;
+
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+
+  border-radius: 16px;
+
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.robotics-index {
+  background:
+    linear-gradient(
+      135deg,
+      #0b4f91,
+      #2563eb
+    );
+}
+
+.pinn-index {
+  background:
+    linear-gradient(
+      135deg,
+      #047857,
+      #10b981
+    );
+}
+
+.quantum-index {
+  background:
+    linear-gradient(
+      135deg,
+      #5b21b6,
+      #8b5cf6
+    );
+}
+
+
+/* ---------------------------------------------------------
+   VECTOR FIGURES
+   --------------------------------------------------------- */
+
+.research-figure {
+  margin: 1.25rem 0;
+}
+
+.research-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 18px;
+  border: 1px solid var(--blog-border);
+
+  background: #fff;
+
+  box-shadow:
+    0 12px 32px rgba(15,23,42,.055);
+}
+
+.research-figure figcaption {
+  margin-top: .65rem;
+  color: #64748b;
+  line-height: 1.5;
+  font-size: .9rem;
+}
+
+
+/* ---------------------------------------------------------
+   FEATURED CONTENT
+   --------------------------------------------------------- */
+
+.feature-card {
+  border-radius: 18px;
+  padding: 1.2rem;
+
+  border: 1px solid var(--blog-border);
+  background: #fff;
+
+  margin: 1rem 0;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+
+  margin: .7rem 0;
+}
+
+.meta-tag {
+  display: inline-block;
+
+  border-radius: 999px;
+  padding: .32rem .6rem;
+
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+
+  font-size: .75rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+
+/* ---------------------------------------------------------
+   EQUATIONS
+   --------------------------------------------------------- */
+
+.equation-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0,1fr));
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.equation-card {
+  padding: 1rem;
+  border-radius: 16px;
+
+  background: #fff;
+  border: 1px solid var(--blog-border);
+}
+
+.equation-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.math-box {
+  overflow-x: auto;
+
+  padding: .8rem .85rem;
+  margin: .6rem 0;
+
+  border-radius: 12px;
+
+  background: #f8fbff;
+  border: 1px solid rgba(37,99,235,.10);
+}
+
+
+/* ---------------------------------------------------------
+   BLOG ROADMAP
+   --------------------------------------------------------- */
+
+.future-heading {
+  margin-top: 1.5rem;
+  margin-bottom: .8rem;
+}
+
+.future-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap: .85rem;
+}
+
+.future-post {
+  padding: 1rem;
+
+  border-radius: 16px;
+  border: 1px solid var(--blog-border);
+  background: #fff;
+
+  box-shadow:
+    0 7px 22px rgba(15,23,42,.035);
+}
+
+.future-post h3 {
+  margin: .25rem 0 .45rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.future-post p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.55;
+  font-size: .9rem;
+}
+
+.post-status {
+  display: inline-block;
+
+  padding: .28rem .55rem;
+  border-radius: 999px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .03em;
+  font-size: .67rem;
+  font-weight: 800;
+}
+
+.status-available {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.status-next {
+  color: #1d4ed8;
+  background: #dbeafe;
+}
+
+.status-planned {
+  color: #6d28d9;
+  background: #ede9fe;
+}
+
+.status-research {
+  color: #9a3412;
+  background: #ffedd5;
+}
+
+
+/* ---------------------------------------------------------
+   ARTICLE / REFERENCE BOXES
+   --------------------------------------------------------- */
+
+.research-anchor {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+  gap: .8rem;
+  margin: 1rem 0;
+}
+
+.anchor-paper {
+  padding: 1rem;
+  border-radius: 15px;
+
+  background: #f8fafc;
+  border: 1px solid var(--blog-border);
+}
+
+.anchor-paper strong {
+  display: block;
+  margin-bottom: .35rem;
+  color: #172033;
+}
+
+.anchor-paper p {
+  margin: 0;
+  color: #64748b;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.anchor-paper code {
+  font-size: .78rem;
+}
+
+
+/* ---------------------------------------------------------
+   EXPLANATION BOXES
+   --------------------------------------------------------- */
+
+.idea-box {
+  padding: 1rem 1.1rem;
+  margin: 1rem 0;
+
+  border-radius: 15px;
+
+  border-left: 5px solid var(--blog-blue-2);
+
+  background:
+    linear-gradient(
+      90deg,
+      #f8fbff,
+      #fff
+    );
+}
+
+.idea-box.green {
+  border-left-color: #059669;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f2fcf8,
+      #fff
+    );
+}
+
+.idea-box.purple {
+  border-left-color: #7c3aed;
+
+  background:
+    linear-gradient(
+      90deg,
+      #faf7ff,
+      #fff
+    );
+}
+
+
+/* ---------------------------------------------------------
+   CONVERGENCE
+   --------------------------------------------------------- */
+
+.convergence-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap: .8rem;
+}
+
+.convergence-card {
+  padding: 1rem;
+  border-radius: 15px;
+
+  border: 1px solid var(--blog-border);
+  background: #fff;
+}
+
+.convergence-card strong {
+  display: block;
+  margin-bottom: .35rem;
+}
+
+.convergence-card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.55;
+  font-size: .9rem;
+}
+
+
+/* ---------------------------------------------------------
+   READING
+   --------------------------------------------------------- */
+
+.reading-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap: .85rem;
+}
+
+.reading-card {
+  padding: 1rem;
+
+  border-radius: 16px;
+
+  background: #fff;
+  border: 1px solid var(--blog-border);
+}
+
+.reading-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.reading-card p {
+  color: #64748b;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.reading-card code {
+  font-size: .78rem;
+  word-break: break-word;
+}
+
+
+/* ---------------------------------------------------------
+   EXISTING IMAGES
+   --------------------------------------------------------- */
+
+.wide-figure {
+  margin: 1rem 0;
+}
+
+.wide-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--blog-border);
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.05);
+}
+
+.wide-figure figcaption {
+  margin-top: .6rem;
+  color: #64748b;
+  font-size: .9rem;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 1050px) {
+
+  .research-tracks,
+  .equation-grid,
+  .reading-grid,
+  .convergence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .future-grid,
+  .research-anchor {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .category-heading {
+    flex-direction: column-reverse;
+  }
+
+}

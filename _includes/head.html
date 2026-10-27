@@ -1,0 +1,45 @@
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+
+<title>{{ page.title | escape }}</title>
+
+{% assign page_description = page.description | default: site.description %}
+{% assign og_description = page.og_description | default: page_description %}
+{% assign twitter_description = page.twitter_description | default: og_description %}
+{% assign social_image = page.social_image | default: site.default_social_image %}
+
+<meta content="{{ page_description | escape }}" name="description"/>
+<meta content="{{ site.theme_color }}" name="theme-color"/>
+{% if page.robots %}<meta content="{{ page.robots }}" name="robots"/>{% endif %}
+
+<meta content="{{ site.title | escape }}" property="og:site_name"/>
+<meta content="{{ page.title | escape }}" property="og:title"/>
+<meta content="{{ og_description | escape }}" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="{{ page.url | absolute_url }}" property="og:url"/>
+<meta content="{{ social_image | absolute_url }}" property="og:image"/>
+
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="{{ page.title | escape }}" name="twitter:title"/>
+<meta content="{{ twitter_description | escape }}" name="twitter:description"/>
+<meta content="{{ social_image | absolute_url }}" name="twitter:image"/>
+
+<link href="{{ page.url | absolute_url }}" rel="canonical"/>
+<link href="{{ '/assets/img/favicon.svg' | relative_url }}" rel="icon" type="image/svg+xml"/>
+<link href="{{ '/site.webmanifest' | relative_url }}" rel="manifest"/>
+<link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet"/>
+{% if page.page_css %}<link href="{{ page.page_css | relative_url }}" rel="stylesheet"/>{% endif %}
+{% if page.preload_image %}<link as="image" href="{{ page.preload_image | relative_url }}" rel="preload"/>{% endif %}
+
+{% if page.mathjax %}
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)'], ['$', '$']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endif %}

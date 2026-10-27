@@ -1,0 +1,27 @@
+<aside aria-label="Profile summary" class="profile-sidebar">
+  <div class="profile-card">
+    <div class="avatar-wrap">
+      <img
+        alt="{{ site.data.profile.avatar_alt }}"
+        class="profile-avatar"
+        data-asset-dir="/assets/img"
+        decoding="async"
+        height="941"
+        loading="{% if page.nav_key == 'home' %}eager{% else %}lazy{% endif %}"
+        src="{{ site.data.profile.avatar | relative_url }}"
+        width="1672"
+      />
+    </div>
+
+    <h2>{{ site.data.profile.name }}</h2>
+    <p class="sidebar-subtitle">{{ site.data.profile.role }}</p>
+    <p class="sidebar-note">{{ site.data.profile.summary }}</p>
+
+    <div class="sidebar-links">
+      <a href="{{ '/publications.html' | relative_url }}">Publications</a>
+      <a href="{{ '/research.html' | relative_url }}">Research</a>
+      <a href="{{ site.data.profile.google_scholar }}" rel="noopener noreferrer" target="_blank">Google Scholar</a>
+      <a href="{{ site.data.profile.github }}" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </div>
+  </div>
+</aside>

@@ -1,113 +1,91 @@
-# Deployment process for AIRLab Hassen
+# Deploy AIRLab Hassen to GitHub Pages
 
-## Goal
+## 1. Confirm the intended production URL
 
-Publish the site at:
+The supplied site targets:
 
 ```text
-https://AIRLabHassen.github.io/
+https://interactiveroboticshassen.github.io/
 ```
 
-The current project-style URL happens when the repository is under another owner, for example:
+The central site origin is defined once in `_config.yml`:
 
-```text
-https://interactiveroboticshassen.github.io/AIRLabHassen.github.io/
+```yaml
+url: "https://interactiveroboticshassen.github.io"
 ```
 
-To remove the owner/repository path from the URL, the site must be deployed as a GitHub Pages user/organization site.
+This root URL belongs to the existing GitHub account `InteractiveRoboticsHassen`, so the publishing repository must be named exactly `interactiveroboticshassen.github.io` and owned by that account.
 
-## Step 1 — Prepare the GitHub owner
+## 2. Upload to the correct repository
 
-Use a GitHub user or organization named exactly:
+Use `InteractiveRoboticsHassen/interactiveroboticshassen.github.io`.
 
-```text
-AIRLabHassen
-```
+## 3. Upload the repository contents
 
-Domain names are case-insensitive, but the repository/owner naming should match this branding as closely as possible.
+Upload the contents of this project folder to the repository root. Do not put the files inside an additional nested folder.
 
-## Step 2 — Create or transfer the repository
+Do not upload the ZIP archive as a single file. Extract it first, then replace the old repository contents with the extracted files and folders. Ensure hidden folders—especially `.github/`—are included.
 
-Create a repository under that owner named exactly:
+The root should include:
 
 ```text
-AIRLabHassen.github.io
-```
-
-The repository name is what makes GitHub Pages serve the site from the root `github.io` URL instead of a project subpath.
-
-## Step 3 — Upload the site files
-
-Unzip the production package and upload the contents of the unzipped folder to the root of the repository.
-
-Do not upload the zip file itself and do not place everything inside an extra nested folder. The repository root should contain files like this:
-
-```text
+_config.yml
+_layouts/
+_includes/
+_data/
+assets/
 index.html
+members.html
 research.html
 publications.html
-assets/
-.github/
-.nojekyll
-robots.txt
-sitemap.xml
+resources.html
+.github/workflows/deploy-pages.yml
 ```
 
-## Step 4 — Commit to the `main` branch
+## 4. Commit to `main`
 
-Commit all files to the `main` branch.
+The deployment workflow runs on each push to the `main` branch.
 
-## Step 5 — Enable GitHub Pages
-
-Recommended production path:
+## 5. Enable GitHub Actions deployment
 
 1. Open the repository on GitHub.
-2. Go to **Settings**.
-3. Go to **Pages**.
-4. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-5. The included workflow `.github/workflows/deploy-pages.yml` will deploy the static site whenever you push to `main`.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Open the **Actions** tab and confirm that **Deploy Jekyll site to GitHub Pages** completes successfully.
 
-Alternative simple path:
+The workflow builds the Jekyll source, expands the shared layout and includes, uploads the generated artifact, and deploys it to GitHub Pages.
 
-1. Go to **Settings → Pages**.
-2. Set **Source** to **Deploy from a branch**.
-3. Select `main` and `/root`.
-4. Save.
+## 6. Verify the published site
 
-Use only one Pages publishing method at a time.
-
-## Step 6 — Check deployment
-
-Open the repository **Actions** tab and confirm that the Pages deployment completed successfully.
-
-Then visit:
+Check the following pages after deployment:
 
 ```text
-https://AIRLabHassen.github.io/
+/
+/members.html
+/resources.html
+/research.html
+/publications.html
 ```
 
-## Step 7 — Enforce HTTPS
+Confirm that:
 
-In **Settings → Pages**, enable **Enforce HTTPS** when the option is available.
+- the Members link appears in the shared header and footer;
+- the active page is marked correctly in the navigation;
+- the Bambu Lab H2D and table CNC images load from `/assets/img/`;
+- the mobile navigation opens and closes;
+- the shared sidebar and footer appear on every page.
 
-## Step 8 — Verify assets
+## 7. Enforce HTTPS
 
-Check that image URLs load from:
+Enable **Enforce HTTPS** in **Settings → Pages** when the option is available.
 
-```text
-https://AIRLabHassen.github.io/assets/img/...
-```
+## 8. Updating shared content later
 
-The source assets are also documented in `figure-manifest.csv` with the requested GitHub directory:
+Use the central data files rather than editing every page:
 
-```text
-https://github.com/InteractiveRoboticsHassen/AIRLabHassen.github.io/tree/main/assets/img
-```
+- navigation: `_data/navigation.yml`
+- sidebar profile: `_data/profile.yml`
+- PI and member profiles: `_data/members.yml`
+- equipment cards: `_data/lab_resources.yml`
 
-## Step 9 — Do not use GitHub `tree/main` URLs in image `src`
-
-This site intentionally uses `/assets/img/...` for the live image `src` values. A URL containing `github.com/.../tree/main/...` opens the GitHub file browser and is not a direct image file for a production website.
-
-## Step 10 — Optional custom domain
-
-No `CNAME` file is needed for `AIRLabHassen.github.io`. A `CNAME` file is only for a separate custom domain you own, such as `www.example.org`.
+Use only one GitHub Pages publishing method at a time. This package includes an explicit GitHub Actions workflow, so **GitHub Actions** should be selected as the Pages source.

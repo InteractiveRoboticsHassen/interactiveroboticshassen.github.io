@@ -77,14 +77,14 @@ img {
   min-height: 58px;
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
 .site-title {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 245px;
+  min-width: 220px;
   color: var(--text);
   font-family: var(--ui-font);
 }
@@ -123,16 +123,19 @@ img {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   flex-wrap: wrap;
   margin-left: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-end;
 }
 
 .site-nav a {
   font-family: var(--ui-font);
   font-size: 14px;
   color: #5e6a75;
-  padding: 16px 12px;
+  padding: 16px 8px;
   border-bottom: 2px solid transparent;
 }
 
@@ -842,3 +845,4 @@ img {
     min-width: 100%;
   }
 }
+

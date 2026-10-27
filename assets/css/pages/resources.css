@@ -1,0 +1,109 @@
+.lab-resources-feature {
+    margin: 0 0 2rem;
+  }
+
+  .lab-resources-figure {
+    margin: 0;
+    width: 100%;
+  }
+
+  .lab-resources-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow:
+      0 18px 45px rgba(15, 23, 42, 0.10),
+      0 3px 10px rgba(15, 23, 42, 0.06);
+    background: #ffffff;
+  }
+
+  .lab-resources-figure figcaption {
+    margin-top: 0.7rem;
+    color: #64748b;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .lab-resources-figure img {
+      border-radius: 12px;
+    }
+
+    .lab-resources-feature {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+/* ==========================================================
+   DIGITAL FABRICATION EQUIPMENT
+   ========================================================== */
+
+.lab-equipment-section .section-heading > p:not(.eyebrow) {
+  max-width: 760px;
+  color: #596774;
+  margin: .45rem 0 0;
+}
+
+.lab-equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.lab-equipment-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-soft);
+}
+
+.lab-equipment-media {
+  margin: 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+
+.lab-equipment-media img {
+  width: 100%;
+  height: 310px;
+  object-fit: contain;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.lab-equipment-media figcaption {
+  padding: 9px 14px;
+  color: #6e7a86;
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+  font-family: var(--ui-font);
+  font-size: 13px;
+}
+
+.lab-equipment-copy {
+  padding: 18px 20px 20px;
+}
+
+.lab-equipment-copy h3 {
+  margin: 0 0 .45rem;
+  font-size: 1.08rem;
+}
+
+.lab-equipment-copy p {
+  margin: 0;
+  color: #596774;
+}
+
+@media (max-width: 760px) {
+  .lab-equipment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-equipment-media img {
+    height: 270px;
+  }
+}

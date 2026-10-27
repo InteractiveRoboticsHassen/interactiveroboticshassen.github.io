@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p><strong>AIRLab Hassen</strong> · Robotics, autonomy, Lie theory, quantum computation, and machine learning.</p>
+    <p class="footer-links">
+      {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+      {% endfor %}
+      <a href="{{ site.data.profile.original_site }}" rel="noopener noreferrer" target="_blank">Original Google Site</a>
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,113 @@
+---
+layout: default
+title: Members · AIRLab Hassen
+description: Lab head, principal investigator, and member profiles for AIRLab Hassen, including research directions and contact information.
+permalink: /members.html
+lang: en
+social_image: /assets/img/futuristic-robotics-ai-lab-scene.png
+nav_key: members
+page_css: /assets/css/pages/members.css
+---
+
+<section class="page-hero members-hero">
+  <p class="eyebrow">People</p>
+  <h1>Lab head and members.</h1>
+  <p>
+    Meet the researchers contributing to AIRLab Hassen. Profiles include each
+    person's research direction, contact email, and a short explanation of their work.
+  </p>
+</section>
+
+{% assign pi = site.data.members.principal_investigator %}
+<section aria-labelledby="pi-heading" class="section-block members-section">
+  <div class="section-heading">
+    <p class="eyebrow">Leadership</p>
+    <h2 id="pi-heading">Lab Head / Principal Investigator</h2>
+  </div>
+
+  <article class="member-card member-card-lead">
+    <figure class="member-photo">
+      <img
+        alt="{{ pi.photo_alt | escape }}"
+        decoding="async"
+        loading="eager"
+        src="{{ pi.photo | relative_url }}"
+      />
+    </figure>
+
+    <div class="member-copy">
+      <p class="member-role">{{ pi.role }}</p>
+      <h3>{{ pi.name }}</h3>
+
+      <dl class="member-facts">
+        <div>
+          <dt>Research direction</dt>
+          <dd>{{ pi.research_direction }}</dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ pi.email }}">{{ pi.email }}</a></dd>
+        </div>
+      </dl>
+
+      <p class="member-explanation">{{ pi.explanation }}</p>
+    </div>
+  </article>
+</section>
+
+<section aria-labelledby="members-heading" class="section-block members-section">
+  <div class="section-heading">
+    <p class="eyebrow">Team</p>
+    <h2 id="members-heading">Members</h2>
+  </div>
+
+  {% if site.data.members.members.size > 0 %}
+  <div class="member-grid">
+    {% for member in site.data.members.members %}
+    <article class="member-card">
+      <figure class="member-photo">
+        {% if member.photo %}
+        <img
+          alt="{{ member.photo_alt | default: member.name | escape }}"
+          decoding="async"
+          loading="lazy"
+          src="{{ member.photo | relative_url }}"
+        />
+        {% else %}
+        <div aria-label="Photo coming soon" class="member-photo-placeholder" role="img">
+          {{ member.name | slice: 0 }}
+        </div>
+        {% endif %}
+      </figure>
+
+      <div class="member-copy">
+        <p class="member-role">{{ member.role }}</p>
+        <h3>{{ member.name }}</h3>
+
+        <dl class="member-facts">
+          <div>
+            <dt>Research direction</dt>
+            <dd>{{ member.research_direction }}</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:{{ member.email }}">{{ member.email }}</a></dd>
+          </div>
+        </dl>
+
+        <p class="member-explanation">{{ member.explanation }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <article class="member-directory-note">
+    <h3>Additional profiles</h3>
+    <p>
+      Additional confirmed member profiles will be published here. Each profile
+      is prepared to include a photo, research direction, email address, and a
+      concise explanation of the member's work.
+    </p>
+  </article>
+  {% endif %}
+</section>

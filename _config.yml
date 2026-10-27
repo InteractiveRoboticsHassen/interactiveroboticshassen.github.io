@@ -1,0 +1,14 @@
+title: "AIRLab Hassen"
+description: "Academic robotics, mechanisms, theoretical kinematics, intelligent manipulation, machine learning, and quantum computing for robotics."
+url: "https://interactiveroboticshassen.github.io"
+baseurl: ""
+lang: "en"
+theme_color: "#f7fafc"
+default_social_image: "/assets/img/futuristic-robotics-ai-lab-scene.png"
+
+# GitHub Pages/Jekyll processes the shared layout and includes below.
+# Update the deployment domain above once if the repository moves.
+exclude:
+  - README.md
+  - DEPLOYMENT.md
+  - BUILD-VALIDATION.txt

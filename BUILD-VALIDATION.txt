@@ -1,6 +1,23 @@
-Production validation report
-============================
+AIRLab Hassen refactor validation
+=================================
 
-No blocking issues found.
-All production HTML image sources point to local /assets/img files.
-No old Google image URLs or Cloudflare beacon scripts remain in production HTML/CSS/JS/XML/TXT files.
+Status: no blocking issues found.
+
+Validated:
+- Shared header, navigation, profile sidebar, footer, metadata shell, and global scripts are defined once through Jekyll layouts/includes/data.
+- All nine navigation entries resolve to existing pages and use one centralized navigation data file.
+- The Members page contains the PI profile schema and a data-driven member-card renderer.
+- The Resources page contains data-driven Bambu Lab H2D and table CNC equipment cards.
+- The supplied equipment images are valid PNG files (345x500 and 351x361).
+- Original page-specific main content is byte-for-byte preserved for all existing pages except Resources, where only the requested equipment section was inserted.
+- Original page-specific CSS is preserved; only the new page/section styles were added.
+- The global JavaScript is unchanged, and the extracted Cutting-edge page script passes JavaScript syntax validation.
+- All CSS files parse without stylesheet errors.
+- A locally rendered preview of all 10 HTML pages has one header, one sidebar, one footer, one main landmark, unique IDs, the expected active navigation state, and no newly introduced broken local links.
+- Desktop visual previews of Members and Resources were reviewed after the final navigation-fit adjustment.
+
+Known pre-existing source issue intentionally left unchanged:
+- blog.html references /assets/img/foundations_of_robot_kinematics.png, but that image was not present in the uploaded project.
+
+Environment note:
+- Jekyll was not installed in the validation container. The source was validated with YAML/Liquid structure checks and a local layout renderer; the included GitHub Actions workflow performs the production Jekyll build.

@@ -1,0 +1,19 @@
+<header class="topbar" data-header="">
+  <div class="topbar-inner">
+    <a aria-label="AIRLab Hassen home" class="site-title" href="{{ '/' | relative_url }}">
+      <span aria-hidden="true" class="site-mark">AIR</span>
+      <span>
+        <strong>AIRLab Hassen</strong>
+        <small>Robotics · Mechanisms · Kinematics · Quantum · ML</small>
+      </span>
+    </a>
+
+    <button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
+
+    <nav aria-label="Primary navigation" class="site-nav" id="site-nav">
+      {% for item in site.data.navigation %}
+      <a{% if page.nav_key == item.key %} aria-current="page"{% endif %} href="{{ item.url | relative_url }}">{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  {% include header.html %}
+
+  <div class="page-shell">
+    {% include sidebar.html %}
+
+    <main class="content-area" id="main">
+      {{ content }}
+    </main>
+  </div>
+
+  {% include footer.html %}
+
+  <button aria-label="Back to top" class="back-to-top" data-back-to-top="" type="button">↑</button>
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  {% if page.page_script %}<script defer src="{{ page.page_script | relative_url }}"></script>{% endif %}
+</body>
+</html>

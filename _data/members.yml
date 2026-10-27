@@ -1,0 +1,20 @@
+principal_investigator:
+  name: "Hassen Nigatu"
+  role: "Lab Head / Principal Investigator"
+  photo: "/assets/img/futuristic-robotics-ai-lab-scene.png"
+  photo_alt: "Robotics and AI research visual used for the Hassen Nigatu profile"
+  research_direction: "Mathematical robotics, screw-theoretic kinematics, Lie-group mechanism synthesis, parallel manipulators, robot optimization, intelligent manipulation, physics-informed learning, and quantum computing for robotics."
+  email: "hassen@ust.ac.kr"
+  explanation: "Hassen Nigatu leads AIRLab Hassen's work at the intersection of mechanism science, geometric robotics, intelligent systems, and emerging computational methods for robot design, analysis, optimization, and control."
+
+# Add each confirmed lab member below. The Members page automatically creates
+# one card per record, so no HTML changes are required.
+members: []
+# Example record:
+# - name: "Member Name"
+#   role: "Graduate Researcher"
+#   photo: "/assets/img/member-name.jpg"
+#   photo_alt: "Portrait of Member Name"
+#   research_direction: "Research direction"
+#   email: "member@example.edu"
+#   explanation: "Brief profile and current work."
