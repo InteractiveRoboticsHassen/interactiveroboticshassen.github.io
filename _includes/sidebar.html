@@ -1,9 +1,11 @@
 
 <aside aria-label="Profile summary" class="profile-sidebar">
   <div class="profile-card">
+
+    <!-- Profile image -->
     <div class="avatar-wrap">
       <img
-        alt="{{ site.data.profile.avatar_alt }}"
+        alt="{{ site.data.profile.avatar_alt | default: 'Robotics research profile image' | escape }}"
         class="profile-avatar"
         data-asset-dir="/assets/img"
         decoding="async"
@@ -14,33 +16,77 @@
       />
     </div>
 
-    <h2>{{ site.data.profile.name }}</h2>
-    <p class="sidebar-subtitle">{{ site.data.profile.role }}</p>
-    <p class="sidebar-note">{{ site.data.profile.summary }}</p>
+    <!-- Profile identity -->
+    <h2>{{ site.data.profile.name | escape }}</h2>
 
-    <div class="sidebar-links">
-      <a href="{{ '/publications.html' | relative_url }}">Publications</a>
-      <a href="{{ '/research.html' | relative_url }}">Research</a>
+    {% if site.data.profile.role %}
+      <p class="sidebar-subtitle">
+        {{ site.data.profile.role | escape }}
+      </p>
+    {% endif %}
 
+    {% if site.data.profile.summary %}
+      <p class="sidebar-note">
+        {{ site.data.profile.summary | escape }}
+      </p>
+    {% endif %}
+
+    <!-- Profile navigation and external links -->
+    <nav class="sidebar-links" aria-label="Profile links">
+
+      <!-- Internal website pages -->
+      <a href="{{ '/publications.html' | relative_url }}">
+        Publications
+      </a>
+
+      <a href="{{ '/research.html' | relative_url }}">
+        Research
+      </a>
+
+      <!-- Google Scholar -->
       {% if site.data.profile.google_scholar %}
-      <a href="{{ site.data.profile.google_scholar }}"
-         rel="noopener noreferrer" target="_blank">Google Scholar</a>
+        <a
+          href="{{ site.data.profile.google_scholar | escape }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Scholar
+        </a>
       {% endif %}
 
+      <!-- GitHub -->
       {% if site.data.profile.github %}
-      <a href="{{ site.data.profile.github }}"
-         rel="noopener noreferrer" target="_blank">GitHub</a>
+        <a
+          href="{{ site.data.profile.github | escape }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
       {% endif %}
 
+      <!-- LinkedIn -->
       {% if site.data.profile.linkedin %}
-      <a href="{{ site.data.profile.linkedin }}"
-         rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        <a
+          href="{{ site.data.profile.linkedin | escape }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
       {% endif %}
 
+      <!-- YouTube -->
       {% if site.data.profile.youtube %}
-      <a href="{{ site.data.profile.youtube }}"
-         rel="noopener noreferrer" target="_blank">YouTube</a>
+        <a
+          href="{{ site.data.profile.youtube | escape }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YouTube
+        </a>
       {% endif %}
-    </div>
+
+    </nav>
   </div>
 </aside>
