@@ -1,0 +1,62 @@
+---
+layout: default
+title: Media Coverage and Public Recognition · AIRLab Hassen
+description: Selected national, university, institutional, regional, and specialist media coverage of robotics research and quantum computing for robotics.
+permalink: /media.html
+lang: en
+nav_key: media
+body_class: media-page
+page_css: /assets/css/pages/media.css
+---
+
+<section class="page-hero media-hero" aria-labelledby="media-title">
+  <p class="eyebrow">Research in the media</p>
+  <h1 id="media-title">Media Coverage and Public Recognition</h1>
+  <p>Selected press features, institutional coverage, and specialist science and technology reporting related to robotics research and its applications.</p>
+  <nav class="media-jump-links" aria-label="Media coverage categories">
+    {% for group in site.data.media %}
+    <a href="#{{ group.id | escape }}">{{ group.category | escape }}</a>
+    {% endfor %}
+  </nav>
+</section>
+
+<div class="media-grid">
+  {% for group in site.data.media %}
+  <section class="media-group{% if group.wide %} media-group--wide{% endif %}" id="{{ group.id | escape }}" aria-labelledby="{{ group.id | escape }}-title">
+    <header class="media-group-heading">
+      <p class="eyebrow">{{ group.category | escape }}</p>
+      <h2 id="{{ group.id | escape }}-title">{{ group.heading | escape }}</h2>
+      <p>{{ group.summary | escape }}</p>
+    </header>
+
+    <ul class="media-list{% if group.links.size == 1 %} media-list--single{% endif %}">
+      {% for item in group.links %}
+      <li>
+        <a class="media-link" href="{{ item.url | escape }}" target="_blank" rel="noopener noreferrer">
+          <span class="media-link-copy">
+            <span class="media-link-title">{{ item.title | escape }}</span>
+            {% if item.note %}<span class="media-link-note">{{ item.note | escape }}</span>{% endif %}
+          </span>
+          <span class="media-link-arrow" aria-hidden="true">↗</span>
+          <span class="media-sr-only"> (opens in a new tab)</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% if group.topics %}
+    <div class="media-topics">
+      <span>Publisher categories:</span>
+      {% for topic in group.topics %}
+      <a href="{{ topic.url | escape }}" target="_blank" rel="noopener noreferrer">{{ topic.title | escape }}<span class="media-sr-only"> (opens in a new tab)</span></a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if group.related_paper %}
+    <p class="media-related"><a href="{{ group.related_paper.url | escape }}" target="_blank" rel="noopener noreferrer">{{ group.related_paper.title | escape }} <span aria-hidden="true">↗</span><span class="media-sr-only"> (opens in a new tab)</span></a></p>
+    {% endif %}
+  </section>
+  {% endfor %}
+</div>
+
+<p class="media-source-note">Coverage links open on the original publisher or republishing platform in a new tab. Some WeChat articles may require the WeChat app or a compatible browser.</p>
