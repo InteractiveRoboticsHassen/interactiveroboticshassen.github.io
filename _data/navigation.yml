@@ -18,6 +18,11 @@
   url: /publications.html
   changefreq: monthly
   priority: 0.9
+- key: media
+  label: Media
+  url: /media.html
+  changefreq: monthly
+  priority: 0.7
 - key: resources
   label: Resources
   url: /resources.html
