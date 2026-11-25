@@ -1,0 +1,83 @@
+# Add new coverage under the appropriate group's links list.
+# Quote all titles and URLs; do not use LaTeX or Markdown link syntax here.
+- id: national-media
+  category: "National media"
+  heading: "People's Daily and national republishing"
+  summary: "Print, regional editions, mobile coverage, and republication by national platforms."
+  wide: true
+  links:
+    - title: "People's Daily — print edition"
+      note: "7 March 2025 · Print coverage"
+      url: "https://paper.people.com.cn/rmrb/pc/content/202503/07/content_30060502.html"
+    - title: "People's Daily Online — Zhejiang"
+      note: "Feature 1"
+      url: "http://zj.people.com.cn/n2/2025/0307/c186327-41155973.html"
+    - title: "People's Daily app"
+      note: "Feature 2"
+      url: "https://www.peopleapp.com/column/30048440817-500006129908"
+    - title: "People's Daily Online — Yunnan"
+      note: "Feature 3"
+      url: "http://yn.people.com.cn/n2/2025/0307/c378439-41155996.html"
+    - title: "Sina Finance"
+      note: "Republication"
+      url: "https://finance.sina.com.cn/jjxw/2025-03-07/doc-inenuqsv0150220.shtml?cref=cj"
+    - title: "Gov.cn"
+      note: "Republication · Government portal"
+      url: "https://www.gov.cn/yaowen/liebiao/202503/content_7011519.htm"
+
+- id: quantum-zeitgeist
+  category: "Science and technology media"
+  heading: "Quantum Zeitgeist"
+  summary: "Specialist coverage of quantum algorithms and robotic kinematic optimization."
+  links:
+    - title: "Grover’s Algorithm Speeds Robotic Kinematic Optimization"
+      note: "Research feature"
+      url: "https://quantumzeitgeist.com/93x-machine-learning-algorithm-optimization-grover-speedup-robotic-kinematic/"
+  topics:
+    - title: "Quantum Applications"
+      url: "https://quantumzeitgeist.com/category/quantum-applications/"
+    - title: "Quantum Algorithms"
+      url: "https://quantumzeitgeist.com/category/quantum-algorithms/"
+  related_paper:
+    title: "Related research paper (IEEE Robotics and Automation Letters, 2025)"
+    url: "https://ieeexplore.ieee.org/document/11223101/"
+
+- id: university-media
+  category: "University coverage"
+  heading: "Zhejiang University Robotics Institute"
+  summary: "Institutional features published through the institute's WeChat channels."
+  links:
+    - title: "Robotics Institute — Feature 1"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/nPj8vGnDdPaMmTsarzc1EQ"
+    - title: "Robotics Institute — Feature 2"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/pNKko6NByoXJL9pSYeZTFQ"
+    - title: "Robotics Institute — Feature 3"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/40Ctk-hIZzUsTa65CnefnA"
+
+- id: regional-media
+  category: "Regional and institutional media"
+  heading: "Additional media coverage"
+  summary: "Further coverage by regional news outlets and institutional organizations."
+  wide: true
+  links:
+    - title: "Shanghai Observer / Baijiahao"
+      note: "News feature"
+      url: "https://export.shobserver.com/baijiahao/html/871481.html?sdkver=7d05c2f1"
+    - title: "Ningbo Talents — Feature 1"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/kvwJBm6EiQ3F4TCZH2MPnQ"
+    - title: "Ningbo Talents — Feature 2"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/OUJ8vywvkgz1Yc0ePeS51g"
+    - title: "Hebei International Medical Corporation"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/Xdw1FZ0rwLqbTpyX2K93lw"
+    - title: "Ningbo Technology"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/E4dqia-74_2ajQu4cQSoJQ"
+    - title: "Yuyao Daily"
+      note: "WeChat article"
+      url: "https://mp.weixin.qq.com/s/dwVTmLdwCHRbbW_K-s_tqw"
