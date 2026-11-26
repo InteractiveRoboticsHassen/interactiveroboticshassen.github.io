@@ -2,7 +2,7 @@
 # Quote all titles and URLs; do not use LaTeX or Markdown link syntax here.
 - id: national-media
   category: "National media"
-  heading: "People's Daily and National Republishing (**Chinese only; use browser translation for English**)"
+  heading: "People's Daily and National Republishing <span style='color: #d9534f;'>(Chinese only; use browser translation for English)</span>"
   summary: "Print, regional editions, social media coverage, and national platforms."
   wide: true
   links:
